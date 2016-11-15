@@ -18,6 +18,13 @@ col - 1 >= 0
 row + 1 <= board.length
 col + 1 <= board[row].length
 
+
+-blank board
+-user inputs cell
+-save cell coordinate
+-cell is always blank
+-generate board around the blank cell
+
  */
 	public VictorMinesweeperInterpreter() {
 		
