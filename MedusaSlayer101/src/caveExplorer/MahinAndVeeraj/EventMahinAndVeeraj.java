@@ -62,7 +62,7 @@ public class EventMahinAndVeeraj {
 		
 			}
 		}
-		
+		//
 		System.out.print(Arrays.toString(counters));
 		
 		printPic(letters);
