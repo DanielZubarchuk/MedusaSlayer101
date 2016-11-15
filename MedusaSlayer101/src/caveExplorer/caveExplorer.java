@@ -9,7 +9,6 @@ public class caveExplorer {
 	public static pd8CaveRoom currentRoom;
 	public static InventoryNockles inventory;
 	
-	
 	public static void main(String[] args) {
 		in = new Scanner(System.in);
 		caves = new pd8CaveRoom[5][5];
