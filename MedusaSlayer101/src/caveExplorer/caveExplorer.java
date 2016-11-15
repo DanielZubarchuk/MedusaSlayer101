@@ -1,12 +1,13 @@
 package caveExplorer;
 import java.util.Scanner;
+
+//import caveExplorer.DanielAndJoyce.DanielLightsOutCreate;
 public class caveExplorer {
 
 	public static pd8CaveRoom[][] caves;
 	public static Scanner in;
 	public static pd8CaveRoom currentRoom;
 	public static InventoryNockles inventory;
-	
 	
 	public static void main(String[] args) {
 		in = new Scanner(System.in);
@@ -18,6 +19,7 @@ public class caveExplorer {
 		}
 	
 	currentRoom = caves[1][2];
+	//caves[1][3] = new EventRoom("This is where you found the map.", new DanielLightsOutCreate());
 	caves[1][3] = new EventRoom("This is where you found the map.", new GameStartEvent());
 	currentRoom.enter();
 	caves[1][2].setConnection(pd8CaveRoom.WEST, caves[1][1], new Door());
