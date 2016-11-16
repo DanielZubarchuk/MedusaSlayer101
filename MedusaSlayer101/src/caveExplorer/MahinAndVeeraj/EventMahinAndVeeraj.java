@@ -7,7 +7,7 @@ public class EventMahinAndVeeraj {
 
 	static String[][] letters;
 	static String[] objects = {"!", "@", "#", "$", "%", "^", "&", "*"};
-	static int[] counters = new int[7];
+	static int[] counters = new int[8];
 	static String[][] blank;
 	static String[][] display;
 	static Scanner input;
@@ -22,50 +22,44 @@ public class EventMahinAndVeeraj {
 		display = new String[5][5];
 		letters = new String[4][4];
 		blank = new String[4][4];
-//		for(int row = 0; row < display.length; row++){
-//			for(int col = 0; col < display[row].length; col++){
-//				display[row][col] = "|___";
-//				if(col == 3){
-//					display[row][col] = "|___";
-//				}
-//				if(row == 0){
-//					display[row][col] = "   " + Integer.toString(col);
-//				}
-//				if(col == 0){
-//					display[row][col] = Integer.toString(row);
-//				}
-//				display[0][0] = "";
-//			}
-//		}
-//		printPic(display);
-//		
-//		System.out.println("Enter a row");
-//		int rowIn = input.nextInt();
-//		
-//		System.out.println("Enter a column");
-//		int colIn = input.nextInt();
-//		
-//		System.out.println(rowIn + "," + colIn);
-//		
-//		display[rowIn][colIn] = "|_" + "X" + "_";
-//		printPic(display);
-		System.out.println(Arrays.toString(counters));
-		for(int row = 0; row < letters.length; row++){
-			for(int col = 0; col < letters[row].length; col++){
-				int index = (int)(Math.random() * 7);
-				if(counters[index] == 2){
-					index = (int)(Math.random() * 7);
+		for(int row = 0; row < display.length; row++){
+			for(int col = 0; col < display[row].length; col++){
+				display[row][col] = "|___";
+				if(col == 3){
+					display[row][col] = "|___";
 				}
-				System.out.println(index);
-				counters[index] ++;
-				letters[row][col] = objects[index];
-		
+				if(row == 0){
+					display[row][col] = "   " + Integer.toString(col);
+				}
+				if(col == 0){
+					display[row][col] = Integer.toString(row);
+				}
+				display[0][0] = "";
 			}
 		}
-		//
-		System.out.print(Arrays.toString(counters));
+		printPic(display);
 		
-		printPic(letters);
+		System.out.println("Enter a row");
+		int rowIn = input.nextInt();
+		
+		System.out.println("Enter a column");
+		int colIn = input.nextInt();
+		
+		
+		
+		display[rowIn][colIn] = "|_" + "X" + "_";
+		printPic(display);
+
+		for(int row = 0; row < letters.length; row++){
+			for(int col = 0; col < letters[row].length; col++){
+				int index = (int)(Math.random()*8);
+				while(counters[index] == 2){
+					index = (int)(Math.random()*8);
+				}
+				counters[index] ++;
+				letters[row][col] = objects[index];
+			}
+			}
 	}
 	
 	public static void printPic(String[][] pic){
