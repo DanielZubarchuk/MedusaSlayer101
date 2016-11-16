@@ -4,12 +4,17 @@ import caveExplorer.Playable;
 import caveExplorer.caveExplorer;
 
 public class EventVictorAndGabriel implements Playable{
-
+	
+	public static boolean hasHelmet;
 	private static final String[] SEQUENCE_1 = {"As you step into the room, a grid slowly extrudes from the wall and engravings lined across"
-			+ "the stone begin to glow.","They read: This is a game called Minesweeper.", "The grid before you is laced with mines.", 
+			+ " the stone begin to glow.","They read: This is a game called Minesweeper.", "The grid before you is laced with mines.", 
 			"Mark all the mines with a flag. Uncover all the numbers to win.", "Hit a mine and this quest of yours is over.", "This room"
-					+ "will explode upon doing so."};
-	private static final String[] SEQUENCE_2 = {"Good Luck!", "Take this map too, even if you already have one."};
+					+ " will explode upon doing so."};
+	private static final String[] SEQUENCE_2 = {"Good Luck!"};
+	private static final String[] SEQUENCE_3 = {"As you complete the puzzle, the words on the wall glow."
+			,"You "
+			,"You have completed this puzzle."
+			,"As your reward, ","Take this map with you too!"};
 	
 	public EventVictorAndGabriel() {
 
@@ -17,17 +22,15 @@ public class EventVictorAndGabriel implements Playable{
 	
 	public void play() {
 		readSequence(SEQUENCE_1);
-		System.out.println("Come on. Tell me you like puzzles.");
+		System.out.println("Win and you shall receive a helmet of invisibility. \n- - - press enter - - - ");
 		while(caveExplorer.in.nextLine().toLowerCase().indexOf("yes") < 0){
 			caveExplorer.print("Do you agree to the terms of this game?");
 		}
 		readSequence(SEQUENCE_2);
-/*		if(caveExplorer.inventory.hasMap == false){
-			
+		if(caveExplorer.inventory.hasMap == false){
+			readSequence(SEQUENCE_3);
+			caveExplorer.inventory.setHasMap(true);
 		}
-		hasMap field in InventoryNockles has to be public for this condition to work
-*/
-		caveExplorer.inventory.setHasMap(true);
 	}
 
 	public static void readSequence(String[] seq){

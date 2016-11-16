@@ -2,7 +2,7 @@ package caveExplorer;
 
 public class InventoryNockles {
 
-	private boolean hasMap;
+	public boolean hasMap;
 	private String map;
 	
 	public InventoryNockles(pd8CaveRoom[][] caves) {
