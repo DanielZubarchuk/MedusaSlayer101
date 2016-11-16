@@ -61,7 +61,7 @@ public class EventMahinAndVeeraj {
 			}
 			}
 	}
-	
+	//
 	public static void printPic(String[][] pic){
 		for(String[] row: pic){
 			for(String col: row){
