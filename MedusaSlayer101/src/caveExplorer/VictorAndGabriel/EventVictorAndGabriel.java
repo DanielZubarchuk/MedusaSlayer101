@@ -1,8 +1,9 @@
 package caveExplorer.VictorAndGabriel;
 
+import caveExplorer.Playable;
 import caveExplorer.caveExplorer;
 
-public class EventVictorAndGabriel {
+public class EventVictorAndGabriel implements Playable{
 
 	private static final String[] SEQUENCE_1 = {};
 	private static final String[] SEQUENCE_2 = {};

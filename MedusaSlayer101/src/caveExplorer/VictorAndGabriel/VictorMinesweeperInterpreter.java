@@ -1,6 +1,6 @@
 package caveExplorer.VictorAndGabriel;
 
-public class VictorMinesweeperInterpreter {
+public class VictorMinesweeperInterpreter{
 /** 
 (0,board[row].length - 1)
 row - 1 >= 0

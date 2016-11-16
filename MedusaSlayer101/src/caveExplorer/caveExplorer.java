@@ -1,7 +1,9 @@
 package caveExplorer;
 import java.util.Scanner;
 
-//import caveExplorer.DanielAndJoyce.DanielLightsOutCreate;
+import caveExplorer.VictorAndGabriel.EventVictorAndGabriel;
+import caveExplorer.DanielAndJoyce.DanielLightsOutCreate; // <-- shouldnt this be EventDanielAndJoyce (Victor)
+
 public class caveExplorer {
 
 	public static pd8CaveRoom[][] caves;
@@ -19,7 +21,8 @@ public class caveExplorer {
 		}
 	
 	currentRoom = caves[1][2];
-	//caves[1][3] = new EventRoom("This is where you found the map.", new DanielLightsOutCreate());
+	//caves[1][3] = new EventRoom("This is where you found the map.", new DanielLightsOutCreate()); <-- same comment as import
+	caves[1][1] = new EventRoom("This is the Minesweeper Room.", new EventVictorAndGabriel());
 	caves[1][3] = new EventRoom("This is where you found the map.", new GameStartEvent());
 	currentRoom.enter();
 	caves[1][2].setConnection(pd8CaveRoom.WEST, caves[1][1], new Door());
