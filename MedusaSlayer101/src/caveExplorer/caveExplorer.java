@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import caveExplorer.VictorAndGabriel.EventVictorAndGabriel;
 import caveExplorer.DanielAndJoyce.DanielLightsOutCreate; // <-- shouldnt this be EventDanielAndJoyce (Victor)
+import caveExplorer.DanielAndJoyce.EventDanielAndJoyce;
 
 public class caveExplorer {
 
@@ -21,13 +22,20 @@ public class caveExplorer {
 		}
 	
 	currentRoom = caves[1][2];
-	//caves[1][3] = new EventRoom("This is where you found the map.", new DanielLightsOutCreate()); <-- same comment as import
+	caves[3][2] = new EventRoom("Time to play lights Out!", new EventDanielAndJoyce()); 
 	caves[1][1] = new EventRoom("This is the Minesweeper Room.", new EventVictorAndGabriel());
 	caves[1][3] = new EventRoom("This is where you found the map.", new GameStartEvent());
 	currentRoom.enter();
 	caves[1][2].setConnection(pd8CaveRoom.WEST, caves[1][1], new Door());
 	caves[1][2].setConnection(pd8CaveRoom.SOUTH, caves[2][2], new Door());
 	caves[1][2].setConnection(pd8CaveRoom.EAST, caves[1][3], new Door());
+	caves[2][1].setConnection(pd8CaveRoom.NORTH, caves [1][1], new Door());
+	caves[2][1].setConnection(pd8CaveRoom.SOUTH, caves [3][1], new Door());
+	caves[2][1].setConnection(pd8CaveRoom.NORTH, caves [1][1], new Door());
+	caves[2][2].setConnection(pd8CaveRoom.WEST, caves [2][1], new Door());
+	caves[2][2].setConnection(pd8CaveRoom.EAST, caves [2][3], new Door());
+	caves[3][2].setConnection(pd8CaveRoom.NORTH, caves [2][2], new Door());
+
 	inventory = new InventoryNockles();
 	startExploring();
 }

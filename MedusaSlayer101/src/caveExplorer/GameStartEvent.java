@@ -12,7 +12,6 @@ public class GameStartEvent implements Playable {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public void play() {
 		readSequence(SEQUENCE_1);
 		System.out.println("Come on. Tell me you like puzzles.");
