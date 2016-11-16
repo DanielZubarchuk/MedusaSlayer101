@@ -2,7 +2,6 @@ package caveExplorer;
 import java.util.Scanner;
 
 import caveExplorer.VictorAndGabriel.EventVictorAndGabriel;
-import caveExplorer.DanielAndJoyce.DanielLightsOutCreate; // <-- shouldnt this be EventDanielAndJoyce (Victor)
 import caveExplorer.DanielAndJoyce.EventDanielAndJoyce;
 
 public class caveExplorer {
@@ -22,7 +21,7 @@ public class caveExplorer {
 		}
 	
 	currentRoom = caves[1][2];
-	caves[3][2] = new EventRoom("Time to play lights Out!", new EventDanielAndJoyce()); 
+	caves[3][2] = new EventRoom("Time to play Battleship!", new EventDanielAndJoyce()); 
 	caves[1][1] = new EventRoom("This is the Minesweeper Room.", new EventVictorAndGabriel());
 	caves[1][3] = new EventRoom("This is where you found the map.", new GameStartEvent());
 	currentRoom.enter();
