@@ -6,10 +6,15 @@ public class GabrielMinesweeperBoard {
 
 	public GabrielMinesweeperBoard() {
 		
+		createBoard();
+		fillRandomMines();
 	}
 
-	public static String[][] createBoard() {
-		// TODO Auto-generated method stub
-		return null;
+	public static void createBoard() {
+		//creates board
+	}
+	
+	public void fillRandomMines(){
+		//fills board with mine
 	}
 }
