@@ -44,7 +44,7 @@ public class EventVictorAndGabriel implements Playable{
 			}
 			System.out.println("\n");
 		}
-		while(VictorMinesweeperInterpreter.win() == false){
+		while(VictorMinesweeperInterpreter.win(board,playerBoard) == false){
 			System.out.println("Please enter a row.");
 			rowChoice = input.nextInt();
 			System.out.println("Please enter a col.");
