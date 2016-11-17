@@ -2,11 +2,15 @@ package caveExplorer.VictorAndGabriel;
 
 import caveExplorer.Playable;
 import caveExplorer.caveExplorer;
+import java.util.Scanner;
 
 public class EventVictorAndGabriel implements Playable{
 	
+	Scanner input = new Scanner(System.in);
 	public static boolean hasHelmet;
 	public static String[][] board;
+	public static int rowChoice;
+	public static int colChoice;
 	private static final String[] SEQUENCE_1 = {"As you step into the room, a grid slowly extrudes from the wall and engravings lined across"
 			+ " the stone begin to glow.","They read: This is a game called Minesweeper.", "The grid before you is laced with mines.", 
 			"Mark all the mines with a flag. Uncover all the numbers to win.", "Hit a mine and this quest of yours is over.", "This room"
@@ -29,7 +33,21 @@ public class EventVictorAndGabriel implements Playable{
 			caveExplorer.print("Do you agree to the terms of this game?");
 		}
 		readSequence(SEQUENCE_2);
-		board = GabrielMinesweeperBoard.createBoard();
+		board = new String[8][8];
+		for(int row = 0; row < board.length; row++){
+			for(int col = 0; col < board[row].length; col++){
+				System.out.print("  " + board[row][col]);
+			}
+			System.out.println("\n");
+		}
+		while(VictorMinesweeperInterpreter.win() == false){
+			System.out.println("Please enter a row.");
+			rowChoice = input.nextInt();
+			System.out.println("Please enter a col.");
+			colChoice = input.nextInt();
+			
+			VictorMinesweeperInterpreter.initiateGame(rowChoice, colChoice, board);
+		}
 /*		if(caveExplorer.inventory.hasMap == false){
 			readSequence(SEQUENCE_3);
 			caveExplorer.inventory.setHasMap(true);
