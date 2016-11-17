@@ -1,20 +1,21 @@
 package caveExplorer.VictorAndGabriel;
 
 public class VictorMinesweeperInterpreter{
-
 	public VictorMinesweeperInterpreter() {
 		
 	}
 	
 	public static void interpretInput(int row, int col, String[][] board){
-		board[row][col] = "";	// first click is always blank
-	//	GabrielMinesweeperBoard.createBoard(row, col);
+		if(EventVictorAndGabriel.firstTurn == true){
+			playerBoard[row][col] = "";	// first click is always blank
+			GabrielMinesweeperBoard.createBoard(row, col);
+		}	
 		int startrow = -1;
 		int startcol = -1;
 		while(startrow != row && startcol != col){
 			if(row - 1 >= 0 && col + 1 <= board[row].length && row + 1 <= board.length && col - 1 >= 0){
 				if(board[row][col - 1] == ""){
-					// change playerboard[row][col - 1] to ""
+					// change playerBoard[row][col - 1] to ""
 					col--;
 				}else{
 					if(board[row][col + 1] == ""){
@@ -26,7 +27,7 @@ public class VictorMinesweeperInterpreter{
 							if(board[row + 1][col] == ""){
 								row++;
 							}else{
-								// end of turn and reveal the board 
+								// end of turn and reveal the playerBoard 
 								startrow = row;
 								startcol = col;
 							}
