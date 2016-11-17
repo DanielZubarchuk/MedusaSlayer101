@@ -38,10 +38,10 @@ public class EventVictorAndGabriel implements Playable{
 			caveExplorer.print("Do you agree to the terms of this game?");
 		}
 		readSequence(SEQUENCE_2);
-		board = new String[8][8];
-		for(int row = 0; row < board.length; row++){
-			for(int col = 0; col < board[row].length; col++){
-				System.out.print("  " + board[row][col]);
+		
+		for(int row = 0; row < playerBoard.length; row++){
+			for(int col = 0; col < playerBoard[row].length; col++){
+				System.out.print("  " + playerBoard[row][col]);
 			}
 			System.out.println("\n");
 		}
