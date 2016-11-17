@@ -1,6 +1,13 @@
 package caveExplorer.VictorAndGabriel;
 
 public class VictorMinesweeperInterpreter{
+
+	public VictorMinesweeperInterpreter() {
+		
+	}
+
+}
+
 /** 
 (0,board[row].length - 1)
 row - 1 >= 0
@@ -26,8 +33,3 @@ col + 1 <= board[row].length
 -generate board around the blank cell
 -continue
  */
-	public VictorMinesweeperInterpreter() {
-		
-	}
-
-}
