@@ -38,17 +38,6 @@ public class EventMahinAndVeeraj {
 			}
 		}
 		printPic(display);
-		
-		System.out.println("Enter a row");
-		int rowIn = input.nextInt();
-		
-		System.out.println("Enter a column");
-		int colIn = input.nextInt();
-		
-		
-		
-		display[rowIn][colIn] = "|_" + "X" + "_";
-		printPic(display);
 
 		for(int row = 0; row < letters.length; row++){
 			for(int col = 0; col < letters[row].length; col++){
