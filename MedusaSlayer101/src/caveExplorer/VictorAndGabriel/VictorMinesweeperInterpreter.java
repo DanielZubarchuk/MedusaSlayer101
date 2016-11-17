@@ -9,6 +9,7 @@ public class VictorMinesweeperInterpreter{
 		if(EventVictorAndGabriel.firstTurn == true){
 			playerBoard[row][col] = "";	// first click is always blank
 			GabrielMinesweeperBoard.createBoard(row, col);
+			EventVictorAndGabriel.firstTurn = false;
 		}	
 		int startrow = -1;
 		int startcol = -1;
