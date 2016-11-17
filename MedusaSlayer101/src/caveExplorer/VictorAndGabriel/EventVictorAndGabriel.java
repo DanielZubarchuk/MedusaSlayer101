@@ -11,8 +11,6 @@ public class EventVictorAndGabriel implements Playable{
 	public static String[][] board;
 	public static String[][] playerBoard;
 	public static boolean firstTurn;
-	public static int rowChoice;
-	public static int colChoice;
 	private static final String[] SEQUENCE_1 = {"As you step into the room, a grid slowly extrudes from the wall and engravings lined across"
 			+ " the stone begin to glow.","They read: This is a game called Minesweeper.", "The grid before you is laced with mines.", 
 			"Mark all the mines with a flag. Uncover all the numbers to win.", "Hit a mine and this quest of yours is over.", "This room"
@@ -29,8 +27,11 @@ public class EventVictorAndGabriel implements Playable{
 	}
 	
 	public void play() {
+		int rowChoice = 0;
+		int colChoice = 0;
 		firstTurn = true;
 		playerBoard = new String[8][8];
+		
 		readSequence(SEQUENCE_1);
 		System.out.println("Win and you shall receive a helmet of invisibility. \n- - - press enter - - - ");
 		while(caveExplorer.in.nextLine().toLowerCase().indexOf("yes") < 0){
@@ -44,6 +45,7 @@ public class EventVictorAndGabriel implements Playable{
 			}
 			System.out.println("\n");
 		}
+		
 		while(VictorMinesweeperInterpreter.win(playerBoard,board) == false){
 			System.out.println("Please enter a row.");
 			rowChoice = input.nextInt();
