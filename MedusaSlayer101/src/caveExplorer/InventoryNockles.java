@@ -5,11 +5,6 @@ public class InventoryNockles {
 	public boolean hasMap;
 	private String map;
 	
-	public InventoryNockles(pd8CaveRoom[][] caves) {
-		
-		
-	}
-
 	public InventoryNockles() {
 		hasMap = false;
 		updateMap();

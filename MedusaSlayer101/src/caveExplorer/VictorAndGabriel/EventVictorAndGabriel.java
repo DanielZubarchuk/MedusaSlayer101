@@ -6,6 +6,7 @@ import caveExplorer.caveExplorer;
 public class EventVictorAndGabriel implements Playable{
 	
 	public static boolean hasHelmet;
+	public static String[][] board;
 	private static final String[] SEQUENCE_1 = {"As you step into the room, a grid slowly extrudes from the wall and engravings lined across"
 			+ " the stone begin to glow.","They read: This is a game called Minesweeper.", "The grid before you is laced with mines.", 
 			"Mark all the mines with a flag. Uncover all the numbers to win.", "Hit a mine and this quest of yours is over.", "This room"
@@ -17,7 +18,8 @@ public class EventVictorAndGabriel implements Playable{
 			,"As your reward, ","Take this map with you too!"};
 	
 	public EventVictorAndGabriel() {
-
+		
+		
 	}
 	
 	public void play() {
@@ -27,10 +29,12 @@ public class EventVictorAndGabriel implements Playable{
 			caveExplorer.print("Do you agree to the terms of this game?");
 		}
 		readSequence(SEQUENCE_2);
-		if(caveExplorer.inventory.hasMap == false){
+		board = GabrielMinesweeperBoard.createBoard();
+/*		if(caveExplorer.inventory.hasMap == false){
 			readSequence(SEQUENCE_3);
 			caveExplorer.inventory.setHasMap(true);
 		}
+*/		
 	}
 
 	public static void readSequence(String[] seq){

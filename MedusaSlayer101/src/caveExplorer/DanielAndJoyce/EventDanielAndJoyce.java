@@ -5,7 +5,7 @@ import caveExplorer.*;
 public class EventDanielAndJoyce implements Playable{
 
 	private static final String[] SEQUENCE_1 = {""};
-	private static final String[] SEQUENCE_2 = {"You are going to have so much fun playing Lights Out"
+	private static final String[] SEQUENCE_2 = {"You are going to have so much fun playing Battleship against the Romans."
 			+ ". Take this map."};
 
 	public void play() {

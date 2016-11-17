@@ -1,6 +1,7 @@
 package caveExplorer.DanielAndJoyce;
 
 import java.util.Scanner;
+import java.util.Random;
 import java.util.Arrays;
 
 public class DanielBattleCreate {
@@ -10,6 +11,8 @@ public class DanielBattleCreate {
 
 	public DanielBattleCreate() {
 		int[][] field = new int[5][5];
+	
+		
 		
 	}
 	
@@ -23,9 +26,9 @@ public class DanielBattleCreate {
         System.out.println("\t1 \t2 \t3 \t4 \t5");
         System.out.println();
         
-        for(int row = 0 ; row < 5 ; row++ ){
+        for(int row = 0 ; row < 5 ; row++){
             System.out.print((row+1)+"");
-            for(int col = 0 ; col < 5 ; col++ ){
+            for(int col = 0 ; col < 5 ; col++){
                 if(field[row][col] == -1){
                     System.out.print("\t"+"~");
                 }else{
@@ -44,6 +47,15 @@ public class DanielBattleCreate {
         }
 	} 
 	
-	public
+	public static void fireCannon(int[] shoot){
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Row: ");
+		
+		
+		System.out.print("Column: ");
+		
+		
+	}
 
 }
