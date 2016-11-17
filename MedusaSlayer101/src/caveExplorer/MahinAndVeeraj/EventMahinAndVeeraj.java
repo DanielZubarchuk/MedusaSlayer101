@@ -11,7 +11,8 @@ public class EventMahinAndVeeraj {
 	static String[][] blank;
 	static String[][] display;
 	static Scanner input;
-	
+	public static boolean userTurn;
+	//
 	public EventMahinAndVeeraj() {
 		// TODO Auto-generated constructor stub
 	}
@@ -48,7 +49,7 @@ public class EventMahinAndVeeraj {
 				counters[index] ++;
 				letters[row][col] = objects[index];
 			}
-			}
+		}
 		
 		boolean userTurn = true;
 		if(userTurn){
