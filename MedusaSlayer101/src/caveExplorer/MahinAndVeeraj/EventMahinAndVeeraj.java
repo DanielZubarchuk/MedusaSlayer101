@@ -51,7 +51,7 @@ public class EventMahinAndVeeraj {
 			}
 		}
 		
-		boolean userTurn = false;
+		boolean userTurn = true;
 		if(userTurn){
 			MahinMemoryTilesUser.userPlay();
 		}
