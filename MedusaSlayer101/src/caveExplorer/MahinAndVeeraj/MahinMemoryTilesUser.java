@@ -40,7 +40,7 @@ public class MahinMemoryTilesUser {
 		EventMahinAndVeeraj.userTurn = false;
 		//if the second selection is same as the first selection, continue
 		if(turns == 2){
-			EventMahinAndVeeraj.userTurn = false;
+			EventMahinAndVeeraj.userTurn = false;//
 			turns = 0;
 		}
 	}
