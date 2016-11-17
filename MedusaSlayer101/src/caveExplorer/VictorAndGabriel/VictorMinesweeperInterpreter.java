@@ -5,7 +5,15 @@ public class VictorMinesweeperInterpreter{
 	public VictorMinesweeperInterpreter() {
 		
 	}
+	
+	public static void initiateGame(int row, int col, String[][] board){
+		board[row][col] = "";
+	//	GabrielMinesweeperBoard.createBoard(row, col);
+	}
 
+	public static boolean win() {
+		return false;
+	}
 }
 
 /** 
