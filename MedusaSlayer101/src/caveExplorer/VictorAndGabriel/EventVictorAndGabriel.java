@@ -50,7 +50,7 @@ public class EventVictorAndGabriel implements Playable{
 			System.out.println("Please enter a col.");
 			colChoice = input.nextInt();
 			
-			VictorMinesweeperInterpreter.initiateGame(rowChoice, colChoice, board);
+			VictorMinesweeperInterpreter.interpretInput(rowChoice, colChoice, board);
 		}
 /*		if(caveExplorer.inventory.hasMap == false){
 			readSequence(SEQUENCE_3);
