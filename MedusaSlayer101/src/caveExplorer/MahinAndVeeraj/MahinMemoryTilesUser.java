@@ -10,5 +10,8 @@ public class MahinMemoryTilesUser {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	public static void userPlay(){
+		
+	}
 }

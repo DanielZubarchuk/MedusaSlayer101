@@ -49,8 +49,16 @@ public class EventMahinAndVeeraj {
 				letters[row][col] = objects[index];
 			}
 			}
+		
+		boolean userTurn = true;
+		if(userTurn){
+			MahinMemoryTilesUser.userPlay();
+		}
+		else{
+			VeerajMemoryTilesAI.computerPlay();
+		}
 	}
-	//
+	
 	public static void printPic(String[][] pic){
 		for(String[] row: pic){
 			for(String col: row){
