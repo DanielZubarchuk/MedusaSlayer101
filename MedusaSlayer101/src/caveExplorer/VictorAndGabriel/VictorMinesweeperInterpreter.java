@@ -12,7 +12,6 @@ public class VictorMinesweeperInterpreter{
 	}
 
 	public static boolean win() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }
