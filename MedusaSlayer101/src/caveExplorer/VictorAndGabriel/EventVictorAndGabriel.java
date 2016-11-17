@@ -9,6 +9,7 @@ public class EventVictorAndGabriel implements Playable{
 	Scanner input = new Scanner(System.in);
 	public static boolean hasHelmet;
 	public static String[][] board;
+	public static boolean firstTurn;
 	public static int rowChoice;
 	public static int colChoice;
 	private static final String[] SEQUENCE_1 = {"As you step into the room, a grid slowly extrudes from the wall and engravings lined across"
@@ -27,6 +28,7 @@ public class EventVictorAndGabriel implements Playable{
 	}
 	
 	public void play() {
+		firstTurn = true;
 		readSequence(SEQUENCE_1);
 		System.out.println("Win and you shall receive a helmet of invisibility. \n- - - press enter - - - ");
 		while(caveExplorer.in.nextLine().toLowerCase().indexOf("yes") < 0){
