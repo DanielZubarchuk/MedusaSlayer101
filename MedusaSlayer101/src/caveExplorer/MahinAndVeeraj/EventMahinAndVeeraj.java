@@ -12,7 +12,7 @@ public class EventMahinAndVeeraj {
 	static String[][] display;
 	static Scanner input;
 	public static boolean userTurn;
-	
+	//
 	public EventMahinAndVeeraj() {
 		// TODO Auto-generated constructor stub
 	}
