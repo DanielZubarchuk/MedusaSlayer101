@@ -29,7 +29,7 @@ public class JoyceBattleCreate {
 		}
 	}
 	
-	public static void makeField(int[][] field){ 
+	public static void makeField(int[][] field){  
         System.out.println("\t1 \t2 \t3 \t4 \t5");
         System.out.println();
         
