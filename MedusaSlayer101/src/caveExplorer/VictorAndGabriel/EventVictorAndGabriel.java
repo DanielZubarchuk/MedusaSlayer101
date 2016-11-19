@@ -52,7 +52,7 @@ public class EventVictorAndGabriel implements Playable{
 			if(input.nextLine().toLowerCase().equals("yes")){
 				flag = true;
 			}
-			
+			//
 			System.out.println("Please enter a row.");
 			rowChoice = input.nextInt();
 			System.out.println("Please enter a col.");
