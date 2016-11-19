@@ -5,7 +5,11 @@ public class VictorMinesweeperInterpreter{
 		
 	}
 	
-	public static void interpretInput(int row, int col, String[][] board){
+	public static void interpretInput(int row, int col, String[][] board, boolean flag){
+		if(flag == true){
+			EventVictorAndGabriel.playerBoard[row][col] = "X"; // x for supposed mine
+			return;
+		}
 		if(EventVictorAndGabriel.firstTurn == true){
 			EventVictorAndGabriel.playerBoard[row][col] = "";	// first click is always blank
 		//	GabrielMinesweeperBoard.createBoard(row, col);

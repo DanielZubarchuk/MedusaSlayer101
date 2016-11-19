@@ -47,12 +47,18 @@ public class EventVictorAndGabriel implements Playable{
 		}
 		
 		while(VictorMinesweeperInterpreter.win(playerBoard,board) == false){
+			boolean flag = false;
+			System.out.println("Would you like to flag?");
+			if(input.nextLine().toLowerCase().equals("yes")){
+				flag = true;
+			}
+			
 			System.out.println("Please enter a row.");
 			rowChoice = input.nextInt();
 			System.out.println("Please enter a col.");
 			colChoice = input.nextInt();
 			
-			VictorMinesweeperInterpreter.interpretInput(rowChoice, colChoice, board);
+			VictorMinesweeperInterpreter.interpretInput(rowChoice, colChoice, board, flag);
 		}
 /*		if(caveExplorer.inventory.hasMap == false){
 			readSequence(SEQUENCE_3);
