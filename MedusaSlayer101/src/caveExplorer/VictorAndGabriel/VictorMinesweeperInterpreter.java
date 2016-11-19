@@ -23,12 +23,18 @@ public class VictorMinesweeperInterpreter{
 	}
 
 	private static void checkNeighbors(int row, int col, int[][] board) {
-		if(row >= 0 && row <= board.length && col >= 0 && col <= board[row].length && board[row][col] >= 0){
-			EventVictorAndGabriel.playerBoard[row][col] = board[row][col] + "";
-			checkNeighbors(row + 1, col, board);
-			checkNeighbors(row - 1, col, board);
-			checkNeighbors(row, col + 1, board);
-			checkNeighbors(row, col - 1, board);
+		if(row >= 0 && row <= board.length && col >= 0 && col <= board[row].length){
+			if(board[row][col] == 0){
+				EventVictorAndGabriel.playerBoard[row][col] = board[row][col] + "";
+				checkNeighbors(row + 1, col, board);
+				checkNeighbors(row - 1, col, board);
+				checkNeighbors(row, col + 1, board);
+				checkNeighbors(row, col - 1, board);
+			}else{
+				if(board[row][col] > 0){
+					EventVictorAndGabriel.playerBoard[row][col] = board[row][col] + "";
+				}
+			}
 		}else{
 			return;
 		}
