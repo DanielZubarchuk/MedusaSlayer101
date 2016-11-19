@@ -7,8 +7,8 @@ public class VictorMinesweeperInterpreter{
 	
 	public static void interpretInput(int row, int col, String[][] board){
 		if(EventVictorAndGabriel.firstTurn == true){
-			playerBoard[row][col] = "";	// first click is always blank
-			GabrielMinesweeperBoard.createBoard(row, col);
+			EventVictorAndGabriel.playerBoard[row][col] = "";	// first click is always blank
+		//	GabrielMinesweeperBoard.createBoard(row, col);
 			EventVictorAndGabriel.firstTurn = false;
 		}	
 		int startrow = -1;
