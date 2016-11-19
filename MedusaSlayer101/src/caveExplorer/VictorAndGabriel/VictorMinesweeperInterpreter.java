@@ -7,39 +7,37 @@ public class VictorMinesweeperInterpreter{
 	
 	public static void interpretInput(int row, int col, int[][] board, boolean flag){
 		if(flag == true){
-			EventVictorAndGabriel.playerBoard[row][col] = -1 ; // x for supposed mine
+			if(EventVictorAndGabriel.playerBoard[row][col].equals("X")){
+				EventVictorAndGabriel.playerBoard[row][col] = " ";
+			}else{
+				EventVictorAndGabriel.playerBoard[row][col] = "X" ; // X for supposed mine
+			}
 			return;
 		}
 		if(EventVictorAndGabriel.firstTurn == true){
-			EventVictorAndGabriel.playerBoard[row][col] = 0;	// first click is always blank
+			EventVictorAndGabriel.playerBoard[row][col] = 0 + "";	// first click is always blank
 		//	GabrielMinesweeperBoard.createBoard(row, col);
 			EventVictorAndGabriel.firstTurn = false;
 		}
-		checkNeighbors(row, col,board,row,col);
+		checkNeighbors(row, col,board);
 	}
 
-	private static void checkNeighbors(int currRow, int currCol, int[][] board, int firstRow, int firstCol) {
-		if(currRow == firstRow && currCol == firstCol){
+	private static void checkNeighbors(int row, int col, int[][] board) {
+		if(row >= 0 && row <= board.length && col >= 0 && col <= board[row].length && board[row][col] >= 0){
+			EventVictorAndGabriel.playerBoard[row][col] = board[row][col] + "";
+			checkNeighbors(row + 1, col, board);
+			checkNeighbors(row - 1, col, board);
+			checkNeighbors(row, col + 1, board);
+			checkNeighbors(row, col - 1, board);
+		}else{
 			return;
 		}
-		if(currRow - 1 >= 0){
-			if(board[currRow - 1][currCol] >= 0){
-				currRow = currRow - 1;
-			}
-			if(currCol - 1 >= 0){
-				if(board[currRow][currCol - 1] >= 0){
-					
-				}
-			}
-		}
-		
-		
 	}
 
-	public static boolean win(int[][] playerBoard, int[][] board) {
+	public static boolean win(String[][] playerBoard, int[][] board) {
 		for(int row = 0; row < playerBoard.length; row++){
 			for(int col = 0; col < playerBoard[row].length; col++){
-				if(playerBoard[row][col] != board[row][col]){
+				if(playerBoard[row][col].equals(board[row][col] + "")){
 					return false;
 				}
 			}

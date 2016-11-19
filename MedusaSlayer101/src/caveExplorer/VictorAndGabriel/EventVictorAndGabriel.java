@@ -9,7 +9,7 @@ public class EventVictorAndGabriel implements Playable{
 	Scanner input = new Scanner(System.in);
 	public static boolean hasHelmet;
 	public static int[][] board;
-	public static int[][] playerBoard;
+	public static String[][] playerBoard;
 	public static boolean firstTurn;
 	private static final String[] SEQUENCE_1 = {"As you step into the room, a grid slowly extrudes from the wall and engravings lined across"
 			+ " the stone begin to glow.","They read: This is a game called Minesweeper.", "The grid before you is laced with mines.", 
@@ -30,7 +30,7 @@ public class EventVictorAndGabriel implements Playable{
 		int rowChoice = 0;
 		int colChoice = 0;
 		firstTurn = true;
-		playerBoard = new int[8][8];
+		playerBoard = new String[8][8];
 		board = new int[8][8];
 		board[0][0] = 1;
 		
@@ -68,10 +68,11 @@ public class EventVictorAndGabriel implements Playable{
 */		
 	}
 
-	public static void printBoard(int[][] playerBoard2){
-		for(int row = 0; row < playerBoard2.length; row++){
-			for(int col = 0; col < playerBoard2[row].length; col++){
-				System.out.print("  " + playerBoard2[row][col]);
+	public static void printBoard(String[][] board){
+		for(int row = 0; row < board.length; row++){
+			for(int col = 0; col < board[row].length; col++){
+				board[row][col] = " ";
+				System.out.print("  " + board[row][col]);
 			}
 			System.out.println("\n");
 		}
