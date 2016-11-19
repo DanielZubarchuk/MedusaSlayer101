@@ -25,7 +25,30 @@ public class EventVictorAndGabriel implements Playable{
 		
 		
 	}
+	/** 
+	 	FOR GABRIEL HOHOHOHOHOHO 
+	 	
+		THE BACKEND BOARD SHOULD:
+		-USE -1 FOR MINES
+		-USE 0 FOR BLANKS
+		
+		THE FRONTEND BOARD:
+		- IS A STRING[][]
+		
+		SCROLL DOWN FOR PRINT BOARD METHOD
+		I INSTANTIATED BOARD AND PLAYER BOARD IN THE PLAY() METHOD
+		BOARD[0][0] = 1 FOR NOW BECAUSE WE HAVE NOT MADE THE BACKEND BOARD YET
+		
+		RUN YOUR CODE AT:
+		MY CLASS AT GabrielMinesweeperBoard.createBoard(row, col); IN MY CODE
+		YOUR CREATEBOARD METHOD WILL CREATE THE REST OF THE BOARD BASED ON THE FIRST INPUT OF THE USER
+		ROW AND COL PARAMETERS ARE JUST INT
+		
+		WHEN YOU HAVE MADE THE CREATEBOARD METHOD, LET ME KNOW. 
+		I WILL UNCOMMENT MY FUNCTION CALL : GabrielMinesweeperBoard.createBoard(row, col);
+		BECAUSE RIGHT NOW THERE WOULD BE AN ERROR SINCE YOU HAVEN'T CREATED IT YET
 	
+	**/
 	public void play() {
 		int rowChoice = 0;
 		int colChoice = 0;
@@ -40,9 +63,7 @@ public class EventVictorAndGabriel implements Playable{
 			caveExplorer.print("Do you agree to the terms of this game?");
 		}
 		readSequence(SEQUENCE_2);
-		
-		
-		
+	
 		while(VictorMinesweeperInterpreter.win(playerBoard,board) == false){
 			printBoard(playerBoard);
 			boolean flag = false;
