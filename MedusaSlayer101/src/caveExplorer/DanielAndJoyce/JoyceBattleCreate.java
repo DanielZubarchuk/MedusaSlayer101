@@ -1,3 +1,8 @@
+/*
+	WHOLE GAME:
+		- can leave room and event will trigger every time player enters until player wins game in event room
+		- 
+*/
 package caveExplorer.DanielAndJoyce;
 
 import java.util.Scanner;
@@ -6,7 +11,9 @@ import caveExplorer.DanielAndJoyce.*;
 
 public class JoyceBattleCreate {
 	
-	Scanner ships = new Scanner(System.in);
+	Scanner input = new Scanner(System.in);
+	String[] ships = {"Destroyer", "Submarine", "Battleship", "Aircraft Carrier"};// 1, 2, 3, 4
+	
 	static int FIELDSIZE = 7;
 	static int SHIPNUM = 4;
 	static int CLEAN = -1;
@@ -17,8 +24,9 @@ public class JoyceBattleCreate {
 		
 		int[][] pField = new int[FIELDSIZE][FIELDSIZE];
 		int[][] pShips = new int[FIELDSIZE][FIELDSIZE];
-		makeField(pField);
 		initializeField(pField);
+		makeField(pField);
+		
 	}
 	
 	public static void initializeField(int[][] field){
@@ -55,8 +63,18 @@ public class JoyceBattleCreate {
 	} 
 	
 	public void userField() {
+		System.out.println("You have 4 ships in your inventory. You have an Aircraft Carrier, a Battleship, a Submarine"
+				+ " , and a Destroyer. They take up 4, 3, 2, and 1 places on the board, respectively. Let's place your "
+				+ "ships!");
 		for(int i = 0; i<SHIPNUM; i++){
-			System.out.println("You have " + SHIPNUM + " left. Where would you like your next ship to be placed?");
+			System.out.println("You have " + SHIPNUM + " left. This is your " + ships[SHIPNUM-1] + ". "
+					+ "What row would you like your " + ships[SHIPNUM-1] + " to be placed?");
+			String shipSpaces = "";
+			for (int j = 0; j < ships[SHIPNUM-1].length(); j ++){
+				shipSpaces += ships[SHIPNUM-1].charAt(0);
+			}
+			System.out.print(shipSpaces);
+			int firstShipSpot = 
 			//put on field
 			SHIPNUM--;
 		}	
