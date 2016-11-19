@@ -37,8 +37,14 @@ public class VictorMinesweeperInterpreter{
 	public static boolean win(String[][] playerBoard, int[][] board) {
 		for(int row = 0; row < playerBoard.length; row++){
 			for(int col = 0; col < playerBoard[row].length; col++){
-				if(playerBoard[row][col].equals(board[row][col] + "")){
-					return false;
+				if(board[row][col] == -1){
+					if(!playerBoard[row][col].equals("X")){
+						return false;
+					}
+				}else{
+					if(playerBoard[row][col].equals(board[row][col] + "")){
+						return false;
+					}
 				}
 			}
 		}
