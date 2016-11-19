@@ -8,8 +8,8 @@ public class EventVictorAndGabriel implements Playable{
 	
 	Scanner input = new Scanner(System.in);
 	public static boolean hasHelmet;
-	public static String[][] board;
-	public static String[][] playerBoard;
+	public static int[][] board;
+	public static int[][] playerBoard;
 	public static boolean firstTurn;
 	private static final String[] SEQUENCE_1 = {"As you step into the room, a grid slowly extrudes from the wall and engravings lined across"
 			+ " the stone begin to glow.","They read: This is a game called Minesweeper.", "The grid before you is laced with mines.", 
@@ -30,7 +30,9 @@ public class EventVictorAndGabriel implements Playable{
 		int rowChoice = 0;
 		int colChoice = 0;
 		firstTurn = true;
-		playerBoard = new String[8][8];
+		playerBoard = new int[8][8];
+		board = new int[8][8];
+		board[0][0] = 1;
 		
 		readSequence(SEQUENCE_1);
 		System.out.println("Win and you shall receive a helmet of invisibility. \n- - - press enter - - - ");
@@ -39,26 +41,25 @@ public class EventVictorAndGabriel implements Playable{
 		}
 		readSequence(SEQUENCE_2);
 		
-		for(int row = 0; row < playerBoard.length; row++){
-			for(int col = 0; col < playerBoard[row].length; col++){
-				System.out.print("  " + playerBoard[row][col]);
-			}
-			System.out.println("\n");
-		}
+		
 		
 		while(VictorMinesweeperInterpreter.win(playerBoard,board) == false){
+			printBoard(playerBoard);
 			boolean flag = false;
 			System.out.println("Would you like to flag?");
 			if(input.nextLine().toLowerCase().equals("yes")){
 				flag = true;
 			}
-			//
 			System.out.println("Please enter a row.");
 			rowChoice = input.nextInt();
 			System.out.println("Please enter a col.");
 			colChoice = input.nextInt();
-			
-			VictorMinesweeperInterpreter.interpretInput(rowChoice, colChoice, board, flag);
+			if(VictorMinesweeperInterpreter.checkMine(rowChoice, colChoice, board) == true){
+				System.out.println("You hit a mine! Game Over!");
+				return;
+			}else{
+				VictorMinesweeperInterpreter.interpretInput(rowChoice, colChoice, board, flag);
+			}
 		}
 /*		if(caveExplorer.inventory.hasMap == false){
 			readSequence(SEQUENCE_3);
@@ -67,6 +68,15 @@ public class EventVictorAndGabriel implements Playable{
 */		
 	}
 
+	public static void printBoard(int[][] playerBoard2){
+		for(int row = 0; row < playerBoard2.length; row++){
+			for(int col = 0; col < playerBoard2[row].length; col++){
+				System.out.print("  " + playerBoard2[row][col]);
+			}
+			System.out.println("\n");
+		}
+	}
+	
 	public static void readSequence(String[] seq){
 		for(String s : seq){
 			caveExplorer.print(s);

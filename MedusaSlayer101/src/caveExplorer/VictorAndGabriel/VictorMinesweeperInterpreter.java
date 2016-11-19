@@ -5,53 +5,53 @@ public class VictorMinesweeperInterpreter{
 		
 	}
 	
-	public static void interpretInput(int row, int col, String[][] board, boolean flag){
+	public static void interpretInput(int row, int col, int[][] board, boolean flag){
 		if(flag == true){
-			EventVictorAndGabriel.playerBoard[row][col] = "X"; // x for supposed mine
+			EventVictorAndGabriel.playerBoard[row][col] = -1 ; // x for supposed mine
 			return;
 		}
 		if(EventVictorAndGabriel.firstTurn == true){
-			EventVictorAndGabriel.playerBoard[row][col] = "";	// first click is always blank
+			EventVictorAndGabriel.playerBoard[row][col] = 0;	// first click is always blank
 		//	GabrielMinesweeperBoard.createBoard(row, col);
 			EventVictorAndGabriel.firstTurn = false;
-		}	
-		int startrow = -1;
-		int startcol = -1;
-		while(startrow != row && startcol != col){
-			if(row - 1 >= 0 && col + 1 <= board[row].length && row + 1 <= board.length && col - 1 >= 0){
-				if(board[row][col - 1] == ""){
-					// change playerBoard[row][col - 1] to ""
-					col--;
-				}else{
-					if(board[row][col + 1] == ""){
-						col++;
-					}else{
-						if(board[row - 1][col] == ""){
-							row--;
-						}else{
-							if(board[row + 1][col] == ""){
-								row++;
-							}else{
-								// end of turn and reveal the playerBoard 
-								startrow = row;
-								startcol = col;
-							}
-						}
-					}
-				}
-			}	
 		}
+		checkNeighbors(row, col,board,row,col);
 	}
 
-	public static boolean win(String[][] board, String[][] correctBoard) {
-		for(int row = 0; row < board.length; row++){
-			for(int col = 0; col < board[row].length; col++){
-				if(!board[row][col].equals(correctBoard[row][col])){
+	private static void checkNeighbors(int currRow, int currCol, int[][] board, int firstRow, int firstCol) {
+		if(currRow == firstRow && currCol == firstCol){
+			return;
+		}
+		if(currRow - 1 >= 0){
+			if(board[currRow - 1][currCol] >= 0){
+				currRow = currRow - 1;
+			}
+			if(currCol - 1 >= 0){
+				if(board[currRow][currCol - 1] >= 0){
+					
+				}
+			}
+		}
+		
+		
+	}
+
+	public static boolean win(int[][] playerBoard, int[][] board) {
+		for(int row = 0; row < playerBoard.length; row++){
+			for(int col = 0; col < playerBoard[row].length; col++){
+				if(playerBoard[row][col] != board[row][col]){
 					return false;
 				}
 			}
 		}
 		return true;
+	}
+
+	public static boolean checkMine(int rowChoice, int colChoice, int[][] board) {
+		if(board[rowChoice][colChoice] == -1){
+			return true;
+		}
+		return false;
 	}
 }
 
