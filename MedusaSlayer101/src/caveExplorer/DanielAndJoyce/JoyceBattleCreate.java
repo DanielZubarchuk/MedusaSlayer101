@@ -14,25 +14,27 @@
 package caveExplorer.DanielAndJoyce;
 
 import java.util.Scanner;
-
 import caveExplorer.DanielAndJoyce.*;
 
 public class JoyceBattleCreate {
 	
+	/*public static ShipJAndD pAircraft;
+	public static ShipJAndD pBattleship;
+	public static ShipJAndD pSubmarine;
+	public static ShipJAndD pDestroyer;*/
+	pAircraft = new ShipJAndD("Aircraft Carrier", 4); 
+	pBattleship = new ShipJAndD("Battleship", 3);
+	pSubmarine = new ShipJAndD("Submarine", 2);
+	pDestroyer = new ShipJAndD("Destroyer", 1);
 	Scanner input = new Scanner(System.in);
 	String[] ships = {"Destroyer", "Submarine", "Battleship", "Aircraft Carrier"};// 1, 2, 3, 4
-	/*
-	 public shipProperties(String s, int i){
-	 	this
-	 }
-	 
-	 */
+ 
 	static int FIELD_SIZE = 7;
 	static int SHIP_NUM = 4;
 	static int CLEAN = -1;
 	static int MISS = 0;
 	static int HIT = 1;
-	
+
 	public JoyceBattleCreate(){
 		
 		int[][] pField = new int[FIELD_SIZE][FIELD_SIZE];
