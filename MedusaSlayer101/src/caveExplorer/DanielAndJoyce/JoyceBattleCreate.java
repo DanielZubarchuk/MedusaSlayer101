@@ -14,6 +14,7 @@
 package caveExplorer.DanielAndJoyce;
 
 import java.util.Scanner;
+
 import caveExplorer.DanielAndJoyce.*;
 
 public class JoyceBattleCreate {
@@ -27,16 +28,19 @@ public class JoyceBattleCreate {
 	String[] ships = {"Destroyer", "Submarine", "Battleship", "Aircraft Carrier"};// 1, 2, 3, 4
 	//ships = {pAircraft, pBattleship, pSubmarine, pDestroyer};
 	
+	static int[][] pField;
+	static int[][] pShips;
 	static int FIELD_SIZE = 7;
 	static int SHIP_NUM = 4;
+	static int OCCUPIED = -2;
 	static int CLEAN = -1;
 	static int MISS = 0;
 	static int HIT = 1;
 
 	public JoyceBattleCreate(){
 		
-		int[][] pField = new int[FIELD_SIZE][FIELD_SIZE];
-		int[][] pShips = new int[FIELD_SIZE][FIELD_SIZE];
+		pField = new int[FIELD_SIZE][FIELD_SIZE];
+		pShips = new int[FIELD_SIZE][FIELD_SIZE];
 		initializeField(pField);
 		makeField(pField);
 		
@@ -57,7 +61,10 @@ public class JoyceBattleCreate {
         for(int row = 0 ; row < FIELD_SIZE ; row++){
             System.out.print((row+1)+"");
             for(int col = 0 ; col < FIELD_SIZE ; col++){
-                if(field[row][col] == CLEAN){
+            	if(field[row][col] == OCCUPIED){
+            		System.out.println("\t" + pShips[row][col]);
+            	}
+            	else if(field[row][col] == CLEAN){
                     System.out.print("\t"+"~");
                 }else{
                 	if(field[row][col] == MISS){
@@ -100,12 +107,19 @@ public class JoyceBattleCreate {
 			}
 			System.out.println("You can orient your " + currentShip + " to the " + choices + ". How do you want it?");
 			String pChoice = input.nextLine();
-			
+			changeOrientation(currentShip, pChoice, rowBeginShip, colBeginShip);
 			
 			//put on field
 			SHIP_NUM--;
 		}	
 	}
+	private void changeOrientation(String s, String choice, int row, int col) {
+		pShips[row][col] = s.charAt(0);
+		for (int i = 0; i < s.length(); i++){
+			if ()
+		}
+	}
+
 	private String[] orientShip(int row, int col, String cShip) {
 		String[] poss = {"Top", "Right", "Bottom", "Left"};
 		if (row < cShip.length()) poss[0] = null;
