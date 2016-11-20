@@ -78,7 +78,7 @@ public class EventMahinAndVeeraj implements Playable{
 			}
 		}
 	}
-	
+	//
 	public static void printPic(String[][] pic){
 		for(String[] row: pic){
 			for(String col: row){

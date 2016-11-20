@@ -51,7 +51,7 @@ public class MahinMemoryTilesUser {
 		if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] == EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
 				userScore++;
 		}
-			
+		//	
 		if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] != EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
 			EventMahinAndVeeraj.display[rowPick][colPick] = "|___";
 			EventMahinAndVeeraj.display[rowPick2][colPick2] = "|___";
