@@ -66,13 +66,16 @@ public class EventMahinAndVeeraj implements Playable{
 				letters[row][col] = objects[index];
 			}
 		}
-		
 		boolean userTurn = true;
 		if(userTurn){
-			MahinMemoryTilesUser.userPlay();
+			while(true){
+				MahinMemoryTilesUser.userPlay();
+			}
 		}
 		else{
-			VeerajMemoryTilesAI.computerPlay();
+			while(true){
+				VeerajMemoryTilesAI.computerPlay();
+			}
 		}
 	}
 	
