@@ -3,24 +3,24 @@ package caveExplorer.VictorAndGabriel;
 import java.util.Random;
 
 public class GabrielMinesweeperBoard {
-    Random random = new Random();
+    static Random random = new Random();
     
     public GabrielMinesweeperBoard (){
        
     }
     
-    public void createBoard(int row, int col){
+    public static void createBoard(int row, int col){
          randomlyPlaceMines(row, col);
-         placeNumbers();
+         placeNumbers(row, col);
     }
     
-    public void randomlyPlaceMines(int row, int col){
+    public static void randomlyPlaceMines(int row, int col){
     	//method places mines randomly on board.
     	//mines marked with -1
     	int minesPlaced = 0;
             while(minesPlaced < 10){
-                int randomRow = random.nextInt(8) + 1;
-                int randomCol = random.nextInt(8) + 1;
+                int randomRow = (int) (Math.random()*8 + 1);
+                int randomCol = (int) Math.random()*8 + 1;
                 EventVictorAndGabriel.board[randomRow][randomCol] =-1;
                 if(randomRow == row && randomCol == col){
                 	minesPlaced--;
@@ -31,20 +31,40 @@ public class GabrielMinesweeperBoard {
             }
     }
     
-    public void placeNumbers(){
-        for(int row=1 ; row < 9 ; row++){
-            for(int col=1 ; col < 9 ; col++){
-                for(int i=-1 ; i<=1 ; i++){
-                	for(int j=-1 ; j<=1 ; j++){
-                		if(EventVictorAndGabriel.board[row][col] != -1){
-                			if(EventVictorAndGabriel.board[row+i][col+j] == -1){
-                				EventVictorAndGabriel.board[row][col]++;
-                            }
-                        }
-                    }
-                }        
-            }
-        }    
+    public static void placeNumbers(int firstRow, int firstCol){
+        for(int row = 0; row < EventVictorAndGabriel.board.length; row++){
+        	for(int col = 0; col < EventVictorAndGabriel.board[row].length; col ++){
+        		int nearbyMines = 0;
+        		if(EventVictorAndGabriel.board[row][col] != -1 && row != firstRow && col != firstCol){ //checks through all cells
+        			if(row -1 >= 0 && EventVictorAndGabriel.board[row-1][col] == -1){
+        				nearbyMines++;
+        			}
+        			if(row +1 <= EventVictorAndGabriel.board.length-1 && EventVictorAndGabriel.board[row +1][col] ==-1){
+        				nearbyMines++;
+        			}
+        			if(col-1 >= 0 && EventVictorAndGabriel.board[row][col-1] == -1){
+        				nearbyMines++;
+        			}
+        			if(col+1 <= EventVictorAndGabriel.board[row].length-1 && EventVictorAndGabriel.board[row][col+1] ==-1){
+        				nearbyMines++;
+        			}
+        			if(row -1 >= 0 && col-1 >= 0 && EventVictorAndGabriel.board[row-1][col-1] == -1){
+        				nearbyMines++;
+        			}
+        			if(row -1 >= 0 && col+1 <= EventVictorAndGabriel.board[row].length-1 && EventVictorAndGabriel.board[row -1][col+1] ==-1){
+        				nearbyMines++;
+        			}
+        			if(row +1 <= EventVictorAndGabriel.board.length-1 && col-1 >= 0 &&  EventVictorAndGabriel.board[row+1][col-1] == -1){
+        				nearbyMines++;
+        			}
+        			if(row +1 <= EventVictorAndGabriel.board.length-1 && col+1 <= EventVictorAndGabriel.board[row].length-1 && EventVictorAndGabriel.board[row +1][col+1] ==-1){
+        				nearbyMines++;
+        			}
+        		}
+        		EventVictorAndGabriel.board[row][col] = nearbyMines;
+        	}
+        	
+        }
     }
    
 }
