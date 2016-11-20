@@ -19,7 +19,6 @@ public class caveExplorer {
 				caves[row][col] = new pd8CaveRoom("This room has coordinates " + row + ", " + col);
 			}
 		}
-
 	currentRoom = caves[1][2];
 	caves[3][2] = new EventRoom("Time to play Battleship!", new EventDanielAndJoyce()); 
 	caves[1][1] = new EventRoom("This is the Minesweeper Room.", new EventVictorAndGabriel());

@@ -32,10 +32,10 @@ public class JoyceBattleCreate {
 	static int[][] pShips;
 	static int FIELD_SIZE = 7;
 	static int SHIP_NUM = 4;
-	static int OCCUPIED = -2;
-	static int CLEAN = -1;
-	static int MISS = 0;
-	static int HIT = 1;
+	
+	static int RIGHT = 1; static int LEFT = -1; static int TOP = 1; static int BOTTOM = -1;
+	static String[] shipDirection = {"Top", "Right", "Bottom", "Left"};
+	static int OCCUPIED = -2; static int CLEAN = -1; static int MISS = 0; static int HIT = 1;
 
 	public JoyceBattleCreate(){
 		
@@ -99,11 +99,11 @@ public class JoyceBattleCreate {
 			int rowBeginShip = input.nextInt();
 			System.out.println("What COLUMN would you like the beginning of your " + currentShip + " to be placed?");
 			int colBeginShip = input.nextInt();
-			String[] orientationOptions = orientShip(rowBeginShip, colBeginShip, currentShip);
+			int[] orientationOptions = orientShip(rowBeginShip, colBeginShip, currentShip);
 			String choices = "";
 			for (int k = 0; k < orientationOptions.length; i++){
 				
-				if (orientationOptions[k] != null) choices += orientationOptions[k] + "or ";
+				if (orientationOptions[k] != (Integer) null) choices += shipDirection[orientationOptions[k]] + "or ";
 			}
 			System.out.println("You can orient your " + currentShip + " to the " + choices + ". How do you want it?");
 			String pChoice = input.nextLine();
@@ -114,18 +114,19 @@ public class JoyceBattleCreate {
 		}	
 	}
 	private void changeOrientation(String s, String choice, int row, int col) {
-		pShips[row][col] = s.charAt(0);
+		char shipLetter = s.charAt(0);
+		//pShips[row][col] = s.charAt(0);
 		for (int i = 0; i < s.length(); i++){
-			if ()
+			
 		}
 	}
 
-	private String[] orientShip(int row, int col, String cShip) {
-		String[] poss = {"Top", "Right", "Bottom", "Left"};
-		if (row < cShip.length()) poss[0] = null;
-		if (col > (FIELD_SIZE - cShip.length())) poss[1] = null;
-		if (row > (FIELD_SIZE - cShip.length())) poss[2] = null;
-		if (col < cShip.length()) poss[3] = null;
+	private int[] orientShip(int row, int col, String cShip) {
+		int[] poss = {TOP, RIGHT, BOTTOM, LEFT};
+		if (row-1 < cShip.length()) poss[0] = (Integer) null;
+		if (col > (FIELD_SIZE - cShip.length())) poss[1] = (Integer) null;
+		if (row > (FIELD_SIZE - cShip.length())) poss[2] = (Integer) null;
+		if (col-1 < cShip.length()) poss[3] = (Integer) null;
 		return poss;
 	}
 
