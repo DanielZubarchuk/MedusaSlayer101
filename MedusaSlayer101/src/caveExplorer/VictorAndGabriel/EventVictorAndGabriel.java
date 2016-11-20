@@ -2,6 +2,8 @@ package caveExplorer.VictorAndGabriel;
 
 import caveExplorer.Playable;
 import caveExplorer.caveExplorer;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class EventVictorAndGabriel implements Playable{
@@ -59,10 +61,19 @@ public class EventVictorAndGabriel implements Playable{
 	public void play() {
 		int rowChoice = 0;
 		int colChoice = 0;
+		String flagToggle = "";
 		firstTurn = true;
 		playerBoard = new String[8][8];
 		board = new int[8][8];
 		board[0][0] = 1;
+		
+		// playerboard starts as blank
+		for(int row = 0; row < playerBoard.length; row++){
+			for(int col = 0; col < playerBoard[row].length; col++){
+				playerBoard[row][col] = " ";
+			}
+		}
+		
 		
 		readSequence(SEQUENCE_1);
 		System.out.println("Win and you shall receive a helmet of invisibility. \n- - - press enter - - - ");
@@ -71,17 +82,33 @@ public class EventVictorAndGabriel implements Playable{
 		}
 		readSequence(SEQUENCE_2);
 	
-		while(VictorMinesweeperInterpreter.win(playerBoard,board) == false){
+		while(!VictorMinesweeperInterpreter.win(playerBoard,board)){
 			printBoard(playerBoard);
 			boolean flag = false;
+			
 			System.out.println("Would you like to flag?");
-			if(input.nextLine().toLowerCase().equals("yes")){
+			flagToggle = input.nextLine();
+			input.nextLine();
+			if(flagToggle.toLowerCase().equals("yes")){
 				flag = true;
 			}
-			System.out.println("Please enter a row.");
-			rowChoice = input.nextInt();
-			System.out.println("Please enter a col.");
-			colChoice = input.nextInt();
+			
+			try{
+				System.out.println("Please enter a row between 0 and 7.");
+				rowChoice = input.nextInt();
+				input.nextLine();
+			}catch(InputMismatchException exception){
+				System.out.println("This is not an integer");
+			}
+			
+			try{
+				System.out.println("Please enter a col between 0 and 7.");
+				colChoice = input.nextInt();
+				input.nextLine();
+			}catch(InputMismatchException exception){
+				System.out.println("This is not an integer");
+			}
+			
 			if(VictorMinesweeperInterpreter.checkMine(rowChoice, colChoice, board) == true){
 				System.out.println("You hit a mine! Game Over!");
 				return;
@@ -89,6 +116,7 @@ public class EventVictorAndGabriel implements Playable{
 				VictorMinesweeperInterpreter.interpretInput(rowChoice, colChoice, board, flag);
 			}
 		}
+		readSequence(SEQUENCE_3);
 /*		if(caveExplorer.inventory.hasMap == false){
 			readSequence(SEQUENCE_3);
 			caveExplorer.inventory.setHasMap(true);
