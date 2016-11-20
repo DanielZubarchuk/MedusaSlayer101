@@ -66,6 +66,9 @@ public class EventVictorAndGabriel implements Playable{
 		
 		// 2x2 array for testing purposes
 		// change back to 8x8 or allow user to choose size of board
+		// this board itself breaks the rules of minesweeper since they technically cant be a blank
+		// the board itself is too small
+		// just for testing purposes though
 		playerBoard = new String[2][2];
 		board = new int[2][2];
 		board[0][0] = -1;
@@ -94,7 +97,7 @@ public class EventVictorAndGabriel implements Playable{
 			
 			System.out.println("Would you like to flag?");
 			flagToggle = input.nextLine();
-			input.nextLine();
+			
 			if(flagToggle.toLowerCase().equals("yes")){
 				flag = true;
 			}
@@ -116,12 +119,13 @@ public class EventVictorAndGabriel implements Playable{
 			}
 			
 			if(VictorMinesweeperInterpreter.checkMine(rowChoice, colChoice, board) == true && flag == false){
-				System.out.println("You hit a mine! Game Over!");
+				System.out.println("You hit a mine! Game Over! \n");
 				return;
 			}else{
 				VictorMinesweeperInterpreter.interpretInput(rowChoice, colChoice, board, flag);
 			}
 		}
+		printBoardInt(board);
 		readSequence(SEQUENCE_3);
 /*		if(caveExplorer.inventory.hasMap == false){
 			readSequence(SEQUENCE_3);
@@ -130,6 +134,19 @@ public class EventVictorAndGabriel implements Playable{
 */		
 	}
 
+	private void printBoardInt(int[][] board) {
+		for(int row = 0; row < board.length; row++){
+			for(int col = 0; col < board[row].length; col++){
+				if(board[row][col] == -1){
+					System.out.print("  " + "X");
+				}else{
+					System.out.print("  " + board[row][col]);
+				}
+			}
+			System.out.println("\n");
+		}
+		
+	}
 	public static void printBoard(String[][] board){
 		for(int row = 0; row < board.length; row++){
 			for(int col = 0; col < board[row].length; col++){

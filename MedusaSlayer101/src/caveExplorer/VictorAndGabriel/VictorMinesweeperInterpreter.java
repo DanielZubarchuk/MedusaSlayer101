@@ -36,7 +36,9 @@ public class VictorMinesweeperInterpreter{
 				checkNeighbors(row, col - 1, board);
 				return;
 			}else{
-				EventVictorAndGabriel.playerBoard[row][col] = board[row][col] + "";
+				if(board[row][col] > 0){
+					EventVictorAndGabriel.playerBoard[row][col] = board[row][col] + "";
+				}
 			}
 		}else{
 			return;
