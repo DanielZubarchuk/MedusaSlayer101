@@ -33,6 +33,8 @@ public class VictorMinesweeperInterpreter{
 			}else{
 				if(board[row][col] > 0){
 					EventVictorAndGabriel.playerBoard[row][col] = board[row][col] + "";
+				}else{
+					return;
 				}
 			}
 		}else{
