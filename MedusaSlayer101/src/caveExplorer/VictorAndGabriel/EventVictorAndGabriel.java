@@ -71,12 +71,8 @@ public class EventVictorAndGabriel implements Playable{
 		// just for testing purposes though
 		// the board needs to be exactly the same to win
 		// this means that the user will have to flag every mine
-		playerBoard = new String[2][2];
-		board = new int[2][2];
-		board[0][0] = -1;
-		board[0][1] = 1;
-		board[1][0] = 1;
-		board[1][1] = 1;
+		playerBoard = new String[8][8];
+		board = new int[8][8];
 		
 		// playerboard starts as blank
 		for(int row = 0; row < playerBoard.length; row++){
@@ -136,7 +132,7 @@ public class EventVictorAndGabriel implements Playable{
 */		
 	}
 
-	private void printBoardInt(int[][] board) {
+	private void printBoardInt(int[][] board) { //post-game
 		for(int row = 0; row < board.length; row++){
 			for(int col = 0; col < board[row].length; col++){
 				if(board[row][col] == -1){
@@ -149,7 +145,7 @@ public class EventVictorAndGabriel implements Playable{
 		}
 		
 	}
-	public static void printBoard(String[][] board){
+	public static void printBoard(String[][] board){ //in-game
 		for(int row = 0; row < board.length; row++){
 			for(int col = 0; col < board[row].length; col++){
 				System.out.print("  " + board[row][col]);
