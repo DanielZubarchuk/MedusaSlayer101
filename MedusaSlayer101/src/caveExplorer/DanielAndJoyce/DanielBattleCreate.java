@@ -121,8 +121,8 @@ public class DanielBattleCreate {
 	private static Object createStarterCoordinates(int[][] ships){
 		//helper method
 		
-		int row = (int)(Math.random() * ships.length);
-		int col = (int)(Math.random() * ships[0].length);
+		int row = (int)(1 + Math.random() * ships.length);
+		int col = (int)(1 + Math.random() * ships[0].length);
 		
 		return starterCoordinates = "("+row+", "+col+")";
 	}
