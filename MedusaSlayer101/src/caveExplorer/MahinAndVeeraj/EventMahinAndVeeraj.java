@@ -3,7 +3,23 @@ package caveExplorer.MahinAndVeeraj;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class EventMahinAndVeeraj {
+import caveExplorer.Playable;
+import caveExplorer.caveExplorer;
+
+public class EventMahinAndVeeraj implements Playable{
+
+	private static final String[] SEQUENCE_1 = {"Do you have a good memory?"};
+	private static final String[] SEQUENCE_2 = {"Either way, you're going to have to play this game to get past","You'll have to win to get the key"};
+	
+	public static void readSequence(String[] seq){
+		for(String s : seq){
+			caveExplorer.print(s);
+			caveExplorer.print("- - - press enter - - -");
+			caveExplorer.in.nextLine();
+		}
+	}
+	public void play() {
+	}
 
 	static String[][] letters;
 	static String[] objects = {"!", "@", "#", "$", "%", "^", "&", "*"};
@@ -68,5 +84,7 @@ public class EventMahinAndVeeraj {
 			System.out.println();
 		}
 	}
+
+
 
 }

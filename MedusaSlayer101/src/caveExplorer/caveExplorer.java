@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import caveExplorer.VictorAndGabriel.EventVictorAndGabriel;
 import caveExplorer.DanielAndJoyce.EventDanielAndJoyce;
+import caveExplorer.MahinAndVeeraj.EventMahinAndVeeraj;
 
 public class caveExplorer {
 
@@ -22,6 +23,7 @@ public class caveExplorer {
 	currentRoom = caves[1][2];
 	caves[3][2] = new EventRoom("Time to play Battleship!", new EventDanielAndJoyce()); 
 	caves[1][1] = new EventRoom("This is the Minesweeper Room.", new EventVictorAndGabriel());
+	caves[2][4] = new EventRoom("Get ready to test your memory!", new EventMahinAndVeeraj());
 	caves[1][3] = new EventRoom("This is where you found the map.", new GameStartEvent());
 	currentRoom.enter();
 	caves[1][2].setConnection(pd8CaveRoom.WEST, caves[1][1], new Door());

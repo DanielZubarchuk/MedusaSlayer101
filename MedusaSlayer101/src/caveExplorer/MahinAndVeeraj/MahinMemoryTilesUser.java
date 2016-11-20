@@ -20,9 +20,9 @@ public class MahinMemoryTilesUser {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("test");
-		formFields();
-		userPlay();
+//		System.out.println("test");
+//		formFields();
+//		userPlay();
 		//System.out.println("test");
 	}
 	
@@ -31,7 +31,7 @@ public class MahinMemoryTilesUser {
 		int userScore = 0;
 		//System.out.println("test");
 		//if i already pick for example (1,1), ai has to choose different row and column
-		while(EventMahinAndVeeraj.userTurn == true){
+		while(EventMahinAndVeeraj.userTurn){
 			System.out.println("Pick a row.");
 			//int rowPick = EventMahinAndVeeraj.input.nextInt();
 			rowPick = userChoiceRow.nextInt();
@@ -76,6 +76,7 @@ public class MahinMemoryTilesUser {
 			//
 			//turns = 0;
 		//}
+		System.out.println("hi");
 	}
 	
 	private static void formFields(){
