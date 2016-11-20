@@ -35,7 +35,7 @@ public class GabrielMinesweeperBoard {
         for(int row = 0; row < EventVictorAndGabriel.board.length; row++){
         	for(int col = 0; col < EventVictorAndGabriel.board[row].length; col ++){
         		int nearbyMines = 0;
-        		if(EventVictorAndGabriel.board[row][col] != -1 && row != firstRow && col != firstCol){ //checks through edges and diagonals
+        		if(EventVictorAndGabriel.board[row][col] != -1 && row != firstRow && col != firstCol){ //checks through all cells
         			if(row -1 >= 0 && EventVictorAndGabriel.board[row-1][col] == -1){
         				nearbyMines++;
         			}

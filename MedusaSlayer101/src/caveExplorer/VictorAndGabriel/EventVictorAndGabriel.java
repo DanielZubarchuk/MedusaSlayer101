@@ -27,7 +27,6 @@ public class EventVictorAndGabriel implements Playable{
 		
 	}
 	/** 
-	 	FOR GABRIEL HOHOHOHOHOHO 
 	 	
 	 	FINISH THE TEXT AFTER WINNING 
 	 	WE WILL LEAVE THE HELMET STUFF FOR TOMORROW WITH THE REST OF THE GROUP
