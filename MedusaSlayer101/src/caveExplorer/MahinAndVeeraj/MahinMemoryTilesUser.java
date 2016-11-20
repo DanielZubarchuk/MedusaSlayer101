@@ -12,14 +12,18 @@ public class MahinMemoryTilesUser {
 	private static Scanner userChoiceCol2;
 	private static int colPick;
 	private static int colPick2;
+	
+	static boolean valid = true;
 
 	public MahinMemoryTilesUser() {
 		
 	}
 
 	public static void main(String[] args) {
+		System.out.println("test");
 		formFields();
 		userPlay();
+		//System.out.println("test");
 	}
 	
 	public static void userPlay(){
@@ -41,27 +45,29 @@ public class MahinMemoryTilesUser {
 			
 			System.out.println("Pick another column.");
 			colPick2 = userChoiceCol2.nextInt();
-		}
+		
 			
 		//display the choice the user made
 		//make isValid for user input
-		EventMahinAndVeeraj.display[rowPick][colPick] = "|_" + EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] + "_";
-		EventMahinAndVeeraj.display[rowPick2][colPick2] = "|_" + EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1] + "_";
-		//printpic of display array
-		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
-			
-		if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] == EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
-			userScore++;
-		}
-			
-		if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] != EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
-			EventMahinAndVeeraj.display[rowPick][colPick] = "|___";
-			EventMahinAndVeeraj.display[rowPick2][colPick2] = "|___";
+		//if(EventMahinAndVeeraj.userTurn == true){
+			EventMahinAndVeeraj.display[rowPick][colPick] = "|_" + EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] + "_";
+			EventMahinAndVeeraj.display[rowPick2][colPick2] = "|_" + EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1] + "_";
+			//printpic of display array
 			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
-				
-			EventMahinAndVeeraj.userTurn = false;
-		}
 			
+			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] == EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
+				userScore++;
+			}
+			
+			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] != EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
+				EventMahinAndVeeraj.display[rowPick][colPick] = "|___";
+				EventMahinAndVeeraj.display[rowPick2][colPick2] = "|___";
+				EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
+				
+				EventMahinAndVeeraj.userTurn = false;
+			}
+		//}
+		}	
 
 		//EventMahinAndVeeraj.userTurn = false;
 		//if the second selection is same as the first selection, continue
@@ -77,6 +83,13 @@ public class MahinMemoryTilesUser {
 		userChoiceRow2 = new Scanner(System.in);
 		userChoiceCol = new Scanner(System.in);
 		userChoiceCol2 = new Scanner(System.in);
+	}
+	
+	private static void validInput(int userInput){
+		if(userInput <=0 || userInput >=5){
+			valid = false;
+			System.out.println("Enter a number from 1 to 4 only.");
+		}
 	}
 	
 	//public static void userTurnStatus(){
