@@ -12,11 +12,17 @@ public class DanielBattleCreate {
 	static int MISS = 0;
 	static int HIT = 1;
 	static int FIELDSIZE = 7;
+	private static String starterCoordinates;
 
 	public DanielBattleCreate() {
 		int[][] field = new int[FIELDSIZE][FIELDSIZE];
 		int[][] ships = new int[FIELDSIZE][FIELDSIZE];
 		
+		
+		//createStarterCoordinates(ships);
+		placeCarrier(ships);
+		placeBattleship(ships);
+		placeSubmarine(ships);
 		makeField(field);
 	}
 	
@@ -63,7 +69,59 @@ public class DanielBattleCreate {
 	}
 	
 	
-	public static void createShips(int[][] ships){
+	public static void placeCarrier(int[][] ships){
+		String[] carrier = new String[4];
 		
+		carrier[1] = (String) createStarterCoordinates(ships);
+		
+		for(int i = 1; i < carrier.length; i++){
+			
+		}
+		
+	}
+	
+	public static void placeBattleship(int[][] ships){
+		String[] battleship = new String[3];
+		
+		battleship[1] = (String) createStarterCoordinates(ships);
+		
+		for(int i = 1; i < battleship.length; i++){
+					
+		}
+		
+		
+		
+	}
+	
+	public static void placeSubmarine(int[][] ships){
+		String[] submarine = new String[2];
+		
+		submarine[1] = (String) createStarterCoordinates(ships);
+		
+		for(int i = 1; i < submarine.length; i++){
+			
+		}
+		
+		
+		
+	}
+	
+	public static void placeDestroyer(int[][] ships){
+		String[] destroyer = new String[1];
+		
+		destroyer[1] = (String) createStarterCoordinates(ships);
+		
+		
+	}
+	
+	
+	
+	private static Object createStarterCoordinates(int[][] ships){
+		//helper method
+		
+		int row = (int)(Math.random() * ships.length);
+		int col = (int)(Math.random() * ships[0].length);
+		
+		return starterCoordinates = "("+row+", "+col+")";
 	}
 }
