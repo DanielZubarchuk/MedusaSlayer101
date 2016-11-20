@@ -1,6 +1,8 @@
 package caveExplorer.VictorAndGabriel;
 
 public class VictorMinesweeperInterpreter{
+	public static boolean[][] alreadyChecked;
+	
 	public VictorMinesweeperInterpreter() {
 		
 	}
@@ -19,21 +21,20 @@ public class VictorMinesweeperInterpreter{
 		//	GabrielMinesweeperBoard.createBoard(row, col);
 			EventVictorAndGabriel.firstTurn = false;
 		}
+		alreadyChecked = new boolean[8][8];
 		checkNeighbors(row, col,board);
 	}
 
 	private static void checkNeighbors(int row, int col, int[][] board) {
-		if(row >= 0 && row <= board.length && col >= 0 && col <= board[row].length){
+		if(row >= 0 && row <= board.length - 1 && col >= 0 && col <= board[row].length - 1 && alreadyChecked[row][col] == false){
+			alreadyChecked[row][col] = true;
 			if(board[row][col] == 0){
 				EventVictorAndGabriel.playerBoard[row][col] = board[row][col] + "";
 				checkNeighbors(row + 1, col, board);
 				checkNeighbors(row - 1, col, board);
 				checkNeighbors(row, col + 1, board);
 				checkNeighbors(row, col - 1, board);
-			}else{
-				if(board[row][col] > 0){
-					EventVictorAndGabriel.playerBoard[row][col] = board[row][col] + "";
-				}
+				return;
 			}
 		}else{
 			return;
@@ -43,12 +44,13 @@ public class VictorMinesweeperInterpreter{
 	public static boolean win(String[][] playerBoard, int[][] board) {
 		for(int row = 0; row < playerBoard.length; row++){
 			for(int col = 0; col < playerBoard[row].length; col++){
+				String intString = Integer.toString(board[row][col]);
 				if(board[row][col] == -1){
 					if(!playerBoard[row][col].equals("X")){
 						return false;
 					}
 				}else{
-					if(playerBoard[row][col].equals(board[row][col] + "")){
+					if(!playerBoard[row][col].equals(intString)){
 						return false;
 					}
 				}

@@ -3,7 +3,9 @@ package caveExplorer.VictorAndGabriel;
 import java.util.Random;
 
 public class GabrielMinesweeperBoard {
-
+	// you don't need mineBoard
+	// use the board in EventVictorAndGabriel
+	// it is EventVictorAndGabriel.board 
 	public int[][] mineBoard;
     Random random = new Random();
     
@@ -18,6 +20,9 @@ public class GabrielMinesweeperBoard {
          placeNumbers();
     }
    
+    // you dont need to set all the cells of the board to 0
+    // when you create an int array
+    // they are already set to 0
     public void initiateBoard(){
     	//method first sets all cells of the board to 0
     	for(int i=0 ; i<mineBoard.length ; i++)
