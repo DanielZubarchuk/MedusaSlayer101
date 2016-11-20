@@ -63,6 +63,9 @@ public class EventVictorAndGabriel implements Playable{
 		int colChoice = 0;
 		String flagToggle = "";
 		firstTurn = true;
+		
+		// 2x2 array for testing purposes
+		// change back to 8x8 or allow user to choose size of board
 		playerBoard = new String[2][2];
 		board = new int[2][2];
 		board[0][0] = -1;

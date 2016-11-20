@@ -17,7 +17,7 @@ public class VictorMinesweeperInterpreter{
 			return;
 		}
 		if(EventVictorAndGabriel.firstTurn == true){
-			EventVictorAndGabriel.board[row][col] = 0;	// first click is always 0/blank
+			EventVictorAndGabriel.board[row][col] = 0;	// first click is always blank
 		//	GabrielMinesweeperBoard.createBoard(row, col);
 			EventVictorAndGabriel.firstTurn = false;
 		}
