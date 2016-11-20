@@ -25,22 +25,14 @@ public class EventVictorAndGabriel implements Playable{
 	
 	public EventVictorAndGabriel() {
 		
-		
 	}
 	/** 
 	 	FOR GABRIEL HOHOHOHOHOHO 
 	 	
 	 	FINISH THE TEXT AFTER WINNING 
 	 	WE WILL LEAVE THE HELMET STUFF FOR TOMORROW WITH THE REST OF THE GROUP
-	 	
-		THE BACKEND BOARD SHOULD:
-		-USE -1 FOR MINES
-		-USE 0 FOR BLANKS
 		
 		THE FRONTEND BOARD:
-		- IS A STRING[][]
-		-USES X FOR SUPPOSED MINE
-		- USE BLANK FOR THE HIDDEN CELLS
 		- SHOULD HAVE THE ROW/COL NUMBERS AROUND THE BOARD
 		- THESE LABELS ARE JUST PRINTS. NOT PART OF THE ARRAY
 		
@@ -53,34 +45,20 @@ public class EventVictorAndGabriel implements Playable{
 		YOUR CREATEBOARD METHOD WILL CREATE THE REST OF THE BOARD BASED ON THE FIRST INPUT OF THE USER
 		ROW AND COL PARAMETERS ARE JUST INT
 		
-		WHEN YOU HAVE MADE THE CREATEBOARD METHOD, LET ME KNOW. 
-		I WILL UNCOMMENT MY FUNCTION CALL : GabrielMinesweeperBoard.createBoard(row, col);
-		BECAUSE RIGHT NOW THERE WOULD BE AN ERROR SINCE YOU HAVEN'T CREATED IT YET
-	
 	**/
 	public void play() {
 		int rowChoice = 0;
 		int colChoice = 0;
 		String flagToggle = "";
 		firstTurn = true;
-		
-		// 2x2 array for testing purposes
-		// change back to 8x8 or allow user to choose size of board
-		// this board itself breaks the rules of minesweeper since they technically cant be a blank
-		// the board itself is too small
-		// just for testing purposes though
-		// the board needs to be exactly the same to win
-		// this means that the user will have to flag every mine
 		playerBoard = new String[8][8];
 		board = new int[8][8];
 		
-		// playerboard starts as blank
 		for(int row = 0; row < playerBoard.length; row++){
 			for(int col = 0; col < playerBoard[row].length; col++){
 				playerBoard[row][col] = " ";
 			}
 		}
-		
 		
 		readSequence(SEQUENCE_1);
 		System.out.println("Win and you shall receive a helmet of invisibility. \n- - - press enter - - - ");

@@ -18,7 +18,7 @@ public class VictorMinesweeperInterpreter{
 		}
 		if(EventVictorAndGabriel.firstTurn == true){
 			EventVictorAndGabriel.board[row][col] = 0;	// first click is always blank
-		//	GabrielMinesweeperBoard.createBoard(row, col);
+			GabrielMinesweeperBoard.createBoard(row, col);
 			EventVictorAndGabriel.firstTurn = false;
 		}
 		alreadyChecked = new boolean[8][8];
