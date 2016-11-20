@@ -17,7 +17,7 @@ public class VictorMinesweeperInterpreter{
 			return;
 		}
 		if(EventVictorAndGabriel.firstTurn == true){
-			EventVictorAndGabriel.playerBoard[row][col] = 0 + "";	// first click is always blank
+			EventVictorAndGabriel.board[row][col] = 0;	// first click is always blank
 		//	GabrielMinesweeperBoard.createBoard(row, col);
 			EventVictorAndGabriel.firstTurn = false;
 		}
@@ -25,7 +25,7 @@ public class VictorMinesweeperInterpreter{
 		checkNeighbors(row, col,board);
 	}
 
-	private static void checkNeighbors(int row, int col, int[][] board) {
+	public static void checkNeighbors(int row, int col, int[][] board) {
 		if(row >= 0 && row <= board.length - 1 && col >= 0 && col <= board[row].length - 1 && alreadyChecked[row][col] == false){
 			alreadyChecked[row][col] = true;
 			if(board[row][col] == 0){
@@ -35,6 +35,8 @@ public class VictorMinesweeperInterpreter{
 				checkNeighbors(row, col + 1, board);
 				checkNeighbors(row, col - 1, board);
 				return;
+			}else{
+				EventVictorAndGabriel.playerBoard[row][col] = board[row][col] + "";
 			}
 		}else{
 			return;

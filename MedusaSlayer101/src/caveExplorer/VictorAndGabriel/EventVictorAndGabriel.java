@@ -63,9 +63,12 @@ public class EventVictorAndGabriel implements Playable{
 		int colChoice = 0;
 		String flagToggle = "";
 		firstTurn = true;
-		playerBoard = new String[8][8];
-		board = new int[8][8];
-		board[0][0] = 1;
+		playerBoard = new String[2][2];
+		board = new int[2][2];
+		board[0][0] = -1;
+		board[0][1] = 1;
+		board[1][0] = 1;
+		board[1][1] = 1;
 		
 		// playerboard starts as blank
 		for(int row = 0; row < playerBoard.length; row++){
@@ -109,7 +112,7 @@ public class EventVictorAndGabriel implements Playable{
 				System.out.println("This is not an integer");
 			}
 			
-			if(VictorMinesweeperInterpreter.checkMine(rowChoice, colChoice, board) == true){
+			if(VictorMinesweeperInterpreter.checkMine(rowChoice, colChoice, board) == true && flag == false){
 				System.out.println("You hit a mine! Game Over!");
 				return;
 			}else{
@@ -127,7 +130,6 @@ public class EventVictorAndGabriel implements Playable{
 	public static void printBoard(String[][] board){
 		for(int row = 0; row < board.length; row++){
 			for(int col = 0; col < board[row].length; col++){
-				board[row][col] = " ";
 				System.out.print("  " + board[row][col]);
 			}
 			System.out.println("\n");
