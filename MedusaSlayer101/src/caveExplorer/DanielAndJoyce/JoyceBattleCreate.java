@@ -18,17 +18,15 @@ import caveExplorer.DanielAndJoyce.*;
 
 public class JoyceBattleCreate {
 	
-	/*public static ShipJAndD pAircraft;
-	public static ShipJAndD pBattleship;
-	public static ShipJAndD pSubmarine;
-	public static ShipJAndD pDestroyer;*/
-	pAircraft = new ShipJAndD("Aircraft Carrier", 4); 
-	pBattleship = new ShipJAndD("Battleship", 3);
-	pSubmarine = new ShipJAndD("Submarine", 2);
-	pDestroyer = new ShipJAndD("Destroyer", 1);
+	/*ShipJAndD pAircraft = new ShipJAndD("Aircraft Carrier", 4); 
+	ShipJAndD pBattleship = new ShipJAndD("Battleship", 3);
+	ShipJAndD pSubmarine = new ShipJAndD("Submarine", 2);
+	ShipJAndD pDestroyer = new ShipJAndD("Destroyer", 1);*/
+	
 	Scanner input = new Scanner(System.in);
 	String[] ships = {"Destroyer", "Submarine", "Battleship", "Aircraft Carrier"};// 1, 2, 3, 4
- 
+	//ships = {pAircraft, pBattleship, pSubmarine, pDestroyer};
+	
 	static int FIELD_SIZE = 7;
 	static int SHIP_NUM = 4;
 	static int CLEAN = -1;
@@ -94,16 +92,27 @@ public class JoyceBattleCreate {
 			int rowBeginShip = input.nextInt();
 			System.out.println("What COLUMN would you like the beginning of your " + currentShip + " to be placed?");
 			int colBeginShip = input.nextInt();
-			String orientationOptions = orientShip(rowBeginShip, colBeginShip, currentShip);
+			String[] orientationOptions = orientShip(rowBeginShip, colBeginShip, currentShip);
+			String choices = "";
+			for (int k = 0; k < orientationOptions.length; i++){
+				
+				if (orientationOptions[k] != null) choices += orientationOptions[k] + "or ";
+			}
+			System.out.println("You can orient your " + currentShip + " to the " + choices + ". How do you want it?");
+			String pChoice = input.nextLine();
 			
 			
 			//put on field
 			SHIP_NUM--;
 		}	
 	}
-	private String orientShip(int row, int col, String cShip) {
-		//if (row < (FIELD_SIZE - )) minus current ship's length ~ take from ship class
-		return null;
+	private String[] orientShip(int row, int col, String cShip) {
+		String[] poss = {"Top", "Right", "Bottom", "Left"};
+		if (row < cShip.length()) poss[0] = null;
+		if (col > (FIELD_SIZE - cShip.length())) poss[1] = null;
+		if (row > (FIELD_SIZE - cShip.length())) poss[2] = null;
+		if (col < cShip.length()) poss[3] = null;
+		return poss;
 	}
 
 	public void createField(){
