@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class MahinMemoryTilesUser {
 	
+	private static Scanner userIn;
+	
 	private static Scanner userChoiceRow;
 	private static Scanner userChoiceRow2;
 	private static int rowPick;
@@ -13,7 +15,7 @@ public class MahinMemoryTilesUser {
 	private static int colPick;
 	private static int colPick2;
 	
-	static boolean valid = true;
+	//static boolean valid = true;
 
 	public MahinMemoryTilesUser() {
 		
@@ -31,7 +33,7 @@ public class MahinMemoryTilesUser {
 		int userScore = 0;
 		//System.out.println("test");
 		//if i already pick for example (1,1), ai has to choose different row and column
-		while(EventMahinAndVeeraj.userTurn == true){
+		
 			System.out.println("Pick a row.");
 			//int rowPick = EventMahinAndVeeraj.input.nextInt();
 			rowPick = userChoiceRow.nextInt();
@@ -67,7 +69,7 @@ public class MahinMemoryTilesUser {
 				EventMahinAndVeeraj.userTurn = false;
 			}
 		//}
-		}	
+		
 
 		//EventMahinAndVeeraj.userTurn = false;
 		//if the second selection is same as the first selection, continue
@@ -85,11 +87,77 @@ public class MahinMemoryTilesUser {
 		userChoiceCol2 = new Scanner(System.in);
 	}
 	
-	private static void validInput(int userInput){
-		if(userInput <=0 || userInput >=5){
-			valid = false;
-			System.out.println("Enter a number from 1 to 4 only.");
+	private static boolean validInput(int userInput){
+		boolean valid = false;
+		if(userInput >=1 && userInput <= 4){
+			valid = true;
 		}
+		return valid;
+	}
+	
+	private static int ask(){
+		int userInput = userIn.nextInt();
+		return userInput;
+	}
+	
+	private int enterValidRow(){
+		boolean waitingForInput = true;
+		System.out.println("Pick a row.");
+		rowPick = ask();
+		while(waitingForInput){
+			if(!validInput(rowPick)){
+				System.out.println("Enter a number from 1 to 4 only.");
+				rowPick = ask();
+			}else{
+				waitingForInput = false;
+			}
+		}
+		return rowPick;
+	}
+	
+	private int enterValidRow2(){
+		boolean waitingForInput = true;
+		System.out.println("Pick another row.");
+		rowPick2 = ask();
+		while(waitingForInput){
+			if(!validInput(rowPick2)){
+				System.out.println("Enter a number from 1 to 4 only.");
+				rowPick2 = ask();
+			}else{
+				waitingForInput = false;
+			}
+		}
+		return rowPick2;
+	}
+	
+	private int enterValidColumn(){
+		boolean waitingForInput = true;
+		System.out.println("Pick a column.");
+		colPick = ask();
+		while(waitingForInput){
+			if(!validInput(colPick)){
+				System.out.println("Enter a number from 1 to 4 only.");
+				colPick = ask();
+			}else{
+				waitingForInput = false;
+			}
+		}
+		return colPick;
+	}
+	
+	private int enterValidColumn2(){
+		boolean waitingForInput = true;
+		System.out.println("Pick another column.");
+		colPick2 = ask();
+		while(waitingForInput){
+			if(!validInput(colPick2)){
+				System.out.println("Enter a number from 1 to 4 only.");
+				colPick2 = ask();
+			}else{
+				waitingForInput = false;
+			}
+		}
+		return colPick2;
 	}
 	
 	//public static void userTurnStatus(){
