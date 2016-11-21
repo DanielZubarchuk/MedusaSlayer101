@@ -70,7 +70,7 @@ public class EventVictorAndGabriel implements Playable{
 			printBoard(playerBoard);
 			boolean flag = false;
 			
-			input.nextLine();
+			input.nextLine(); // clears the nextline
 			System.out.println("Would you like to flag?");
 			flagToggle = input.nextLine();
 			
