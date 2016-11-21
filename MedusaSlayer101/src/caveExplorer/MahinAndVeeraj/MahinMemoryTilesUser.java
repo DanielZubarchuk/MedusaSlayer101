@@ -16,9 +16,6 @@ public class MahinMemoryTilesUser {
 	private static int colPick2;
 	public static int userScore;
 
-	
-	//static boolean valid = true;
-	//
 
 	public MahinMemoryTilesUser() {
 		
@@ -29,65 +26,68 @@ public class MahinMemoryTilesUser {
 	
 	public static void userPlay(){
 		userScore = 0;
-		//boolean turnFinished = false;
+		
 		userChoiceRow = new Scanner(System.in);
 		userChoiceRow2 = new Scanner(System.in);
 		userChoiceCol = new Scanner(System.in);
 		userChoiceCol2 = new Scanner(System.in);
 	
-		//System.out.println("test");
 		//if i already pick for example (1,1), ai has to choose different row and column
 		while(true){
-		System.out.println("Pick a row.");
-		/*while(rowPick <= 0 || rowPick >= 5){
-			System.out.println("Pick a valid row.");
+			System.out.println("Pick a row.");
 			rowPick = userChoiceRow.nextInt();
-		}*/
-		rowPick = userChoiceRow.nextInt();
-		System.out.println("Pick a column");//
-		/*while(colPick <= 0 || rowPick >= 5){
-			System.out.println("Pick a valid column.");
+			/*while(rowPick <= 0 || rowPick >= 5){
+				System.out.println("Pick a valid row.");
+				rowPick = userChoiceRow.nextInt();
+			}*/
+		
+			System.out.println("Pick a column");//
 			colPick = userChoiceCol.nextInt();
-		}*/
-		colPick = userChoiceCol.nextInt();
-		EventMahinAndVeeraj.display[rowPick][colPick] = "|_" + EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] + "_";
-		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
+			/*while(colPick <= 0 || rowPick >= 5){
+				System.out.println("Pick a valid column.");
+				colPick = userChoiceCol.nextInt();
+			}*/
 		
-		System.out.println("Pick another row.");
-		/*while(rowPick2 <= 0 || rowPick2 >= 5){
-			System.out.println("Pick another valid row.");
+			EventMahinAndVeeraj.display[rowPick][colPick] = "|_" + EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] + "_";
+			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
+		
+			System.out.println("Pick another row.");
 			rowPick2 = userChoiceRow2.nextInt();
-		}*/
-		rowPick2 = userChoiceRow2.nextInt();
-		System.out.println("Pick another column.");
-		/*while(colPick2 <= 0 || rowPick2 >= 5){
-			System.out.println("Pick another valid column.");
-			colPick2 = userChoiceCol2.nextInt();
-		}*/
-		colPick2 = userChoiceCol2.nextInt(); //
-		EventMahinAndVeeraj.display[rowPick2][colPick2] = "|_" + EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1] + "_";
-		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
+			/*while(rowPick2 <= 0 || rowPick2 >= 5){
+				System.out.println("Pick another valid row.");
+				rowPick2 = userChoiceRow2.nextInt();
+			}*/
 		
-		if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] == EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
+			System.out.println("Pick another column.");
+			colPick2 = userChoiceCol2.nextInt(); //
+			/*while(colPick2 <= 0 || rowPick2 >= 5){
+				System.out.println("Pick another valid column.");
+				colPick2 = userChoiceCol2.nextInt();
+			}*/
+		
+			EventMahinAndVeeraj.display[rowPick2][colPick2] = "|_" + EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1] + "_";
+			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
+		
+			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] == EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
 				userScore++;
 				System.out.println("Player Score: " + userScore);
-		}
+			}
 		
 		//
-		if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] != EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
-			EventMahinAndVeeraj.display[rowPick][colPick] = "|___";
-			EventMahinAndVeeraj.display[rowPick2][colPick2] = "|___";
-			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
+			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] != EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
+				EventMahinAndVeeraj.display[rowPick][colPick] = "|___";
+				EventMahinAndVeeraj.display[rowPick2][colPick2] = "|___";
+				EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
 				
-			System.out.println("You lost your turn!");
-			System.out.println("Player Score: " + userScore);
-			/*rowPick = 0;
-			rowPick2 = 0;
-			colPick = 0;
-			colPick2 = 0;*/
-			VeerajMemoryTilesAI.computerPlay();
-			break;
-		}
+				System.out.println("You lost your turn!");
+				System.out.println("Player Score: " + userScore);
+				/*rowPick = 0;
+				rowPick2 = 0;
+				colPick = 0;
+				colPick2 = 0;*/
+				VeerajMemoryTilesAI.computerPlay();
+				break;
+			}
 		}
 	}
 	
