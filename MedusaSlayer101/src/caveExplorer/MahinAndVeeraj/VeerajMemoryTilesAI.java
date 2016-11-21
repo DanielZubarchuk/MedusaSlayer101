@@ -10,7 +10,7 @@ public class VeerajMemoryTilesAI {
 
 	public static void computerPlay(){
 		int computerScore = 0;
-		while(!EventMahinAndVeeraj.userTurn){
+		while(true){
 			int row = (int)(Math.random() * 4);
 			int col = (int)(Math.random() * 4);
 		
@@ -36,6 +36,7 @@ public class VeerajMemoryTilesAI {
 			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
 			System.out.println("Computer Score: " + computerScore);
 			MahinMemoryTilesUser.userPlay();
+			break;
 		}
 		}
 	}
