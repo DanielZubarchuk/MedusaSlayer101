@@ -42,11 +42,6 @@ public class JoyceBattleCreate {
 
 	public JoyceBattleCreate(){
 		
-		/*pField = new int[FIELD_SIZE][FIELD_SIZE];
-		pShips = new int[FIELD_SIZE][FIELD_SIZE];
-		initializeField(pField);
-		makeField(pField);*/
-		
 	}
 	
 	public static void initializeField(int[][] field){
@@ -97,7 +92,6 @@ public class JoyceBattleCreate {
 		pShips = new int[FIELD_SIZE][FIELD_SIZE];
 		initializeField(pField);
 		initializeField(pShips);
-		//makeField(pField);
 		makeField();
 		
 		System.out.println("You have 4 ships in your inventory. You have an Aircraft Carrier, a Battleship, a Submarine"
@@ -201,7 +195,7 @@ public class JoyceBattleCreate {
 		}
 
 	private static void changeOrientation(int s, String ship, String choice, int row, int col) {
-		char shipLetter = ship.charAt(0);//int shipLetter = 0;
+		char shipLetter = ship.charAt(0);
 		pShips[row][col] = shipLetter;
 		pField[row][col] = OCCUPIED;
 		for (int i = 0; i < s-1; i++){
@@ -251,7 +245,6 @@ public class JoyceBattleCreate {
 			pField[row][col] = HIT;
 			hitOrMiss = " hit a target.";
 		}
-		//makeField(pShips);
 		makeField();
 		System.out.println("The AI has chosen to fire at (" + (row+1) + ", " + (col+1) + "). It has " + hitOrMiss + " Your turn!" );
 	}
