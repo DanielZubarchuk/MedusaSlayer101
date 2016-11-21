@@ -18,7 +18,11 @@ public class EventDanielAndJoyce implements Playable{
 		readSequence(SEQUENCE_2);
 		
 		JoyceBattleCreate.initializeField(JoyceBattleCreate.pField);
-		JoyceBattleCreate.makeField(JoyceBattleCreate.pField);
+		JoyceBattleCreate.makeField();
+		DanielBattleCreate.backField(DanielBattleCreate.field);
+		DanielBattleCreate.makeField(DanielBattleCreate.backField());
+		JoyceBattleCreate.userField();
+		
 		
 		
 		//JoyceBattleCreate.userField();
