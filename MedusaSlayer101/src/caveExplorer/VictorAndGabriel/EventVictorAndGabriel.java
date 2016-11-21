@@ -122,13 +122,27 @@ public class EventVictorAndGabriel implements Playable{
 		}
 		
 	}
-	public static void printBoard(String[][] board){ //in-game
+	public static void printBoard(String[][] board){//in-game
+		System.out.print("\n");
+		System.out.print("Row         ");
+		System.out.print("\n");
+		System.out.print("\n");
 		for(int row = 0; row < board.length; row++){
+			System.out.print(row +"    ");
 			for(int col = 0; col < board[row].length; col++){
 				System.out.print("  " + board[row][col]);
 			}
 			System.out.println("\n");
 		}
+		System.out.print("\n");
+		System.out.print("     ");
+		for(int row = 0; row < board.length; row++){
+			System.out.print("  "+row);
+		}
+		System.out.print("\n");
+		System.out.print("               Column");
+		System.out.print("\n");
+		System.out.print("\n");
 	}
 	
 	public static void readSequence(String[] seq){

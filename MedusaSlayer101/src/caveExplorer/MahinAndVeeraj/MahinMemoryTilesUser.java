@@ -33,9 +33,7 @@ public class MahinMemoryTilesUser {
 		userChoiceCol2 = new Scanner(System.in);
 		//System.out.println("test");
 		//if i already pick for example (1,1), ai has to choose different row and column
-		
-		
-		
+		while(true){
 		System.out.println("Pick a row.");
 		/*while(rowPick <= 0 || rowPick >= 5){
 			System.out.println("Pick a valid row.");
@@ -65,9 +63,10 @@ public class MahinMemoryTilesUser {
 		colPick2 = userChoiceCol2.nextInt(); //
 		EventMahinAndVeeraj.display[rowPick2][colPick2] = "|_" + EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1] + "_";
 		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
-
+		
 		if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] == EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
 				userScore++;
+				System.out.println("Player Score: " + userScore);
 		}
 		//
 		//
@@ -79,9 +78,11 @@ public class MahinMemoryTilesUser {
 			System.out.println("You lost your turn!");
 			System.out.println("Player Score: " + userScore);
 			VeerajMemoryTilesAI.computerPlay();
+			break;
 		}
-		
+		}
 	}
+	
 	
 	private static boolean validInput(int userInput){
 		boolean valid = false;
