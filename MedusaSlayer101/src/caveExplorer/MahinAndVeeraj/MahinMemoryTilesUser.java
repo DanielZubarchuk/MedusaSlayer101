@@ -35,40 +35,40 @@ public class MahinMemoryTilesUser {
 	
 		//if i already pick for example (1,1), ai has to choose different row and column
 		while(true){
-			System.out.println("Pick a row.");
-			rowPick = userChoiceRow.nextInt();
+			//System.out.println("Pick a row.");
+			//rowPick = userChoiceRow.nextInt();
 			/*while(rowPick <= 0 || rowPick >= 5){
 				System.out.println("Pick a valid row.");
 				rowPick = userChoiceRow.nextInt();
 			}*/
-			//rowPick = enterValidRow();
+			rowPick = enterValidRow();
 		
-			System.out.println("Pick a column");//
-			colPick = userChoiceCol.nextInt();
+			//System.out.println("Pick a column");//
+			//colPick = userChoiceCol.nextInt();
 			/*while(colPick <= 0 || rowPick >= 5){
 				System.out.println("Pick a valid column.");
 				colPick = userChoiceCol.nextInt();
 			}*/
-			//colPick = enterValidColumn();
+			colPick = enterValidColumn();
 		
 			EventMahinAndVeeraj.display[rowPick][colPick] = "|_" + EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] + "_";
 			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
 		
-			System.out.println("Pick another row.");
-			rowPick2 = userChoiceRow2.nextInt();
+			//System.out.println("Pick another row.");
+			//rowPick2 = userChoiceRow2.nextInt();
 			/*while(rowPick2 <= 0 || rowPick2 >= 5){
 				System.out.println("Pick another valid row.");
 				rowPick2 = userChoiceRow2.nextInt();
 			}*/
-			//rowPick2 = enterValidRow2();
+			rowPick2 = enterValidRow2();
 		
-			System.out.println("Pick another column.");
-			colPick2 = userChoiceCol2.nextInt(); //
+			//System.out.println("Pick another column.");
+			//colPick2 = userChoiceCol2.nextInt(); //
 			/*while(colPick2 <= 0 || rowPick2 >= 5){
 				System.out.println("Pick another valid column.");
 				colPick2 = userChoiceCol2.nextInt();
 			}*/
-			//colPick2 = enterValidColumn2();
+			colPick2 = enterValidColumn2();
 		
 			EventMahinAndVeeraj.display[rowPick2][colPick2] = "|_" + EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1] + "_";
 			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
