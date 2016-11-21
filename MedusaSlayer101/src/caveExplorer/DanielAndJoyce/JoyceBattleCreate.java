@@ -255,4 +255,20 @@ public class JoyceBattleCreate {
 		makeField();
 		System.out.println("The AI has chosen to fire at (" + (row+1) + ", " + (col+1) + "). It has " + hitOrMiss + " Your turn!" );
 	}
+	
+	public static boolean checkWin(){
+		boolean win = false;
+		for (int i = 0; i < pShips.length; i++){
+			for (int j = 0; j < pShips[0].length; j++){
+				if (pShips[i][j] != CLEAN){
+					if (pField[i][j] != HIT){
+						win = false;
+						return win;
+					}
+				}
+			}
+		}
+		win = true;
+		return win;
+	}
 }
