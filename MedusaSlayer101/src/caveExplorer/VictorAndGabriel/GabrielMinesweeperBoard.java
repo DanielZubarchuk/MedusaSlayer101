@@ -17,7 +17,7 @@ public class GabrielMinesweeperBoard {
     public static void randomlyPlaceMines(int row, int col){
     	//method places mines randomly on board.
     	//mines marked with -1
-    	/**int minesPlaced = 0;
+    	int minesPlaced = 0;
             while(minesPlaced < 10){
                 int randomRow = (int) (Math.random()*8);
                 int randomCol = (int) (Math.random()*8);
@@ -26,13 +26,38 @@ public class GabrielMinesweeperBoard {
                 	minesPlaced--;
             	}
                 else{
+                	if(randomRow -1 >= 0 && EventVictorAndGabriel.board[randomRow-1][randomCol] != -1){
+                		EventVictorAndGabriel.board[randomRow-1][randomCol]++;
+                	}
+                	if(randomRow +1 <= EventVictorAndGabriel.board.length-1 && EventVictorAndGabriel.board[randomRow+1][randomCol] != -1){
+                		EventVictorAndGabriel.board[randomRow+1][randomCol]++;
+                	}
+                	if(randomCol -1 >= 0 && EventVictorAndGabriel.board[randomRow][randomCol-1] != -1){
+                		EventVictorAndGabriel.board[randomRow][randomCol-1]++;
+                	}
+                	if(randomCol +1 <= EventVictorAndGabriel.board[randomRow].length-1 && EventVictorAndGabriel.board[randomRow][randomCol+1] != -1){
+                		EventVictorAndGabriel.board[randomRow][randomCol+1]++;
+                	}
+                	if(randomRow -1 >= 0 && randomCol -1 >=0 && EventVictorAndGabriel.board[randomRow-1][randomCol-1] != -1){
+                		EventVictorAndGabriel.board[randomRow-1][randomCol-1]++;
+                	}
+                	if(randomRow -1 >= 0 && randomCol +1 <= EventVictorAndGabriel.board[randomRow].length-1 && EventVictorAndGabriel.board[randomRow-1][randomCol+1] != -1){
+                		EventVictorAndGabriel.board[randomRow-1][randomCol+1]++;
+                	}
+                	if(randomRow +1 <= EventVictorAndGabriel.board.length-1 && randomCol -1 >=0 
+                		&& EventVictorAndGabriel.board[randomRow+1][randomCol-1] != -1){
+                		EventVictorAndGabriel.board[randomRow+1][randomCol-1]++;
+                	}
+                	if(randomRow +1  <= EventVictorAndGabriel.board.length-1 && randomCol +1 <= EventVictorAndGabriel.board[randomRow].length-1
+                	   && EventVictorAndGabriel.board[randomRow+1][randomCol+1] != -1){
+                		EventVictorAndGabriel.board[randomRow+1][randomCol+1]++;
+                	}
                 	minesPlaced++;
                 }
             }
-         **/
-    	EventVictorAndGabriel.board[3][6]=-1;
+            EventVictorAndGabriel.board[row][col] =0;
     }
-    
+    /**
     public static void placeNumbers(int firstRow, int firstCol){
         for(int row = 0; row < EventVictorAndGabriel.board.length; row++){
         	for(int col = 0; col < EventVictorAndGabriel.board[row].length; col ++){
@@ -68,6 +93,7 @@ public class GabrielMinesweeperBoard {
         	
         }
     }
+    **/
    
 }
 
