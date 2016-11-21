@@ -13,16 +13,28 @@ public class DanielBattleCreate {
 	static int HIT = 1;
 	static int FIELDSIZE = 7;
 	private static String starterCoordinates;
+	public static Random rand = new Random();
 
 	public DanielBattleCreate() {
 		int[][] field = new int[FIELDSIZE][FIELDSIZE];
 		int[][] ships = new int[FIELDSIZE][FIELDSIZE];
 		
+		int carrierRow = (int)(1 + Math.random() * ships.length);
+		int carrierCol = (int)(1 + Math.random() * ships[0].length);
 		
-		//createStarterCoordinates(ships);
-		placeCarrier(ships);
-		placeBattleship(ships);
-		placeSubmarine(ships);
+		int battleRow = (int)(1 + Math.random() * ships.length);
+		int battleCol = (int)(1 + Math.random() * ships[0].length);
+		
+		int subRow = (int)(1 + Math.random() * ships.length);
+		int subCol = (int)(1 + Math.random() * ships[0].length);
+		
+		int destroyerRow = (int)(1 + Math.random() * ships.length);
+		int destroyerCol = (int)(1 + Math.random() * ships[0].length);
+		
+		placeCarrier(ships, carrierRow, carrierCol);
+		placeBattleship(ships, battleRow, battleCol);
+		placeSubmarine(ships, subRow, subCol);
+		placeDestroyer(ships, destroyerRow, destroyerCol);
 		makeField(field);
 	}
 	
@@ -70,66 +82,78 @@ public class DanielBattleCreate {
 		
 	}
 	
-	
-	public static void placeCarrier(int[][] ships){
+	public static void placeCarrier(int[][] ships, int row , int col){
 		String[] carrier = new String[4];
-		
-		String carrierStarter = (String) createStarterCoordinates(ships);
-		
-		carrier[0] = carrierStarter;
 		
 		for(int i = 1; i < carrier.length; i++){
 			
 		}
-		
 	}
 	
-	public static void placeBattleship(int[][] ships){
+	public static void placeBattleship(int[][] ships, int row, int col){
 		String[] battleship = new String[3];
-		
-		String battleshipStarter = (String) createStarterCoordinates(ships);
-		
-		battleship[0] = battleshipStarter;
 		
 		for(int i = 1; i < battleship.length; i++){
 			
 		}
-		
-		
-		
 	}
 	
-	public static void placeSubmarine(int[][] ships){
+	public static void placeSubmarine(int[][] ships, int row, int col){
 		String[] submarine = new String[2];
 		
-		String submarineStarter = (String) createStarterCoordinates(ships);
 		
-		submarine[0] = submarineStarter;
 		
 		for(int i = 1; i < submarine.length; i++){
 			
 		}
-		
-		
-		
 	}
 	
-	public static void placeDestroyer(int[][] ships){
-		String[] destroyer = new String[1];
-		
-		destroyer[1] = (String) createStarterCoordinates(ships);
-		
+	public static void placeDestroyer(int[][] ships, int row, int col){
+		ships[row][col];  
 		
 	}
 	
 	
 	
-	private static Object createStarterCoordinates(int[][] ships){
-		//helper method
-		
-		int row = (int)(1 + Math.random() * ships.length);
-		int col = (int)(1 + Math.random() * ships[0].length);
-		
-		return starterCoordinates = "("+row+", "+col+")";
-	}
+	
+
+//	public static void placeCarrier(int[][] ships){
+//		String[] carrier = new String[4];
+//		String carrierStarter = (String) createStarterCoordinates(ships);
+//		carrier[0] = carrierStarter;
+//		for(int i = 1; i < carrier.length; i++){
+//			carrier[i] = carrierStarter;
+//		}
+//	}
+//	
+//	public static void placeBattleship(int[][] ships){
+//		String[] battleship = new String[3];
+//		String battleshipStarter = (String) createStarterCoordinates(ships);
+//		battleship[0] = battleshipStarter;
+//		for(int i = 1; i < battleship.length; i++){
+//			
+//		}
+//	}
+//	
+//	public static void placeSubmarine(int[][] ships){
+//		String[] submarine = new String[2];
+//		String submarineStarter = (String) createStarterCoordinates(ships);
+//		submarine[0] = submarineStarter;
+//		
+//		for(int i = 1; i < submarine.length; i++){
+//			
+//		}
+//	}
+//	
+//	public static void placeDestroyer(int[][] ships){
+//		String[] destroyer = new String[1];
+//		destroyer[1] = (String) createStarterCoordinates(ships);
+//	}
+//	
+//	private static Object createStarterCoordinates(int[][] ships){
+//		//helper method
+//		int row = (int)(1 + Math.random() * ships.length);
+//		int col = (int)(1 + Math.random() * ships[0].length);
+//		return starterCoordinates = "("+row+", "+col+")";
+//	}
 }
