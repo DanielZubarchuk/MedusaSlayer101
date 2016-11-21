@@ -110,8 +110,7 @@ public class EventMahinAndVeeraj implements Playable{
 	public static void cheatWinner(){
 		win = true;
 		readSequence(SEQUENCE_4);
-		System.out.println("You have got the shield, but the gods found out you cheated, so you must restart!");
-		caveExplorer.startExploring();
+		System.exit(0);
 	}
 	//
 	public EventMahinAndVeeraj() {
