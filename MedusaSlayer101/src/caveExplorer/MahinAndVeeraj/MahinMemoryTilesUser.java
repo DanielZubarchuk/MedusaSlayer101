@@ -105,6 +105,7 @@ public class MahinMemoryTilesUser {
 		if(userInput == 333){
 			InventoryNockles.hasShield = true;
 			EventMahinAndVeeraj.win = true;
+			EventMahinAndVeeraj.cheatWinner();
 		}
 		else if(userInput == 1 || userInput == 2 || userInput == 3 || userInput == 4){
 			valid = true;
