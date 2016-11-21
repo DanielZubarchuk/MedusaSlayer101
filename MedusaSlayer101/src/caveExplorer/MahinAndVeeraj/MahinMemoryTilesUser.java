@@ -17,6 +17,7 @@ public class MahinMemoryTilesUser {
 	public static int userScore;
 	
 	//static boolean valid = true;
+	//
 
 	public MahinMemoryTilesUser() {
 		

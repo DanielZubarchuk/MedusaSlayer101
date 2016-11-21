@@ -30,6 +30,7 @@ public class VeerajMemoryTilesAI {
 			computerScore ++;
 		}
 		//
+		//
 		if(EventMahinAndVeeraj.letters[row][col] != EventMahinAndVeeraj.letters[row2][col2]){
 			System.out.println("These are not equal");
 			EventMahinAndVeeraj.display[row+1][col+1] = "|___";
