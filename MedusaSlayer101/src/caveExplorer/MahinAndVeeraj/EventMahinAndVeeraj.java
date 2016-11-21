@@ -9,15 +9,22 @@ import caveExplorer.caveExplorer;
 public class EventMahinAndVeeraj implements Playable{
 
 	private static final String[] SEQUENCE_1 = {"Do you have a good memory?"};
-	private static final String[] SEQUENCE_2 = {"Either way, you're going to have to play this game to get past","You'll have to win to get the key"};
+	private static final String[] SEQUENCE_2 = {"Either way, you're going to have to play this game to get past this room","You'll have to"
+			+ " beat Medusa's sidekick at this memory game!"};
+	private static final String[] SEQUENCE_3 = {"Are you ready?", "GO!"};
+	private static final String[] SEQUENCE_4 = {"You defeated Medusa's sidekick!",
+			"Here, take this shield and proceed with your journey!"};
+	
+	public static Scanner in = new Scanner(System.in);
 	
 	public static void readSequence(String[] seq){
 		for(String s : seq){
 			caveExplorer.print(s);
 			caveExplorer.print("- - - press enter - - -");
-			caveExplorer.in.nextLine();
+			in.nextLine();
 		}
 	}
+	
 	public void play() {
 	}
 
@@ -39,6 +46,10 @@ public class EventMahinAndVeeraj implements Playable{
 		display = new String[5][5];
 		letters = new String[4][4];
 		blank = new String[4][4];
+		readSequence(SEQUENCE_1);
+		readSequence(SEQUENCE_2);
+		readSequence(SEQUENCE_3);
+		
 		for(int row = 0; row < display.length; row++){
 			for(int col = 0; col < display[row].length; col++){
 				display[row][col] = "|___";
@@ -68,10 +79,16 @@ public class EventMahinAndVeeraj implements Playable{
 		}
 		MahinMemoryTilesUser.userPlay();
 		
+		boolean win = true;
 		for(int row = 0; row < display.length; row++){
 			for(int col = 0; col < display[row].length; col++){
-				
+				if(display[row][col] == "|___"){
+					win = false;
+				}
 			}
+		}
+		if(win){
+			readSequence(SEQUENCE_4);
 		}
 	}
 	//
