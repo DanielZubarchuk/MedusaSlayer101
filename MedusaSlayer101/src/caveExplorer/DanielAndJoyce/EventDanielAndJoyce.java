@@ -4,9 +4,10 @@ import caveExplorer.*;
 
 public class EventDanielAndJoyce implements Playable{
 
-	private static final String[] SEQUENCE_1 = {""};
+	private static final String[] SEQUENCE_1 = {"I am Sergeant Dan and I am forcing you to fight the Romans."};
 	private static final String[] SEQUENCE_2 = {"You are going to have so much fun playing Battleship against the Romans."
-			+ ". Take this map."};
+			+ ". Welcome to the battlefield."};
+	private static final String[] SEQUENCE_3 = {"You have defeated the Romans. Take this sword to face your greatest foe. "};
 
 	public void play() {
 		readSequence(SEQUENCE_1);
