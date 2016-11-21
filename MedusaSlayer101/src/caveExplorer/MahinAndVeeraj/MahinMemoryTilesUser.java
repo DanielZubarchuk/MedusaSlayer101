@@ -40,7 +40,7 @@ public class MahinMemoryTilesUser {
 			rowPick = userChoiceRow.nextInt();
 		}*/
 		rowPick = userChoiceRow.nextInt();
-		System.out.println("Pick a column");
+		System.out.println("Pick a column");//
 		/*while(colPick <= 0 || rowPick >= 5){
 			System.out.println("Pick a valid column.");
 			colPick = userChoiceCol.nextInt();
