@@ -25,25 +25,7 @@ public class EventVictorAndGabriel implements Playable{
 	public EventVictorAndGabriel() {
 		
 	}
-	/** 
-	 	
-	 	FINISH THE TEXT AFTER WINNING 
-	 	WE WILL LEAVE THE HELMET STUFF FOR TOMORROW WITH THE REST OF THE GROUP
-		
-		THE FRONTEND BOARD:
-		- SHOULD HAVE THE ROW/COL NUMBERS AROUND THE BOARD
-		- THESE LABELS ARE JUST PRINTS. NOT PART OF THE ARRAY
-		
-		SCROLL DOWN FOR PRINT BOARD METHOD
-		I INSTANTIATED BOARD AND PLAYER BOARD IN THE PLAY() METHOD
-		BOARD[0][0] = 1 FOR NOW BECAUSE WE HAVE NOT MADE THE BACKEND BOARD YET
-		
-		RUN YOUR CODE AT:
-		MY CLASS AT GabrielMinesweeperBoard.createBoard(row, col); IN MY CODE
-		YOUR CREATEBOARD METHOD WILL CREATE THE REST OF THE BOARD BASED ON THE FIRST INPUT OF THE USER
-		ROW AND COL PARAMETERS ARE JUST INT
-		
-	**/
+	
 	public void play() {
 		InventoryNockles.hasHelmet = false;
 		int rowChoice = 0;
@@ -149,19 +131,20 @@ public class EventVictorAndGabriel implements Playable{
 	public static void printBoard(String[][] board){//in-game
 		System.out.print("\n");
 		System.out.print("Row         ");
-		System.out.print("\n");
+		//System.out.print("\n");
 		System.out.print("\n");
 		for(int row = 0; row < board.length; row++){
-			System.out.print(row +"    ");
+			System.out.print(row+"   |" +" ");
 			for(int col = 0; col < board[row].length; col++){
 				System.out.print("  " + board[row][col]);
 			}
-			System.out.println("\n");
+			System.out.println("\n" + "    |");
 		}
+		System.out.print("     "+"-------------------------");
 		System.out.print("\n");
-		System.out.print("     ");
-		for(int row = 0; row < board.length; row++){
-			System.out.print("  "+row);
+		System.out.print("      ");
+		for(int colNumb = 0; colNumb < board.length; colNumb++){
+			System.out.print("  "+colNumb);
 		}
 		System.out.print("\n");
 		System.out.print("               Column");

@@ -48,18 +48,18 @@ public class GabrielMinesweeperBoard {
 	public static int nearbyMines(int row, int col) {
 		int mines = 0;
 		
-	    mines += mineAt(row - 1, col - 1);  // NW
-	    mines += mineAt(row - 1, col);      // N
-	    mines += mineAt(row - 1, col + 1);  // NE
-	    mines += mineAt(row, col - 1);      // W
-	    mines += mineAt(row, col + 1);      // E
-	    mines += mineAt(row + 1, col - 1);  // SW
-	    mines += mineAt(row + 1, col);      // S
-	    mines += mineAt(row + 1, col + 1);  // SE
+	    mines += checkMineAt(row - 1, col - 1);  // NW
+	    mines += checkMineAt(row - 1, col);      // N
+	    mines += checkMineAt(row - 1, col + 1);  // NE
+	    mines += checkMineAt(row, col - 1);      // W
+	    mines += checkMineAt(row, col + 1);      // E
+	    mines += checkMineAt(row + 1, col - 1);  // SW
+	    mines += checkMineAt(row + 1, col);      // S
+	    mines += checkMineAt(row + 1, col + 1);  // SE
 		return mines;
 	}
 
-	private static int mineAt(int row, int col) {
+	private static int checkMineAt(int row, int col) {
 		if(row >= 0 && row < EventVictorAndGabriel.board.length && col >= 0 && col < EventVictorAndGabriel.board[row].length && 
 				EventVictorAndGabriel.board[row][col] == -1){
 			return 1;

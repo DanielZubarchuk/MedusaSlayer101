@@ -2,11 +2,9 @@ package caveExplorer;
 
 public class GameStartEvent implements Playable {
 
-	private static final String[] SEQUENCE_1 = {"<A little yellow mouse with brown "
-			+ "stripes and a lightening shaped tail runs up to you.>" + "Hi, I can see "
-					+ "you are not from around here.", "Do you like puzzles?"};
-	private static final String[] SEQUENCE_2 = {"You are going to have so much fun playing my 2-D games"
-			+ ". Take this map."};
+	private static final String[] SEQUENCE_1 = {"You see the silhouette of a person and it approaches you.","I was on my way out of the cave until I found this paper.", 
+			"It seems to be a map of sorts."};
+	private static final String[] SEQUENCE_2 = {"Safe travels friend.","The man hands you the map."};
 	
 	public GameStartEvent() {
 		// TODO Auto-generated constructor stub
@@ -14,9 +12,9 @@ public class GameStartEvent implements Playable {
 
 	public void play() {
 		readSequence(SEQUENCE_1);
-		System.out.println("Come on. Tell me you like puzzles.");
+		System.out.println("I have no use for it. Do you want it?");
 		while(caveExplorer.in.nextLine().toLowerCase().indexOf("yes") < 0){
-			caveExplorer.print("Come on! You know you like puzzles. Say yes!");
+			caveExplorer.print("I insist. I absolutely have no use for it.");
 		}
 		readSequence(SEQUENCE_2);
 		caveExplorer.inventory.setHasMap(true);
