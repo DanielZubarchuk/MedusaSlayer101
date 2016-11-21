@@ -7,7 +7,8 @@ import java.util.Arrays;
 public class DanielBattleCreate {
 	
 	public static Scanner in = new Scanner(System.in);
-	static String[][] userSide;
+	static String[][] ships;
+	static int[][] field;
 	static int CLEAN = -1;
 	static int MISS = 0;
 	static int HIT = 1;
@@ -18,12 +19,12 @@ public class DanielBattleCreate {
 	static int SUBMARINE = 2;
 	static int DESTROYER = 1;
 	
-	private static String starterCoordinates;
+	//private static String starterCoordinates;
 	public static Random rand = new Random();
 
 	public DanielBattleCreate() {
-		int[][] field = new int[FIELDSIZE][FIELDSIZE];
-		String[][] ships = new String[FIELDSIZE][FIELDSIZE];
+		field = new int[FIELDSIZE][FIELDSIZE];
+		ships = new String[FIELDSIZE][FIELDSIZE];
 		
 		int carrierRow = (int)(1 + Math.random() * ships.length);
 		int carrierCol = (int)(1 + Math.random() * (ships[0].length - 3));
@@ -37,11 +38,12 @@ public class DanielBattleCreate {
 		int destroyerRow = (int)(1 + Math.random() * ships.length);
 		int destroyerCol = (int)(1 + Math.random() * ships[0].length);
 		
+		makeField(field);
+		createStarterCoordinates(ships);
 		placeCarrier(ships, carrierRow, carrierCol);
 		placeBattleship(ships, battleRow, battleCol);
 		placeSubmarine(ships, subRow, subCol);
 		placeDestroyer(ships, destroyerRow, destroyerCol);
-		makeField(field);
 	}
 	
 	public static void backField(int[][] field){
@@ -75,20 +77,16 @@ public class DanielBattleCreate {
         }
 	} 
 	
-	public static void fireCannon(int[] shoot){
-		Scanner input = new Scanner(System.in);
+	public static void fireCannon(int col, int row){
+		System.out.println("Choose a Row in which you think a ship is located in:");
+		int rowInput = in.nextInt();
 		
-		System.out.print("Row:");
-		shoot[0] = input.nextInt();
-		shoot[0]--;
+		System.out.println("Choose a Column in which you think a ship is located in:");
+		int colInput = in.nextInt();
 		
-		System.out.print("Column:");
-		shoot[1] = input.nextInt();
-		shoot[1]--;
-		
-	}
-	
-	public static void hitShip(){
+		if(!(ships[rowInput][colInput].equals(""))){
+			field[rowInput][colInput] = HIT;
+		}
 		
 	}
 	
@@ -115,7 +113,22 @@ public class DanielBattleCreate {
 		
 	}
 	
-	
+	private static void createStarterCoordinates(String[][] ships2){
+		//helper methods
+		
+		int carrierRow = (int)(1 + Math.random() * ships2.length);
+		int carrierCol = (int)(1 + Math.random() * (ships2[0].length - 3));
+		
+		int battleRow = (int)(1 + Math.random() * ships2.length);
+		int battleCol = (int)(1 + Math.random() * (ships2[0].length - 2));
+		
+		int subRow = (int)(1 + Math.random() * ships2.length);
+		int subCol = (int)(1 + Math.random() * (ships2[0].length - 1));
+		
+		int destroyerRow = (int)(1 + Math.random() * ships2.length);
+		int destroyerCol = (int)(1 + Math.random() * ships2[0].length);
+	}
+
 	
 	
 
