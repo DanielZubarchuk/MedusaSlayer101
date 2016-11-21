@@ -17,8 +17,10 @@ public class EventDanielAndJoyce implements Playable{
 		readSequence(SEQUENCE_2);
 		//JoyceBattleCreate.userField();
 		DanielBattleCreate.engageInBattle();
+		/*while ()
+		DanielBattleCreate.fireCannon();
 		
-		//JoyceBattleCreate.aiHitPlayer();
+		JoyceBattleCreate.aiHitPlayer();*/
 	}
 
 	public static void readSequence(String[] seq){
