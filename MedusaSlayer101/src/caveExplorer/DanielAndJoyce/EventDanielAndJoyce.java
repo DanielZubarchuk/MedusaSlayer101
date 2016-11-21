@@ -10,9 +10,9 @@ public class EventDanielAndJoyce implements Playable{
 
 	public void play() {
 		readSequence(SEQUENCE_1);
-		System.out.println("Come on. Tell me you like puzzles.");
+		System.out.println("Please tell me you have played Battleship before.");
 		while(caveExplorer.in.nextLine().toLowerCase().indexOf("yes") < 0){
-			caveExplorer.print("Come on! You know you like puzzles. Say yes!");
+			caveExplorer.print("Come on! You know you played Battleship. Say yes!");
 		}
 		readSequence(SEQUENCE_2);
 		//JoyceBattleCreate.userField();
