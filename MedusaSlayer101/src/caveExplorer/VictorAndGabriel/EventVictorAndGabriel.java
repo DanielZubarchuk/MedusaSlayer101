@@ -76,21 +76,30 @@ public class EventVictorAndGabriel implements Playable{
 			if(flagToggle.toLowerCase().equals("yes")){
 				flag = true;
 			}
+			input.nextLine();
 			
-			try{
+//			try{
+//				System.out.println("Please enter a row between 0 and 7.");
+//				rowChoice = input.nextInt();
+//				input.nextLine();
+//			}catch(InputMismatchException exception){
+//				System.out.println("This is not an integer");
+//			}
+			
+			System.out.println("Please enter a row between 0 and 7.");
+			rowChoice = input.nextInt();
+			while(!validInput(rowChoice)){
 				System.out.println("Please enter a row between 0 and 7.");
 				rowChoice = input.nextInt();
 				input.nextLine();
-			}catch(InputMismatchException exception){
-				System.out.println("This is not an integer");
 			}
 			
-			try{
+			System.out.println("Please enter a col between 0 and 7.");
+			colChoice = input.nextInt();
+			while(!validInput(colChoice)){
 				System.out.println("Please enter a col between 0 and 7.");
 				colChoice = input.nextInt();
 				input.nextLine();
-			}catch(InputMismatchException exception){
-				System.out.println("This is not an integer");
 			}
 			
 			if(VictorMinesweeperInterpreter.checkMine(rowChoice, colChoice, board) == true && flag == false){
@@ -109,6 +118,13 @@ public class EventVictorAndGabriel implements Playable{
 */		
 	}
 
+	private boolean validInput(int rowChoice) {
+		if(rowChoice < 0 || rowChoice > 7){
+			return false;
+		}
+		return true;
+	}
+	
 	private void printBoardInt(int[][] board) { //post-game
 		for(int row = 0; row < board.length; row++){
 			for(int col = 0; col < board[row].length; col++){
