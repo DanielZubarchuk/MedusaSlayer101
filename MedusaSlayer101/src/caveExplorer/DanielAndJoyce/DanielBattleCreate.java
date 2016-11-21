@@ -21,14 +21,14 @@ public class DanielBattleCreate {
 	
 	//private static String starterCoordinates;
 	public static Random rand = new Random();
-	private static int carrierRow;
-	private static int carrierCol;
-	private static int battleRow;
-	private static int battleCol;
-	private static int subRow;
-	private static int subCol;
-	private static int destroyerRow;
-	private static int destroyerCol;
+	public static int carrierRow;
+	public static int carrierCol;
+	public static int battleRow;
+	public static int battleCol;
+	public static int subRow;
+	public static int subCol;
+	public static int destroyerRow;
+	public static int destroyerCol;
 
 	public DanielBattleCreate() {
 		
@@ -70,9 +70,7 @@ public class DanielBattleCreate {
                 		if(field[row][col] == HIT){
                 			System.out.print("\t"+"X");
                 		}
-                    
                 	}
-                
                 }
             }
             System.out.println("\n");
