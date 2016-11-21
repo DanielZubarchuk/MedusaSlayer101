@@ -67,6 +67,12 @@ public class EventMahinAndVeeraj implements Playable{
 			}
 		}
 		MahinMemoryTilesUser.userPlay();
+		
+		for(int row = 0; row < display.length; row++){
+			for(int col = 0; col < display[row].length; col++){
+				
+			}
+		}
 	}
 	//
 	//
