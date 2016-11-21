@@ -11,89 +11,65 @@ public class GabrielMinesweeperBoard {
     
     public static void createBoard(int row, int col){
          randomlyPlaceMines(row, col);
-        // placeNumbers(row, col);
+         placeNumbers(row, col);
     }
     
     public static void randomlyPlaceMines(int row, int col){
     	//method places mines randomly on board.
     	//mines marked with -1
     	int minesPlaced = 0;
-            while(minesPlaced < 10){
+            while(minesPlaced <= 4){
                 int randomRow = (int) (Math.random()*8);
                 int randomCol = (int) (Math.random()*8);
                 EventVictorAndGabriel.board[randomRow][randomCol] =-1;
-                if(randomRow == row && randomCol == col){
-                	minesPlaced--;
-            	}
-                else{
-                	if(randomRow -1 >= 0 && EventVictorAndGabriel.board[randomRow-1][randomCol] != -1){
-                		EventVictorAndGabriel.board[randomRow-1][randomCol]++;
+                minesPlaced = minesPlaced + 1;
+                if(randomRow == row){
+                	if(randomCol == col){
+                		if(minesPlaced > 0){
+                			minesPlaced = minesPlaced - 1;
+                		}
                 	}
-                	if(randomRow +1 <= EventVictorAndGabriel.board.length-1 && EventVictorAndGabriel.board[randomRow+1][randomCol] != -1){
-                		EventVictorAndGabriel.board[randomRow+1][randomCol]++;
-                	}
-                	if(randomCol -1 >= 0 && EventVictorAndGabriel.board[randomRow][randomCol-1] != -1){
-                		EventVictorAndGabriel.board[randomRow][randomCol-1]++;
-                	}
-                	if(randomCol +1 <= EventVictorAndGabriel.board[randomRow].length-1 && EventVictorAndGabriel.board[randomRow][randomCol+1] != -1){
-                		EventVictorAndGabriel.board[randomRow][randomCol+1]++;
-                	}
-                	if(randomRow -1 >= 0 && randomCol -1 >=0 && EventVictorAndGabriel.board[randomRow-1][randomCol-1] != -1){
-                		EventVictorAndGabriel.board[randomRow-1][randomCol-1]++;
-                	}
-                	if(randomRow -1 >= 0 && randomCol +1 <= EventVictorAndGabriel.board[randomRow].length-1 && EventVictorAndGabriel.board[randomRow-1][randomCol+1] != -1){
-                		EventVictorAndGabriel.board[randomRow-1][randomCol+1]++;
-                	}
-                	if(randomRow +1 <= EventVictorAndGabriel.board.length-1 && randomCol -1 >=0 
-                		&& EventVictorAndGabriel.board[randomRow+1][randomCol-1] != -1){
-                		EventVictorAndGabriel.board[randomRow+1][randomCol-1]++;
-                	}
-                	if(randomRow +1  <= EventVictorAndGabriel.board.length-1 && randomCol +1 <= EventVictorAndGabriel.board[randomRow].length-1
-                	   && EventVictorAndGabriel.board[randomRow+1][randomCol+1] != -1){
-                		EventVictorAndGabriel.board[randomRow+1][randomCol+1]++;
-                	}
-                	minesPlaced++;
                 }
+                
             }
-            EventVictorAndGabriel.board[row][col] =0;
     }
-    /**
+    
     public static void placeNumbers(int firstRow, int firstCol){
         for(int row = 0; row < EventVictorAndGabriel.board.length; row++){
         	for(int col = 0; col < EventVictorAndGabriel.board[row].length; col ++){
-        		int nearbyMines = 0;
-        		if(EventVictorAndGabriel.board[row][col] != -1 && row != firstRow && col != firstCol){ //checks through all cells
-        			if(row -1 >= 0 && EventVictorAndGabriel.board[row-1][col] == -1){
-        				nearbyMines++;
-        			}
-        			if(row +1 <= EventVictorAndGabriel.board.length-1 && EventVictorAndGabriel.board[row +1][col] ==-1){
-        				nearbyMines++;
-        			}
-        			if(col-1 >= 0 && EventVictorAndGabriel.board[row][col-1] == -1){
-        				nearbyMines++;
-        			}
-        			if(col+1 <= EventVictorAndGabriel.board[row].length-1 && EventVictorAndGabriel.board[row][col+1] ==-1){
-        				nearbyMines++;
-        			}
-        			if(row -1 >= 0 && col-1 >= 0 && EventVictorAndGabriel.board[row-1][col-1] == -1){
-        				nearbyMines++;
-        			}
-        			if(row -1 >= 0 && col+1 <= EventVictorAndGabriel.board[row].length-1 && EventVictorAndGabriel.board[row -1][col+1] ==-1){
-        				nearbyMines++;
-        			}
-        			if(row +1 <= EventVictorAndGabriel.board.length-1 && col-1 >= 0 &&  EventVictorAndGabriel.board[row+1][col-1] == -1){
-        				nearbyMines++;
-        			}
-        			if(row +1 <= EventVictorAndGabriel.board.length-1 && col+1 <= EventVictorAndGabriel.board[row].length-1 && EventVictorAndGabriel.board[row +1][col+1] ==-1){
-        				nearbyMines++;
+        		if(EventVictorAndGabriel.board[row][col] != -1){
+        			if(row != firstRow){
+        				if(col != firstCol){
+        					EventVictorAndGabriel.board[row][col] = nearbyMines(row,col);
+        				}
         			}
         		}
-        		EventVictorAndGabriel.board[row][col] = nearbyMines;
         	}
         	
         }
     }
-    **/
+
+	public static int nearbyMines(int row, int col) {
+		int mines = 0;
+		
+	    mines += mineAt(row - 1, col - 1);  // NW
+	    mines += mineAt(row - 1, col);      // N
+	    mines += mineAt(row - 1, col + 1);  // NE
+	    mines += mineAt(row, col - 1);      // W
+	    mines += mineAt(row, col + 1);      // E
+	    mines += mineAt(row + 1, col - 1);  // SW
+	    mines += mineAt(row + 1, col);      // S
+	    mines += mineAt(row + 1, col + 1);  // SE
+		return mines;
+	}
+
+	private static int mineAt(int row, int col) {
+		if(row >= 0 && row < EventVictorAndGabriel.board.length && col >= 0 && col < EventVictorAndGabriel.board[row].length && 
+				EventVictorAndGabriel.board[row][col] == -1){
+			return 1;
+		}
+		return 0;
+	}
    
 }
 
