@@ -42,7 +42,7 @@ public class GabrielMinesweeperBoard {
         		}
         	}
         }
-        EventVictorAndGabriel.board[firstRow][firstCol] = 0;
+        EventVictorAndGabriel.board[firstRow][firstCol] = 0; // reset first click to 0
     }
 
 	public static int nearbyMines(int row, int col) {
