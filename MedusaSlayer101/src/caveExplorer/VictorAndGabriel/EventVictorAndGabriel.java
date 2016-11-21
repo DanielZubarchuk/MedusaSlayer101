@@ -13,12 +13,12 @@ public class EventVictorAndGabriel implements Playable{
 	public static int[][] board;
 	public static String[][] playerBoard;
 	public static boolean firstTurn;
-	private static final String[] SEQUENCE_1 = {"As you step into the room, a grid slowly extrudes from the wall and engravings lined across"
-			+ " the stone begin to glow.","They read: This is a game called Minesweeper.", "The grid before you is laced with mines.", 
+	private static final String[] SEQUENCE_1 = {"<As you step into the room, a grid slowly extrudes from the wall and engravings lined across"
+			+ " the stone begin to glow.>","They read: This is a game called Minesweeper.", "The grid before you is laced with mines.", 
 			"Mark all the mines with a flag. Uncover all the numbers to win.", "Hit a mine and this quest of yours is over.", "This room"
 					+ " will explode upon doing so."};
 	private static final String[] SEQUENCE_2 = {"Good Luck!"};
-	private static final String[] SEQUENCE_3 = {"As you complete the puzzle, the words on the wall glow."
+	private static final String[] SEQUENCE_3 = {"<As you complete the puzzle, the words on the wall glow.>"
 			,"You have completed this puzzle."
 			,"As your reward, take this helmet. "};
 	
