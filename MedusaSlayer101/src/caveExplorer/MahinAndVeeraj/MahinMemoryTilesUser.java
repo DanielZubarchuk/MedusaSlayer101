@@ -33,6 +33,7 @@ public class MahinMemoryTilesUser {
 		userChoiceCol2 = new Scanner(System.in);
 		//System.out.println("test");
 		//if i already pick for example (1,1), ai has to choose different row and column
+		while(true){
 		System.out.println("Pick a row.");
 		/*while(rowPick <= 0 || rowPick >= 5){
 			System.out.println("Pick a valid row.");
@@ -77,6 +78,8 @@ public class MahinMemoryTilesUser {
 			System.out.println("You lost your turn!");
 			System.out.println("Player Score: " + userScore);
 			VeerajMemoryTilesAI.computerPlay();
+			break;
+		}
 		}
 	}
 	
