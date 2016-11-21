@@ -150,7 +150,7 @@ public class DanielBattleCreate {
 		}
 		
 	}
-	private static void createStarterCoordinates(String[][] ships2){
+	public static void createStarterCoordinates(String[][] ships2){
 		//helper method
 		
 		carrierRow = (int)(Math.random() * (ships2.length));

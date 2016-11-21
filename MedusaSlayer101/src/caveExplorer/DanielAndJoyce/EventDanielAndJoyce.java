@@ -20,8 +20,10 @@ public class EventDanielAndJoyce implements Playable{
 		JoyceBattleCreate.initializeField(JoyceBattleCreate.pField);
 		JoyceBattleCreate.makeField();
 		DanielBattleCreate.backField(DanielBattleCreate.field);
-		DanielBattleCreate.makeField(DanielBattleCreate.backField());
+		DanielBattleCreate.makeField(DanielBattleCreate.field);
 		JoyceBattleCreate.userField();
+		DanielBattleCreate.createStarterCoordinates(DanielBattleCreate.ships);
+		
 		
 		
 		
