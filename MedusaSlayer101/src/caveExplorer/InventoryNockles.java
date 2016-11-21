@@ -5,6 +5,7 @@ public class InventoryNockles {
 	public boolean hasMap;
 	public static boolean hasHelmet; // helmet item
 	public static boolean hasShield;
+	public static boolean hasSword;
 	private String map;
 	
 	public InventoryNockles() {
@@ -56,7 +57,22 @@ public class InventoryNockles {
 
 	public String getDescription() {
 		if (hasMap) return map;
-		else return "You have no inventory";
+		else return "You have no map";
+	}
+	
+	public String getGodItems(){
+		String output = "";
+		if(hasHelmet){
+			output += "You have the helmet. "; 
+		}
+		if(hasShield){
+			output += "You have the shield.";
+		}
+		if(hasSword){
+			output += "You have the sword.";
+		}
+		return output;
+		
 	}
 
 }
