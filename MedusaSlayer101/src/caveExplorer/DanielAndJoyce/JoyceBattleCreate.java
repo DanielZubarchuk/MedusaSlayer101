@@ -123,7 +123,8 @@ public class JoyceBattleCreate {
 				
 				checkSpot(rowBeginShip, colBeginShip);
 
-			}while (spotCanHappen == false);
+			}while (spotCanHappen == false || rowBeginShip < 0 || rowBeginShip > FIELD_SIZE-1 || 
+					colBeginShip < 0 || colBeginShip > FIELD_SIZE-1);
 			
 			int[] orientationOptions = orientShip(rowBeginShip, colBeginShip, SHIP_NUM);
 			//int[] orientationOptions = {0, 1, 2, 3};
