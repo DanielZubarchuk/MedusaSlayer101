@@ -111,6 +111,7 @@ public class DanielBattleCreate {
 					newRow = row + i;
 					ships[row + i][col] = "B";
 				}
+				
 		    action = false;
 			}
 		}	
