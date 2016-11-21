@@ -38,15 +38,11 @@ public class GabrielMinesweeperBoard {
         for(int row = 0; row < EventVictorAndGabriel.board.length; row++){
         	for(int col = 0; col < EventVictorAndGabriel.board[row].length; col ++){
         		if(EventVictorAndGabriel.board[row][col] != -1){
-        			if(row != firstRow){
-        				if(col != firstCol){
-        					EventVictorAndGabriel.board[row][col] = nearbyMines(row,col);
-        				}
-        			}
+        				EventVictorAndGabriel.board[row][col] = nearbyMines(row,col);
         		}
         	}
-        	
         }
+        EventVictorAndGabriel.board[firstRow][firstCol] = 0;
     }
 
 	public static int nearbyMines(int row, int col) {
