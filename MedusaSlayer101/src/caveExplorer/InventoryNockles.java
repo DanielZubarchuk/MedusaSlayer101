@@ -3,6 +3,7 @@ package caveExplorer;
 public class InventoryNockles {
 
 	public boolean hasMap;
+	public static boolean hasHelmet; // helmet item
 	private String map;
 	
 	public InventoryNockles() {
