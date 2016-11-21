@@ -16,8 +16,13 @@ public class EventDanielAndJoyce implements Playable{
 			caveExplorer.print("Come on! You know you played Battleship. Say yes!");
 		}
 		readSequence(SEQUENCE_2);
+		
+		JoyceBattleCreate.initializeField(JoyceBattleCreate.pField);
+		JoyceBattleCreate.makeField(JoyceBattleCreate.pField);
+		
+		
 		//JoyceBattleCreate.userField();
-		DanielBattleCreate.engageInBattle();
+		//DanielBattleCreate.engageInBattle();
 		/*while ()
 		DanielBattleCreate.fireCannon();
 		
