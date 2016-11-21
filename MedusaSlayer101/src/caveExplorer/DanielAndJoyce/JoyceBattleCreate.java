@@ -105,7 +105,7 @@ public class JoyceBattleCreate {
 			
 			do{
 				System.out.println("You have " + SHIP_NUM + " left. This is your " + currentShip + ". "
-					+ "What ROW would you like the begining of your " + currentShip + " to be placed?");
+					+ "What ROW would you like the beginning of your " + currentShip + " to be placed?");
 				for (int j = 0; j < SHIP_NUM; j ++){
 					shipSpaces += currentShip.charAt(0);
 				}
@@ -120,20 +120,25 @@ public class JoyceBattleCreate {
 			}while (spotCanHappen == false);
 			
 			int[] orientationOptions = orientShip(rowBeginShip, colBeginShip, SHIP_NUM);
+			//System.out.print(orientationOptions.length);
 			String pChoice = "";
 			
-			while(choicesCanHappen == false){
+			do{
 				String choices = "";
-				System.out.println("WTH SUCK MY DICK");
-				for (int k = 0; k < orientationOptions.length; i++){
+				
+				for(int k = 0; k < orientationOptions.length; k++){
 					
-					if (orientationOptions[k] != 0) choices += shipDirection[orientationOptions[k]] + "or ";
+					if (orientationOptions[k] != 0) {
+						choices += shipDirection[orientationOptions[k]] + ", ";
+					}
 				}
+				
 				System.out.println("You can orient your " + currentShip + " to the " + choices + ". How do you want it?");
-				pChoice = input.nextLine();
+				pChoice = input.next();
 				checkCanHappen(rowBeginShip, colBeginShip, pChoice, SHIP_NUM);
-			}
-			changeOrientation(currentShip, pChoice, rowBeginShip, colBeginShip);
+			}while(choicesCanHappen == false);
+			System.out.println("Your " + currentShip + " is oriented to the " + pChoice + ".");
+			changeOrientation(SHIP_NUM, currentShip, pChoice, rowBeginShip, colBeginShip);
 			SHIP_NUM--;
 		}	
 	}
@@ -175,10 +180,10 @@ public class JoyceBattleCreate {
 			choicesCanHappen = true;
 		}
 
-	private static void changeOrientation(String s, String choice, int row, int col) {
-		char shipLetter = s.charAt(0);
-		pShips[row][col] = shipLetter;
-		for (int i = 0; i < s.length()-1; i++){
+	private static void changeOrientation(int s, String ship, String choice, int row, int col) {
+		char shipLetter = ship.charAt(0);
+		//pShips[row][col] = shipLetter;
+		for (int i = 0; i < s; i++){
 			if (choice.equals("Top")){
 				pShips[row + TOP][col] = shipLetter;
 				pField[row + TOP][col] = OCCUPIED;
