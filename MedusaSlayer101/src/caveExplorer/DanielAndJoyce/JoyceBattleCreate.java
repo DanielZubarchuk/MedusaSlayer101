@@ -37,6 +37,8 @@ public class JoyceBattleCreate {
 	static int[][] pShips;
 	static int FIELD_SIZE = 7;
 	static int SHIP_NUM = 4;
+	boolean spotCanHappen = false;
+	boolean choicesCanHappen = false;
 	
 	static int RIGHT = 1; static int LEFT = -1; static int TOP = -1; static int BOTTOM = 1;
 	static String[] shipDirection = {"Top", "Right", "Bottom", "Left"};
@@ -94,30 +96,55 @@ public class JoyceBattleCreate {
 		for(int i = 0; i<SHIP_NUM; i++){
 			String currentShip = ships[SHIP_NUM-1];
 			String shipSpaces = "";
+			int rowBeginShip = 0;
+			int colBeginShip = 0;
 			
-			System.out.println("You have " + SHIP_NUM + " left. This is your " + currentShip + ". "
+			while (spotCanHappen == false){
+				System.out.println("You have " + SHIP_NUM + " left. This is your " + currentShip + ". "
 					+ "What ROW would you like the begining of your " + currentShip + " to be placed?");
-			for (int j = 0; j < currentShip.length(); j ++){
-				shipSpaces += currentShip.charAt(0);
-			}
-			System.out.print(shipSpaces);
-			int rowBeginShip = input.nextInt();
-			System.out.println("What COLUMN would you like the beginning of your " + currentShip + " to be placed?");
-			int colBeginShip = input.nextInt();
-			int[] orientationOptions = orientShip(rowBeginShip, colBeginShip, currentShip);
-			String choices = "";
-			for (int k = 0; k < orientationOptions.length; i++){
+				for (int j = 0; j < currentShip.length(); j ++){
+					shipSpaces += currentShip.charAt(0);
+				}
+				System.out.print(shipSpaces);
 				
-				if (orientationOptions[k] != (Integer) null) choices += shipDirection[orientationOptions[k]] + "or ";
+				rowBeginShip = input.nextInt();
+				System.out.println("What COLUMN would you like the beginning of your " + currentShip + " to be placed?");
+				colBeginShip = input.nextInt();
+				
+				checkCanHappen(rowBeginShip, colBeginShip, 1);
 			}
-			System.out.println("You can orient your " + currentShip + " to the " + choices + ". How do you want it?");
-			String pChoice = input.nextLine();
+			int[] orientationOptions = orientShip(rowBeginShip, colBeginShip, currentShip);
+			String pChoice = "";
+			while(choicesCanHappen == false){
+				String choices = "";
+				for (int k = 0; k < orientationOptions.length; i++){
+					
+					if (orientationOptions[k] != (Integer) null) choices += shipDirection[orientationOptions[k]] + "or ";
+				}
+				System.out.println("You can orient your " + currentShip + " to the " + choices + ". How do you want it?");
+				pChoice = input.nextLine();
+				checkCanHappen(rowBeginShip, colBeginShip, 2, pChoice);
+			}
 			changeOrientation(currentShip, pChoice, rowBeginShip, colBeginShip);
 			
 			//put on field
 			SHIP_NUM--;
 		}	
 	}
+	private void checkCanHappen(int row, int col, int type, String c) {
+		if (type == 1){
+			if (pShips[row][col] != OCCUPIED){ 
+				spotCanHappen = true;
+			}
+		}else{
+			if(c.equals("Top") || c.equals("Bottom")){
+				
+			}else{
+				for (int i = )
+			}
+		}
+	}
+
 	private void changeOrientation(String s, String choice, int row, int col) {
 		char shipLetter = s.charAt(0);
 		pShips[row][col] = shipLetter;
@@ -125,18 +152,22 @@ public class JoyceBattleCreate {
 			if (choice.equals("Top")){
 				pShips[row + TOP][col] = shipLetter;
 				pField[row + TOP][col] = OCCUPIED;
+				row = row + TOP;
 			}
 			if (choice.equals("Right")){
 				pShips[row][col + RIGHT] = shipLetter;
 				pField[row][col + RIGHT] = OCCUPIED;
+				col = col + RIGHT;
 			}
 			if (choice.equals("Bottom")){
 				pShips[row + BOTTOM][col] = shipLetter;
 				pField[row + BOTTOM][col] = OCCUPIED;
+				row = row + BOTTOM;
 			}
 			if (choice.equals("Left")){
 				pShips[row][col + LEFT] = shipLetter;
 				pField[row][col + LEFT] = OCCUPIED;
+				col = col + LEFT;
 			}
 			
 		}
