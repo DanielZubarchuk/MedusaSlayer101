@@ -131,7 +131,7 @@ public class JoyceBattleCreate {
 				
 				checkSpot(rowBeginShip, colBeginShip);
 
-			}while (spotCanHappen == false);
+			}while (spotCanHappen ==  false);
 			
 			int[] orientationOptions = orientShip(rowBeginShip, colBeginShip, SHIP_NUM);
 			String pChoice = "";
@@ -150,17 +150,14 @@ public class JoyceBattleCreate {
 				checkCanHappen(rowBeginShip, colBeginShip, pChoice, SHIP_NUM);
 			}while(choicesCanHappen == false);
 			
-			//System.out.print(choicesCanHappen);
 			System.out.println("Your " + currentShip + " is oriented to the " + pChoice + ".");
 			System.out.println(rowBeginShip + " " + colBeginShip);
 			changeOrientation(SHIP_NUM, currentShip, pChoice, rowBeginShip, colBeginShip);
-			//makeField(pShips);
 			makeField();
 			SHIP_NUM--;
 		}	
 	}
 	private static void checkSpot(int row, int col) {
-		System.out.println(pShips[row][col]);
 		if (pShips[row][col] == CLEAN){ 
 				spotCanHappen = true;
 			}
@@ -170,7 +167,7 @@ public class JoyceBattleCreate {
 		boolean pos = true;
 			if(c.equals("Top")){
 				for (int i = 0; i < shipLength-1; i++){
-					if (!(pShips[row + TOP][col] == CLEAN)){
+					if (pShips[row + TOP][col] != CLEAN){
 						pos = false;
 						break;
 					}
@@ -178,7 +175,7 @@ public class JoyceBattleCreate {
 			}
 			if(c.equals("Bottom")){
 				for (int i = 0; i < shipLength-1; i++){
-					if (!(pShips[row + BOTTOM][col] == CLEAN)){
+					if (pShips[row + BOTTOM][col] != CLEAN){
 						pos = false;
 						break;
 					}
@@ -186,7 +183,7 @@ public class JoyceBattleCreate {
 			}
 			if(c.equals("Left")){
 				for (int i = 0; i < shipLength-1; i++){
-					if (!(pShips[row][col + LEFT] == CLEAN)){
+					if (pShips[row][col + LEFT] != CLEAN){
 						pos = false;
 						break;
 					}
@@ -194,7 +191,7 @@ public class JoyceBattleCreate {
 			}
 			if(c.equals("Right")){
 				for (int i = 0; i < shipLength-1; i++){
-					if (!(pShips[row][col + RIGHT] == CLEAN)){
+					if (pShips[row][col + RIGHT] != CLEAN){
 						pos = false;
 						break;
 					}

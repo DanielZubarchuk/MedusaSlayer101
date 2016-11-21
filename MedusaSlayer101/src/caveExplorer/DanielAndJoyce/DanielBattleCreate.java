@@ -72,8 +72,8 @@ public class DanielBattleCreate {
                 	}
                 
                 }
-                System.out.println();
             }
+            System.out.println("\n");
         }
 	} 
 	
@@ -108,10 +108,11 @@ public class DanielBattleCreate {
 					newRow = row + i;
 					ships[row + i][col] = "B";
 				}
-			    action = false;
+		    action = false;
 			}
 		}	
 	}
+	
 	
 	public static void placeSubmarine(String[][] ships, int row, int col){
 		int newRow = row;
@@ -147,20 +148,34 @@ public class DanielBattleCreate {
 		}
 		
 	}
-	
 	private static void createStarterCoordinates(String[][] ships2){
 		//helper method
 		
-		carrierRow = (int)(1 + Math.random() * ships2.length);
-		carrierCol = (int)(1 + Math.random() * (ships2[0].length - 3));
+		carrierRow = (int)(Math.random() * (ships2.length-1));
+		carrierCol = (int)(Math.random() * (ships2[0].length - 4));
 		
-		battleRow = (int)(1 + Math.random() * ships2.length);
-		battleCol = (int)(1 + Math.random() * (ships2[0].length - 2));
+		battleRow = (int)(Math.random() * (ships2.length-1));
+		battleCol = (int)(Math.random() * (ships2[0].length - 3));
 		
-		subRow = (int)(1 + Math.random() * ships2.length);
-		subCol = (int)(1 + Math.random() * (ships2[0].length - 1));
+		subRow = (int)(Math.random() * (ships2.length-1));
+		subCol = (int)(Math.random() * (ships2[0].length - 2));
 		
-		destroyerRow = (int)(1 + Math.random() * ships2.length);
-		destroyerCol = (int)(1 + Math.random() * ships2[0].length);
+		destroyerRow = (int)(Math.random() * (ships2.length-1));
+		destroyerCol = (int)(Math.random() * (ships2[0].length-1));
 	}
+	/*private static void createStarterCoordinates(String[][] ships2){
+		//helper method
+		
+		carrierRow = (int)(1 + Math.random() * (ships2.length-1));
+		carrierCol = (int)(1 + Math.random() * (ships2[0].length - 4));
+		
+		battleRow = (int)(1 + Math.random() * (ships2.length-1));
+		battleCol = (int)(1 + Math.random() * (ships2[0].length - 3));
+		
+		subRow = (int)(1 + Math.random() * (ships2.length-1));
+		subCol = (int)(1 + Math.random() * (ships2[0].length - 2));
+		
+		destroyerRow = (int)(1 + Math.random() * (ships2.length-1));
+		destroyerCol = (int)(1 + Math.random() * (ships2[0].length-1));
+	}*/
 }

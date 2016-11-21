@@ -15,9 +15,10 @@ public class EventDanielAndJoyce implements Playable{
 			caveExplorer.print("Come on! You know you like puzzles. Say yes!");
 		}
 		readSequence(SEQUENCE_2);
-		//DanielBattleCreate.engageInBattle();
-		JoyceBattleCreate.userField();
-		JoyceBattleCreate.aiHitPlayer();
+		//JoyceBattleCreate.userField();
+		DanielBattleCreate.engageInBattle();
+		
+		//JoyceBattleCreate.aiHitPlayer();
 	}
 
 	public static void readSequence(String[] seq){
