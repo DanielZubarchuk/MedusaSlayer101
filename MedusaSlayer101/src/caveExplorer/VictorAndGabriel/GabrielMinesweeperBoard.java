@@ -18,7 +18,7 @@ public class GabrielMinesweeperBoard {
     	//method places mines randomly on board.
     	//mines marked with -1
     	int minesPlaced = 0;
-            while(minesPlaced <= 10){
+            while(minesPlaced <= 4){
                 int randomRow = (int) (Math.random()*8);
                 int randomCol = (int) (Math.random()*8);
                 EventVictorAndGabriel.board[randomRow][randomCol] =-1;
@@ -39,7 +39,11 @@ public class GabrielMinesweeperBoard {
         	for(int col = 0; col < EventVictorAndGabriel.board[row].length; col ++){
         		int nearbyMines = 0;
         		if(EventVictorAndGabriel.board[row][col] != -1){
-        			EventVictorAndGabriel.board[row][col] = nearbyMines(row,col);
+        			if(row != firstRow){
+        				if(col != firstCol){
+        					EventVictorAndGabriel.board[row][col] = nearbyMines(row,col);
+        				}
+        			}
         		}
         	}
         	
