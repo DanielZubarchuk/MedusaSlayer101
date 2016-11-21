@@ -12,7 +12,7 @@ public class EventMahinAndVeeraj implements Playable{
 	private static final String[] SEQUENCE_2 = {"Either way, you're going to have to play this game to get past this room","You'll have to"
 			+ " beat Medusa's sidekick at this memory game!"};
 	private static final String[] SEQUENCE_3 = {"Are you ready?", "GO!"};
-	private static final String[] SEQUENCE_4 = {"You defeated Medusa's sidekick!",
+	public static final String[] SEQUENCE_4 = {"You defeated Medusa's sidekick!",
 			"Here, take this shield and proceed with your journey!"};
 	
 	static String[][] letters;
@@ -68,7 +68,6 @@ public class EventMahinAndVeeraj implements Playable{
 				letters[row][col] = objects[index];
 			}
 		}
-		MahinMemoryTilesUser.userPlay();
 		
 		boolean win = true;
 		for(int row = 0; row < display.length; row++){

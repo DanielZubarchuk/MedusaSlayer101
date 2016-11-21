@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MahinMemoryTilesUser {
 	
-	private static Scanner userIn;
+	private static int userIn;
 	
 	private static Scanner userChoiceRow;
 	private static Scanner userChoiceRow2;
@@ -15,6 +15,7 @@ public class MahinMemoryTilesUser {
 	private static int colPick;
 	private static int colPick2;
 	public static int userScore;
+
 	
 	//static boolean valid = true;
 	//
@@ -33,6 +34,7 @@ public class MahinMemoryTilesUser {
 		userChoiceRow2 = new Scanner(System.in);
 		userChoiceCol = new Scanner(System.in);
 		userChoiceCol2 = new Scanner(System.in);
+	
 		//System.out.println("test");
 		//if i already pick for example (1,1), ai has to choose different row and column
 		while(true){
