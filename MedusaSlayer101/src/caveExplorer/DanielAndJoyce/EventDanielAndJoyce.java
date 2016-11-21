@@ -3,7 +3,7 @@ package caveExplorer.DanielAndJoyce;
 import caveExplorer.*;
 
 public class EventDanielAndJoyce implements Playable{
-//
+
 	private static final String[] SEQUENCE_1 = {"I am Sergeant Dan and I am forcing you to fight the Romans."};
 	private static final String[] SEQUENCE_2 = {"You are going to have so much fun playing Battleship against the Romans."
 			+ ". Welcome to the battlefield."};
