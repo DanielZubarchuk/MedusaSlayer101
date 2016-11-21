@@ -48,6 +48,8 @@ public class caveExplorer {
 		System.out.println("You have been sent on a quest to kill the monster Medusa \n");
 		System.out.println("Enter the cave and collect the 3 god items and bring glory"
 					+ " to your family. \n");
+		System.out.println("The door to your north is where Medusa resides.");
+		System.out.println("Tread carefully. \n");
 		while(true){
 				print(inventory.getDescription() + "\n");
 			if(InventoryNockles.hasHelmet && InventoryNockles.hasShield && InventoryNockles.hasSword){
