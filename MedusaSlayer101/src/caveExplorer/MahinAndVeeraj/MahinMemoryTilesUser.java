@@ -14,8 +14,10 @@ public class MahinMemoryTilesUser {
 	private static Scanner userChoiceCol2;
 	private static int colPick;
 	private static int colPick2;
+	public static int userScore;
 	
 	//static boolean valid = true;
+	//
 
 	public MahinMemoryTilesUser() {
 		
@@ -25,8 +27,8 @@ public class MahinMemoryTilesUser {
 	}
 	
 	public static void userPlay(){
+		userScore = 0;
 		//boolean turnFinished = false;
-		int userScore = 0;
 		userChoiceRow = new Scanner(System.in);
 		userChoiceRow2 = new Scanner(System.in);
 		userChoiceCol = new Scanner(System.in);

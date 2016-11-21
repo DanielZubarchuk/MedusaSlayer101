@@ -79,9 +79,18 @@ public class EventMahinAndVeeraj implements Playable{
 			}
 		}
 		if(win){
-			readSequence(SEQUENCE_4);
+			if(VeerajMemoryTilesAI.computerScore > MahinMemoryTilesUser.userScore){
+				readSequence(SEQUENCE_4);
+			}
+			if(VeerajMemoryTilesAI.computerScore < MahinMemoryTilesUser.userScore){
+				System.out.println("Medusa's sidekick has killed you!");
+			}
+			if(VeerajMemoryTilesAI.computerScore == MahinMemoryTilesUser.userScore){
+				System.out.println("You are equally matched. Try again when you're stronger");
+			}
 		}
 	}
+	//
 	//
 	//
 	public static void printPic(String[][] pic){

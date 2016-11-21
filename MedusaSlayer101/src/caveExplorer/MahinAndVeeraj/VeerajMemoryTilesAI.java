@@ -1,7 +1,8 @@
 package caveExplorer.MahinAndVeeraj;
 
 public class VeerajMemoryTilesAI {
-
+	
+	public static int computerScore;
 	public VeerajMemoryTilesAI() {
 	}
 
@@ -9,7 +10,7 @@ public class VeerajMemoryTilesAI {
 	}
 
 	public static void computerPlay(){
-		int computerScore = 0;
+		computerScore = 0;
 		while(true){
 			int row = (int)(Math.random() * 4);
 			int col = (int)(Math.random() * 4);
@@ -28,6 +29,7 @@ public class VeerajMemoryTilesAI {
 			System.out.println("These are equal");
 			computerScore ++;
 		}
+		//
 		//
 		if(EventMahinAndVeeraj.letters[row][col] != EventMahinAndVeeraj.letters[row2][col2]){
 			System.out.println("These are not equal");
