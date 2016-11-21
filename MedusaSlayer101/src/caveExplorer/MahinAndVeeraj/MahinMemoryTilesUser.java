@@ -62,7 +62,7 @@ public class MahinMemoryTilesUser {
 			System.out.println("Pick another valid column.");
 			colPick2 = userChoiceCol2.nextInt();
 		}*/
-		colPick2 = userChoiceCol2.nextInt();
+		colPick2 = userChoiceCol2.nextInt(); //
 		EventMahinAndVeeraj.display[rowPick2][colPick2] = "|_" + EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1] + "_";
 		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
 
