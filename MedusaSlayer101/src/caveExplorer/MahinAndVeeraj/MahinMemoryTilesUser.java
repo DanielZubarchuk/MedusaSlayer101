@@ -28,6 +28,7 @@ public class MahinMemoryTilesUser {
 	public static void userPlay(){
 		userScore = 0;
 		
+		userIn = new Scanner(System.in);
 		userChoiceRow = new Scanner(System.in);
 		userChoiceRow2 = new Scanner(System.in);
 		userChoiceCol = new Scanner(System.in);
