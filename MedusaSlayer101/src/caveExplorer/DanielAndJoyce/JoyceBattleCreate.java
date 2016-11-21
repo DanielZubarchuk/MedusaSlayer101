@@ -118,17 +118,22 @@ public class JoyceBattleCreate {
 				System.out.print(shipSpaces);
 				
 				rowBeginShip = input.nextInt() -1;
+				while(rowBeginShip < 0 || rowBeginShip > FIELD_SIZE-1){
+					System.out.println("Choose a row between 1 and 7.");
+					rowBeginShip = input.nextInt() -1;
+				}
 				System.out.println("What COLUMN would you like the beginning of your " + currentShip + " to be placed?");
 				colBeginShip = input.nextInt() -1;
+				while(colBeginShip < 0 || colBeginShip > FIELD_SIZE-1){
+					System.out.println("Choose a col between 1 and 7.");
+					colBeginShip = input.nextInt() -1;
+				}
 				
 				checkSpot(rowBeginShip, colBeginShip);
 
-			}while (spotCanHappen == false || rowBeginShip < 0 || rowBeginShip > FIELD_SIZE-1 || 
-					colBeginShip < 0 || colBeginShip > FIELD_SIZE-1);
+			}while (spotCanHappen == false);
 			
 			int[] orientationOptions = orientShip(rowBeginShip, colBeginShip, SHIP_NUM);
-			//int[] orientationOptions = {0, 1, 2, 3};
-			//System.out.print(orientationOptions[3]);
 			String pChoice = "";
 			
 			do{
@@ -241,9 +246,12 @@ public class JoyceBattleCreate {
 		int col = (int) (Math.random()*FIELD_SIZE);
 		
 		String hitOrMiss = "";
-		if (pShips[row][col] == CLEAN || pShips[row][col] == HIT) hitOrMiss = "missed.";
+		if (pShips[row][col] == CLEAN || pShips[row][col] == HIT) {
+			pField[row][col] = MISS;
+			hitOrMiss = "missed.";
+		}			
 		else {
-			pShips[row][col] = HIT;
+			pField[row][col] = HIT;
 			hitOrMiss = " hit a target.";
 		}
 		//makeField(pShips);
