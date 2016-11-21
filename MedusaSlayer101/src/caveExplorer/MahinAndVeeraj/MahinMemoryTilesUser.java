@@ -60,8 +60,7 @@ public class MahinMemoryTilesUser {
 				
 			System.out.println("You lost your turn!");
 			System.out.println("Player Score: " + userScore);
-			EventMahinAndVeeraj.userTurn = false;
-			System.out.println(EventMahinAndVeeraj.userTurn);
+			VeerajMemoryTilesAI.computerPlay();
 		}
 		
 	}

@@ -35,7 +35,7 @@ public class VeerajMemoryTilesAI {
 			EventMahinAndVeeraj.display[row2+1][col2+1] = "|___";
 			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
 			System.out.println("Computer Score: " + computerScore);
-			EventMahinAndVeeraj.userTurn = true;
+			MahinMemoryTilesUser.userPlay();
 		}
 		}
 	}
