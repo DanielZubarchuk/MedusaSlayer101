@@ -48,9 +48,10 @@ public class DanielBattleCreate {
 		System.out.println("heuulo");
 		
 	}
+	
 	public static void backField(int[][] field){
 		for(int r = 0 ; r < FIELDSIZE ; r++ )
-			for(int c = 0 ; c < FIELDSIZE ; c++)
+			for(int c = 0 ; c < field.length ; c++)
 				field[r][c] = CLEAN;
 	}
 	
