@@ -15,7 +15,7 @@ public class EventDanielAndJoyce implements Playable{
 			caveExplorer.print("Come on! You know you like puzzles. Say yes!");
 		}
 		readSequence(SEQUENCE_2);
-		caveExplorer.inventory.setHasMap(true);
+		//caveExplorer.inventory.setHasMap(true);
 	}
 
 	public static void readSequence(String[] seq){
