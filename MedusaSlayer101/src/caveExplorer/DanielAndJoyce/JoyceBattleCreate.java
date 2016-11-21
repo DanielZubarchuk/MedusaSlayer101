@@ -6,6 +6,7 @@
 	MINE:
 		- put in a exit trigger
 		- need a cheat code!!!!
+		- PSHIPS ARRAY ARE INT BUT THEY BECOME STRING AT ONE PONT??
 		
 		
 		TEST CODE:
@@ -24,14 +25,8 @@ import caveExplorer.DanielAndJoyce.*;
 
 public class JoyceBattleCreate {
 	
-	/*ShipJAndD pAircraft = new ShipJAndD("Aircraft Carrier", 4); 
-	ShipJAndD pBattleship = new ShipJAndD("Battleship", 3);
-	ShipJAndD pSubmarine = new ShipJAndD("Submarine", 2);
-	ShipJAndD pDestroyer = new ShipJAndD("Destroyer", 1);*/
-	
 	Scanner input = new Scanner(System.in);
 	String[] ships = {"Destroyer", "Submarine", "Battleship", "Aircraft Carrier"};// 1, 2, 3, 4
-	//ships = {pAircraft, pBattleship, pSubmarine, pDestroyer};
 	
 	static int[][] pField;
 	static int[][] pShips;
@@ -46,10 +41,10 @@ public class JoyceBattleCreate {
 
 	public JoyceBattleCreate(){
 		
-		pField = new int[FIELD_SIZE][FIELD_SIZE];
+		/*pField = new int[FIELD_SIZE][FIELD_SIZE];
 		pShips = new int[FIELD_SIZE][FIELD_SIZE];
 		initializeField(pField);
-		makeField(pField);
+		makeField(pField);*/
 		
 	}
 	
@@ -90,6 +85,11 @@ public class JoyceBattleCreate {
 	} 
 	
 	public void userField() {
+		pField = new int[FIELD_SIZE][FIELD_SIZE];
+		pShips = new int[FIELD_SIZE][FIELD_SIZE];
+		initializeField(pField);
+		makeField(pField);
+		
 		System.out.println("You have 4 ships in your inventory. You have an Aircraft Carrier, a Battleship, a Submarine"
 				+ " , and a Destroyer. They take up 4, 3, 2, and 1 places on the board, respectively. Let's place your "
 				+ "ships!");
@@ -111,10 +111,12 @@ public class JoyceBattleCreate {
 				System.out.println("What COLUMN would you like the beginning of your " + currentShip + " to be placed?");
 				colBeginShip = input.nextInt();
 				
-				checkCanHappen(rowBeginShip, colBeginShip, 1);
+				checkSpot(rowBeginShip, colBeginShip);
 			}
-			int[] orientationOptions = orientShip(rowBeginShip, colBeginShip, currentShip);
+			
+			int[] orientationOptions = orientShip(rowBeginShip, colBeginShip, SHIP_NUM);
 			String pChoice = "";
+			
 			while(choicesCanHappen == false){
 				String choices = "";
 				for (int k = 0; k < orientationOptions.length; i++){
@@ -123,27 +125,49 @@ public class JoyceBattleCreate {
 				}
 				System.out.println("You can orient your " + currentShip + " to the " + choices + ". How do you want it?");
 				pChoice = input.nextLine();
-				checkCanHappen(rowBeginShip, colBeginShip, 2, pChoice);
+				checkCanHappen(rowBeginShip, colBeginShip, pChoice, SHIP_NUM);
 			}
 			changeOrientation(currentShip, pChoice, rowBeginShip, colBeginShip);
-			
-			//put on field
 			SHIP_NUM--;
 		}	
 	}
-	private void checkCanHappen(int row, int col, int type, String c) {
-		if (type == 1){
-			if (pShips[row][col] != OCCUPIED){ 
+	private void checkSpot(int row, int col) {
+		if (pShips[row][col] != OCCUPIED){ 
 				spotCanHappen = true;
 			}
-		}else{
-			if(c.equals("Top") || c.equals("Bottom")){
-				
-			}else{
-				for (int i = )
-			}
-		}
 	}
+
+	private void checkCanHappen(int row, int col, String c, int shipLength) {
+			if(c.equals("Top")){
+				for (int i = 0; i < shipLength-1; i++){
+					if (pShips[row + TOP][col] == OCCUPIED){
+						break;
+					}
+				}
+			}
+			if(c.equals("Bottom")){
+				for (int i = 0; i < shipLength-1; i++){
+					if (pShips[row + BOTTOM][col] == OCCUPIED){
+						break;
+					}
+				}
+			}
+			if(c.equals("LEFT")){
+				for (int i = 0; i < shipLength-1; i++){
+					if (pShips[row][col + LEFT] == OCCUPIED){
+						break;
+					}
+				}
+			}
+			if(c.equals("RIGHT")){
+				for (int i = 0; i < shipLength-1; i++){
+					if (pShips[row][col + RIGHT] == OCCUPIED){
+						break;
+					}
+				}
+			}
+			choicesCanHappen = true;
+		}
 
 	private void changeOrientation(String s, String choice, int row, int col) {
 		char shipLetter = s.charAt(0);
@@ -173,19 +197,12 @@ public class JoyceBattleCreate {
 		}
 	}
 
-	private int[] orientShip(int row, int col, String cShip) {
+	private int[] orientShip(int row, int col, int cShip) {
 		int[] poss = {TOP, RIGHT, BOTTOM, LEFT};
-		if (row-1 < cShip.length()) poss[0] = (Integer) null;
-		if (col > (FIELD_SIZE - cShip.length())) poss[1] = (Integer) null;
-		if (row > (FIELD_SIZE - cShip.length())) poss[2] = (Integer) null;
-		if (col-1 < cShip.length()) poss[3] = (Integer) null;
+		if (row-1 < cShip) poss[0] = (Integer) null;
+		if (col > (FIELD_SIZE - cShip)) poss[1] = (Integer) null;
+		if (row > (FIELD_SIZE - cShip)) poss[2] = (Integer) null;
+		if (col-1 < cShip) poss[3] = (Integer) null;
 		return poss;
 	}
-
-	public void createField(){
-		
-
-			
-	}
-
 }
