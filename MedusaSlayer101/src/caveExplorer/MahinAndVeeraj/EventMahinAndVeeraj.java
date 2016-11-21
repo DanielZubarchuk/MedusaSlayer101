@@ -3,6 +3,7 @@ package caveExplorer.MahinAndVeeraj;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import caveExplorer.InventoryNockles;
 import caveExplorer.Playable;
 import caveExplorer.caveExplorer;
 
@@ -21,6 +22,7 @@ public class EventMahinAndVeeraj implements Playable{
 	static String[][] blank;
 	static String[][] display;
 	static Scanner input;
+	static boolean win;
 
 	public static Scanner in = new Scanner(System.in);
 	
@@ -37,6 +39,7 @@ public class EventMahinAndVeeraj implements Playable{
 		display = new String[5][5];
 		letters = new String[4][4];
 		blank = new String[4][4];
+		InventoryNockles.hasShield = false; 
 		readSequence(SEQUENCE_1);
 		readSequence(SEQUENCE_2);
 		readSequence(SEQUENCE_3);
@@ -68,8 +71,9 @@ public class EventMahinAndVeeraj implements Playable{
 				letters[row][col] = objects[index];
 			}
 		}
+		MahinMemoryTilesUser.userPlay();
 		//
-		boolean win = true;
+		win = true;
 		for(int row = 0; row < display.length; row++){
 			for(int col = 0; col < display[row].length; col++){
 				if(display[row][col] == "|___"){
@@ -80,6 +84,7 @@ public class EventMahinAndVeeraj implements Playable{
 		if(win){
 			if(VeerajMemoryTilesAI.computerScore > MahinMemoryTilesUser.userScore){
 				readSequence(SEQUENCE_4);
+				InventoryNockles.hasShield = true;
 			}
 			if(VeerajMemoryTilesAI.computerScore < MahinMemoryTilesUser.userScore){
 				System.out.println("Medusa's sidekick has killed you!");

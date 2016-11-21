@@ -4,6 +4,7 @@ public class InventoryNockles {
 
 	public boolean hasMap;
 	public static boolean hasHelmet; // helmet item
+	public static boolean hasShield;
 	private String map;
 	
 	public InventoryNockles() {

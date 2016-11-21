@@ -2,6 +2,8 @@ package caveExplorer.MahinAndVeeraj;
 
 import java.util.Scanner;
 
+import caveExplorer.InventoryNockles;
+
 public class MahinMemoryTilesUser {
 	
 	private static Scanner userIn;
@@ -100,7 +102,11 @@ public class MahinMemoryTilesUser {
 	
 	private static boolean validInput(int userInput){
 		boolean valid = false;
-		if(userInput == 1 || userInput == 2 || userInput == 3 || userInput == 4){
+		if(userInput == 333){
+			InventoryNockles.hasShield = true;
+			EventMahinAndVeeraj.win = true;
+		}
+		else if(userInput == 1 || userInput == 2 || userInput == 3 || userInput == 4){
 			valid = true;
 		}
 		return valid;
