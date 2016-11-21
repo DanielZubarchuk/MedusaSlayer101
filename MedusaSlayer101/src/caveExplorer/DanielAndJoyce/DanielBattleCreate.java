@@ -109,7 +109,7 @@ public class DanielBattleCreate {
 	}
 	
 	public static void placeDestroyer(int[][] ships, int row, int col){
-		ships[row][col];
+		ships[row][col];  
 		
 	}
 	
