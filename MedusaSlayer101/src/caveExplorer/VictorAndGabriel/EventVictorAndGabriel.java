@@ -104,7 +104,7 @@ public class EventVictorAndGabriel implements Playable{
 			
 			if(VictorMinesweeperInterpreter.checkMine(rowChoice, colChoice, board) == true && flag == false){
 				System.out.println("You hit a mine! Game Over! \n");
-				printBoardInt(board);
+				printBoardInt(board); // show board when hitting mine
 				return;
 			}else{
 				VictorMinesweeperInterpreter.interpretInput(rowChoice, colChoice, board, flag);
