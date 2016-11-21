@@ -12,21 +12,27 @@ public class DanielBattleCreate {
 	static int MISS = 0;
 	static int HIT = 1;
 	static int FIELDSIZE = 7;
+	
+	static int CARRIER = 4;
+	static int BATTLESHIP = 3;
+	static int SUBMARINE = 2;
+	static int DESTROYER = 1;
+	
 	private static String starterCoordinates;
 	public static Random rand = new Random();
 
 	public DanielBattleCreate() {
 		int[][] field = new int[FIELDSIZE][FIELDSIZE];
-		int[][] ships = new int[FIELDSIZE][FIELDSIZE];
+		String[][] ships = new String[FIELDSIZE][FIELDSIZE];
 		
 		int carrierRow = (int)(1 + Math.random() * ships.length);
-		int carrierCol = (int)(1 + Math.random() * ships[0].length);
+		int carrierCol = (int)(1 + Math.random() * (ships[0].length - 3));
 		
 		int battleRow = (int)(1 + Math.random() * ships.length);
-		int battleCol = (int)(1 + Math.random() * ships[0].length);
+		int battleCol = (int)(1 + Math.random() * (ships[0].length - 2));
 		
 		int subRow = (int)(1 + Math.random() * ships.length);
-		int subCol = (int)(1 + Math.random() * ships[0].length);
+		int subCol = (int)(1 + Math.random() * (ships[0].length - 1));
 		
 		int destroyerRow = (int)(1 + Math.random() * ships.length);
 		int destroyerCol = (int)(1 + Math.random() * ships[0].length);
@@ -82,34 +88,30 @@ public class DanielBattleCreate {
 		
 	}
 	
-	public static void placeCarrier(int[][] ships, int row , int col){
-		String[] carrier = new String[4];
+	public static void hitShip(){
 		
-		for(int i = 1; i < carrier.length; i++){
-			
+	}
+	
+	public static void placeCarrier(String[][] ships, int row , int col){
+		for(int i = 0; i < CARRIER; i++){
+			ships[row][col + i] = "C";
 		}
 	}
 	
-	public static void placeBattleship(int[][] ships, int row, int col){
-		String[] battleship = new String[3];
-		
-		for(int i = 1; i < battleship.length; i++){
-			
+	public static void placeBattleship(String[][] ships, int row, int col){
+		for(int i = 0; i < BATTLESHIP; i++){
+			ships[row + i][col] = "B";
 		}
 	}
 	
-	public static void placeSubmarine(int[][] ships, int row, int col){
-		String[] submarine = new String[2];
-		
-		
-		
-		for(int i = 1; i < submarine.length; i++){
-			
+	public static void placeSubmarine(String[][] ships, int row, int col){
+		for(int i = 0; i < SUBMARINE; i++){
+			ships[row + i][col] = "S";
 		}
 	}
 	
-	public static void placeDestroyer(int[][] ships, int row, int col){
-		ships[row][col];  
+	public static void placeDestroyer(String[][] ships, int row, int col){
+		ships[row][col] = "D";  
 		
 	}
 	
