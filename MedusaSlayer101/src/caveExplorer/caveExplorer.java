@@ -11,6 +11,7 @@ public class caveExplorer {
 	public static Scanner in;
 	public static pd8CaveRoom currentRoom;
 	public static InventoryNockles inventory;
+	private static String[] allItems = {"You have collected the three god items.", "Head into the northern most room and face Medusa."};
 	
 	public static void main(String[] args) {
 		in = new Scanner(System.in);
@@ -25,7 +26,9 @@ public class caveExplorer {
 	caves[1][1] = new EventRoom("This is the Minesweeper Room.", new EventVictorAndGabriel());
 	caves[2][3] = new EventRoom("Get ready to test your memory!", new EventMahinAndVeeraj());
 	caves[1][3] = new EventRoom("This is where you found the map.", new GameStartEvent());
+	caves[0][2] = new EventRoom("This is the final battle!", new MedusaBattle());
 	currentRoom.enter();
+	caves[1][2].setConnection(pd8CaveRoom.NORTH, caves[0][2], new Door());
 	caves[1][2].setConnection(pd8CaveRoom.WEST, caves[1][1], new Door());
 	caves[1][2].setConnection(pd8CaveRoom.SOUTH, caves[2][2], new Door());
 	caves[1][2].setConnection(pd8CaveRoom.EAST, caves[1][3], new Door());
@@ -42,16 +45,19 @@ public class caveExplorer {
 
 	
 	private static void startExploring() {
+		System.out.println("You have been sent on a quest to kill the monster Medusa \n");
+		System.out.println("Enter the cave and collect the 3 god items and bring glory"
+					+ " to your family. \n");
 		while(true){
-			System.out.println("You have been sent on a quest to kill the monster Medusa");
-			System.out.println("Enter the cave and collect the 3 god items and bring glory"
-					+ " to your family.");
-			print(inventory.getDescription());
-			print(inventory.getGodItems());
-			print(currentRoom.getDescription());
-			print("What would you like to do?");
-			String input = in.nextLine();
-			act(input);
+				print(inventory.getDescription() + "\n");
+			if(InventoryNockles.hasHelmet && InventoryNockles.hasShield && InventoryNockles.hasSword){
+				readSequence(allItems);
+			}
+				print(inventory.getGodItems());
+				print(currentRoom.getDescription());
+				print("What would you like to do?");
+				String input = in.nextLine();
+				act(input);
 		}
 	}
 	private static void act(String input) {
@@ -61,5 +67,13 @@ public class caveExplorer {
 
 	public static void print(String s){
 		System.out.println(s);
+	}
+	
+	public static void readSequence(String[] seq){
+		for(String s : seq){
+			print(s);
+			print("- - - press enter - - -");
+			in.nextLine();
+		}
 	}
 }

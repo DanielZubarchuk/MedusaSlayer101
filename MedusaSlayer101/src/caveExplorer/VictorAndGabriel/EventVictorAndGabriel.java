@@ -55,7 +55,7 @@ public class EventVictorAndGabriel implements Playable{
 		
 		for(int row = 0; row < playerBoard.length; row++){
 			for(int col = 0; col < playerBoard[row].length; col++){
-				playerBoard[row][col] = " ";
+				playerBoard[row][col] = "?";
 			}
 		}
 		
