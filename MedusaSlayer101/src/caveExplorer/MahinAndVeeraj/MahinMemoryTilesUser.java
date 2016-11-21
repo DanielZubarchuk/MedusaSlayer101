@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MahinMemoryTilesUser {
 	
-	private static int userIn;
+	private static Scanner userIn;
 	
 	private static Scanner userChoiceRow;
 	private static Scanner userChoiceRow2;
