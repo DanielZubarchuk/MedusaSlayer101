@@ -122,7 +122,7 @@ public class EventVictorAndGabriel implements Playable{
 		}
 		
 	}
-	public static void printBoard(String[][] board){ //in-game
+	public static void printBoard(String[][] board){//in-game
 		System.out.print("\n");
 		System.out.print("Row         ");
 		System.out.print("\n");
