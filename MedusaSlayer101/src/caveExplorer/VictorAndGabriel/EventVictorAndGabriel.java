@@ -94,15 +94,6 @@ public class EventVictorAndGabriel implements Playable{
 				input.nextLine();
 			}
 			
-//			
-//			try{
-//				System.out.println("Please enter a col between 0 and 7.");
-//				colChoice = input.nextInt();
-//				input.nextLine();
-//			}catch(InputMismatchException exception){
-//				System.out.println("This is not an integer");
-//			}
-//			
 			System.out.println("Please enter a col between 0 and 7.");
 			colChoice = input.nextInt();
 			while(!validInput(colChoice)){
