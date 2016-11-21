@@ -37,7 +37,6 @@ public class GabrielMinesweeperBoard {
     public static void placeNumbers(int firstRow, int firstCol){
         for(int row = 0; row < EventVictorAndGabriel.board.length; row++){
         	for(int col = 0; col < EventVictorAndGabriel.board[row].length; col ++){
-        		int nearbyMines = 0;
         		if(EventVictorAndGabriel.board[row][col] != -1){
         			if(row != firstRow){
         				if(col != firstCol){
