@@ -23,19 +23,19 @@ public class VeerajMemoryTilesAI {
 		EventMahinAndVeeraj.display[row+1][col+1] = "|_" + EventMahinAndVeeraj.letters[row][col] + "_";
 		EventMahinAndVeeraj.display[row2+1][col2+1] = "|_" + EventMahinAndVeeraj.letters[row2][col2] + "_";
 		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
-		
+		//
 		if(EventMahinAndVeeraj.letters[row][col] == EventMahinAndVeeraj.letters[row2][col2]){
 			System.out.println("These are equal");
 			computerScore ++;
 		}
-		
+		//
 		if(EventMahinAndVeeraj.letters[row][col] != EventMahinAndVeeraj.letters[row2][col2]){
 			System.out.println("These are not equal");
 			EventMahinAndVeeraj.display[row+1][col+1] = "|___";
 			EventMahinAndVeeraj.display[row2+1][col2+1] = "|___";
 			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
 			System.out.println("Computer Score: " + computerScore);
-			EventMahinAndVeeraj.userTurn = true;
+			MahinMemoryTilesUser.userPlay();
 		}
 		}
 	}

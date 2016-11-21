@@ -17,15 +17,15 @@ public class VictorMinesweeperInterpreter{
 			return;
 		}
 		if(EventVictorAndGabriel.firstTurn == true){
-			EventVictorAndGabriel.playerBoard[row][col] = 0 + "";	// first click is always blank
-		//	GabrielMinesweeperBoard.createBoard(row, col);
+			EventVictorAndGabriel.board[row][col] = 0;	// first click is always blank
+			GabrielMinesweeperBoard.createBoard(row, col);
 			EventVictorAndGabriel.firstTurn = false;
 		}
 		alreadyChecked = new boolean[8][8];
 		checkNeighbors(row, col,board);
 	}
 
-	private static void checkNeighbors(int row, int col, int[][] board) {
+	public static void checkNeighbors(int row, int col, int[][] board) {
 		if(row >= 0 && row <= board.length - 1 && col >= 0 && col <= board[row].length - 1 && alreadyChecked[row][col] == false){
 			alreadyChecked[row][col] = true;
 			if(board[row][col] == 0){
@@ -35,6 +35,10 @@ public class VictorMinesweeperInterpreter{
 				checkNeighbors(row, col + 1, board);
 				checkNeighbors(row, col - 1, board);
 				return;
+			}else{
+				if(board[row][col] > 0){
+					EventVictorAndGabriel.playerBoard[row][col] = board[row][col] + "";
+				}
 			}
 		}else{
 			return;
@@ -90,5 +94,4 @@ col + 1 <= board[row].length
 -save cell coordinate
 -cell is always blank
 -generate board around the blank cell
--continue
  */

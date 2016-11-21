@@ -25,22 +25,13 @@ public class EventVictorAndGabriel implements Playable{
 	
 	public EventVictorAndGabriel() {
 		
-		
 	}
 	/** 
-	 	FOR GABRIEL HOHOHOHOHOHO 
 	 	
 	 	FINISH THE TEXT AFTER WINNING 
 	 	WE WILL LEAVE THE HELMET STUFF FOR TOMORROW WITH THE REST OF THE GROUP
-	 	
-		THE BACKEND BOARD SHOULD:
-		-USE -1 FOR MINES
-		-USE 0 FOR BLANKS
 		
 		THE FRONTEND BOARD:
-		- IS A STRING[][]
-		-USES X FOR SUPPOSED MINE
-		- USE BLANK FOR THE HIDDEN CELLS
 		- SHOULD HAVE THE ROW/COL NUMBERS AROUND THE BOARD
 		- THESE LABELS ARE JUST PRINTS. NOT PART OF THE ARRAY
 		
@@ -53,10 +44,6 @@ public class EventVictorAndGabriel implements Playable{
 		YOUR CREATEBOARD METHOD WILL CREATE THE REST OF THE BOARD BASED ON THE FIRST INPUT OF THE USER
 		ROW AND COL PARAMETERS ARE JUST INT
 		
-		WHEN YOU HAVE MADE THE CREATEBOARD METHOD, LET ME KNOW. 
-		I WILL UNCOMMENT MY FUNCTION CALL : GabrielMinesweeperBoard.createBoard(row, col);
-		BECAUSE RIGHT NOW THERE WOULD BE AN ERROR SINCE YOU HAVEN'T CREATED IT YET
-	
 	**/
 	public void play() {
 		int rowChoice = 0;
@@ -65,15 +52,12 @@ public class EventVictorAndGabriel implements Playable{
 		firstTurn = true;
 		playerBoard = new String[8][8];
 		board = new int[8][8];
-		board[0][0] = 1;
 		
-		// playerboard starts as blank
 		for(int row = 0; row < playerBoard.length; row++){
 			for(int col = 0; col < playerBoard[row].length; col++){
 				playerBoard[row][col] = " ";
 			}
 		}
-		
 		
 		readSequence(SEQUENCE_1);
 		System.out.println("Win and you shall receive a helmet of invisibility. \n- - - press enter - - - ");
@@ -88,7 +72,7 @@ public class EventVictorAndGabriel implements Playable{
 			
 			System.out.println("Would you like to flag?");
 			flagToggle = input.nextLine();
-			input.nextLine();
+			
 			if(flagToggle.toLowerCase().equals("yes")){
 				flag = true;
 			}
@@ -109,13 +93,14 @@ public class EventVictorAndGabriel implements Playable{
 				System.out.println("This is not an integer");
 			}
 			
-			if(VictorMinesweeperInterpreter.checkMine(rowChoice, colChoice, board) == true){
-				System.out.println("You hit a mine! Game Over!");
+			if(VictorMinesweeperInterpreter.checkMine(rowChoice, colChoice, board) == true && flag == false){
+				System.out.println("You hit a mine! Game Over! \n");
 				return;
 			}else{
 				VictorMinesweeperInterpreter.interpretInput(rowChoice, colChoice, board, flag);
 			}
 		}
+		printBoardInt(board);
 		readSequence(SEQUENCE_3);
 /*		if(caveExplorer.inventory.hasMap == false){
 			readSequence(SEQUENCE_3);
@@ -124,10 +109,22 @@ public class EventVictorAndGabriel implements Playable{
 */		
 	}
 
-	public static void printBoard(String[][] board){
+	private void printBoardInt(int[][] board) { //post-game
 		for(int row = 0; row < board.length; row++){
 			for(int col = 0; col < board[row].length; col++){
-				board[row][col] = " ";
+				if(board[row][col] == -1){
+					System.out.print("  " + "X");
+				}else{
+					System.out.print("  " + board[row][col]);
+				}
+			}
+			System.out.println("\n");
+		}
+		
+	}
+	public static void printBoard(String[][] board){ //in-game
+		for(int row = 0; row < board.length; row++){
+			for(int col = 0; col < board[row].length; col++){
 				System.out.print("  " + board[row][col]);
 			}
 			System.out.println("\n");
