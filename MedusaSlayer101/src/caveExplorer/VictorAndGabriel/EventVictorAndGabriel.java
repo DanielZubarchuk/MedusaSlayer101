@@ -116,7 +116,7 @@ public class EventVictorAndGabriel implements Playable{
 		}
 		printBoardInt(board);
 		readSequence(SEQUENCE_3);
-		InventoryNockles.hasHelmet = true;
+		InventoryNockles.hasHelmet = true; // receive helmet from winning
 		
 /*		if(caveExplorer.inventory.hasMap == false){
 			readSequence(SEQUENCE_3);
