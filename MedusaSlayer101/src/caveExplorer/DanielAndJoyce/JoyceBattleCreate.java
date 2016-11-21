@@ -261,6 +261,7 @@ public class JoyceBattleCreate {
 				}
 			}
 		}
+		EventDanielAndJoyce.gameWork = false;
 		win = true;
 		return win;
 	}

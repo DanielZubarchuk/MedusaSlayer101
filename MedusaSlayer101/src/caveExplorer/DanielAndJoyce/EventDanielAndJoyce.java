@@ -8,7 +8,7 @@ public class EventDanielAndJoyce implements Playable{
 	private static final String[] SEQUENCE_2 = {"You are going to have so much fun playing Battleship against the Romans."
 			+ ". Welcome to the battlefield."};
 	private static final String[] SEQUENCE_3 = {"You have defeated the Romans. Take this sword to face your greatest foe. "};
-
+	public static boolean gameWork;
 	public void play() {
 		readSequence(SEQUENCE_1);
 		System.out.println("Please tell me you have played Battleship before.");
@@ -19,7 +19,7 @@ public class EventDanielAndJoyce implements Playable{
 		
 //		JoyceBattleCreate.initializeField(JoyceBattleCreate.pField);
 //		JoyceBattleCreate.makeField();
-		boolean gameWork = true;
+		gameWork = true;
 		while(gameWork){
 			DanielBattleCreate.backField(DanielBattleCreate.field);
 			DanielBattleCreate.makeField(DanielBattleCreate.field);
