@@ -3,6 +3,11 @@
 		- can leave room and event will trigger every time player enters until player wins game in event room
 		- 
 		
+	MINE:
+		- put in a exit trigger
+		- need a cheat code!!!!
+		
+		
 		TEST CODE:
 	String[] o = {"Hey", "no"};
 	String kek = "";
@@ -33,7 +38,7 @@ public class JoyceBattleCreate {
 	static int FIELD_SIZE = 7;
 	static int SHIP_NUM = 4;
 	
-	static int RIGHT = 1; static int LEFT = -1; static int TOP = 1; static int BOTTOM = -1;
+	static int RIGHT = 1; static int LEFT = -1; static int TOP = -1; static int BOTTOM = 1;
 	static String[] shipDirection = {"Top", "Right", "Bottom", "Left"};
 	static int OCCUPIED = -2; static int CLEAN = -1; static int MISS = 0; static int HIT = 1;
 
@@ -115,8 +120,24 @@ public class JoyceBattleCreate {
 	}
 	private void changeOrientation(String s, String choice, int row, int col) {
 		char shipLetter = s.charAt(0);
-		//pShips[row][col] = s.charAt(0);
-		for (int i = 0; i < s.length(); i++){
+		pShips[row][col] = shipLetter;
+		for (int i = 0; i < s.length()-1; i++){
+			if (choice.equals("Top")){
+				pShips[row + TOP][col] = shipLetter;
+				pField[row + TOP][col] = OCCUPIED;
+			}
+			if (choice.equals("Right")){
+				pShips[row][col + RIGHT] = shipLetter;
+				pField[row][col + RIGHT] = OCCUPIED;
+			}
+			if (choice.equals("Bottom")){
+				pShips[row + BOTTOM][col] = shipLetter;
+				pField[row + BOTTOM][col] = OCCUPIED;
+			}
+			if (choice.equals("Left")){
+				pShips[row][col + LEFT] = shipLetter;
+				pField[row][col + LEFT] = OCCUPIED;
+			}
 			
 		}
 	}
