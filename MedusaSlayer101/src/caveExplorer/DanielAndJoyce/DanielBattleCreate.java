@@ -60,11 +60,11 @@ public class DanielBattleCreate {
 	public static void fireCannon(int[] shoot){
 		Scanner input = new Scanner(System.in);
 		
-		System.out.print("Row: ");
+		System.out.print("Row:");
 		shoot[0] = input.nextInt();
 		shoot[0]--;
 		
-		System.out.print("Column: ");
+		System.out.print("Column:");
 		shoot[1] = input.nextInt();
 		shoot[1]--;
 		
@@ -74,7 +74,9 @@ public class DanielBattleCreate {
 	public static void placeCarrier(int[][] ships){
 		String[] carrier = new String[4];
 		
-		carrier[1] = (String) createStarterCoordinates(ships);
+		String carrierStarter = (String) createStarterCoordinates(ships);
+		
+		carrier[0] = carrierStarter;
 		
 		for(int i = 1; i < carrier.length; i++){
 			
@@ -85,10 +87,12 @@ public class DanielBattleCreate {
 	public static void placeBattleship(int[][] ships){
 		String[] battleship = new String[3];
 		
-		battleship[1] = (String) createStarterCoordinates(ships);
+		String battleshipStarter = (String) createStarterCoordinates(ships);
+		
+		battleship[0] = battleshipStarter;
 		
 		for(int i = 1; i < battleship.length; i++){
-					
+			
 		}
 		
 		
@@ -98,7 +102,9 @@ public class DanielBattleCreate {
 	public static void placeSubmarine(int[][] ships){
 		String[] submarine = new String[2];
 		
-		submarine[1] = (String) createStarterCoordinates(ships);
+		String submarineStarter = (String) createStarterCoordinates(ships);
+		
+		submarine[0] = submarineStarter;
 		
 		for(int i = 1; i < submarine.length; i++){
 			
