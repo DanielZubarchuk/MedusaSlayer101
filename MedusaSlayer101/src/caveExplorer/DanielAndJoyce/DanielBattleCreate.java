@@ -21,23 +21,24 @@ public class DanielBattleCreate {
 	
 	//private static String starterCoordinates;
 	public static Random rand = new Random();
+	private static int carrierRow;
+	private static int carrierCol;
+	private static int battleRow;
+	private static int battleCol;
+	private static int subRow;
+	private static int subCol;
+	private static int destroyerRow;
+	private static int destroyerCol;
 
 	public DanielBattleCreate() {
+		
+	}
+	
+	public static void engageInBattle(){
 		field = new int[FIELDSIZE][FIELDSIZE];
 		ships = new String[FIELDSIZE][FIELDSIZE];
 		
-		int carrierRow = (int)(1 + Math.random() * ships.length);
-		int carrierCol = (int)(1 + Math.random() * (ships[0].length - 3));
-		
-		int battleRow = (int)(1 + Math.random() * ships.length);
-		int battleCol = (int)(1 + Math.random() * (ships[0].length - 2));
-		
-		int subRow = (int)(1 + Math.random() * ships.length);
-		int subCol = (int)(1 + Math.random() * (ships[0].length - 1));
-		
-		int destroyerRow = (int)(1 + Math.random() * ships.length);
-		int destroyerCol = (int)(1 + Math.random() * ships[0].length);
-		
+		backField(field);
 		makeField(field);
 		createStarterCoordinates(ships);
 		placeCarrier(ships, carrierRow, carrierCol);
@@ -45,7 +46,6 @@ public class DanielBattleCreate {
 		placeSubmarine(ships, subRow, subCol);
 		placeDestroyer(ships, destroyerRow, destroyerCol);
 	}
-	
 	public static void backField(int[][] field){
 		for(int r = 0 ; r < FIELDSIZE ; r++ )
 			for(int c = 0 ; c < FIELDSIZE ; c++)
@@ -53,7 +53,7 @@ public class DanielBattleCreate {
 	}
 	
 	public static void makeField(int[][] field){
-        System.out.println("\t1 \t2 \t3 \t4 \t5");
+        System.out.println("\t1 \t2 \t3 \t4 \t5 \t6 \t7");
         System.out.println();
         
         for(int row = 0 ; row < FIELDSIZE ; row++){
@@ -97,78 +97,70 @@ public class DanielBattleCreate {
 	}
 	
 	public static void placeBattleship(String[][] ships, int row, int col){
-		for(int i = 0; i < BATTLESHIP; i++){
-			ships[row + i][col] = "B";
-		}
+		int newRow = row;
+		boolean action = true;
+		while (action){
+			row = (int)(1 + Math.random() * ships.length);
+			col = (int)(1 + Math.random() * (ships[0].length - 2));
+			ships[row][col] = "B";
+			while (!ships[newRow][col].equals("C")){
+				for(int i = 0; i < BATTLESHIP;i++) {
+					newRow = row + i;
+					ships[row + i][col] = "B";
+				}
+			    action = false;
+			}
+		}	
 	}
 	
 	public static void placeSubmarine(String[][] ships, int row, int col){
-		for(int i = 0; i < SUBMARINE; i++){
-			ships[row + i][col] = "S";
+		int newRow = row;
+		boolean action = true;
+		while (action){
+			row = (int)(1 + Math.random() * ships.length);
+			col = (int)(1 + Math.random() * (ships[0].length - 1));
+			ships[row][col] = "S";
+			while (!ships[newRow][col].equals("C") || !ships[newRow][col].equals("B")){
+				for(int i = 0; i < SUBMARINE;i++) {
+					newRow = row + i;
+					ships[row + i][col] = "S";
+				}
+			    action = false;
+			}
 		}
 	}
 	
 	public static void placeDestroyer(String[][] ships, int row, int col){
-		ships[row][col] = "D";  
+		int newRow = row;
+		boolean action = true;
+		while (action){
+			row = (int)(1 + Math.random() * ships.length);
+			col = (int)(1 + Math.random() * (ships[0].length));
+			ships[row][col] = "D";
+			while (!ships[newRow][col].equals("C") || !ships[newRow][col].equals("B") || !ships[newRow][col].equals("S")){
+				for(int i = 0; i < SUBMARINE;i++) {
+					newRow = row + i;
+					ships[row + i][col] = "D";
+				}
+			    action = false;
+			}
+		}
 		
 	}
 	
 	private static void createStarterCoordinates(String[][] ships2){
-		//helper methods
+		//helper method
 		
-		int carrierRow = (int)(1 + Math.random() * ships2.length);
-		int carrierCol = (int)(1 + Math.random() * (ships2[0].length - 3));
+		carrierRow = (int)(1 + Math.random() * ships2.length);
+		carrierCol = (int)(1 + Math.random() * (ships2[0].length - 3));
 		
-		int battleRow = (int)(1 + Math.random() * ships2.length);
-		int battleCol = (int)(1 + Math.random() * (ships2[0].length - 2));
+		battleRow = (int)(1 + Math.random() * ships2.length);
+		battleCol = (int)(1 + Math.random() * (ships2[0].length - 2));
 		
-		int subRow = (int)(1 + Math.random() * ships2.length);
-		int subCol = (int)(1 + Math.random() * (ships2[0].length - 1));
+		subRow = (int)(1 + Math.random() * ships2.length);
+		subCol = (int)(1 + Math.random() * (ships2[0].length - 1));
 		
-		int destroyerRow = (int)(1 + Math.random() * ships2.length);
-		int destroyerCol = (int)(1 + Math.random() * ships2[0].length);
+		destroyerRow = (int)(1 + Math.random() * ships2.length);
+		destroyerCol = (int)(1 + Math.random() * ships2[0].length);
 	}
-
-	
-	
-
-//	public static void placeCarrier(int[][] ships){
-//		String[] carrier = new String[4];
-//		String carrierStarter = (String) createStarterCoordinates(ships);
-//		carrier[0] = carrierStarter;
-//		for(int i = 1; i < carrier.length; i++){
-//			carrier[i] = carrierStarter;
-//		}
-//	}
-//	
-//	public static void placeBattleship(int[][] ships){
-//		String[] battleship = new String[3];
-//		String battleshipStarter = (String) createStarterCoordinates(ships);
-//		battleship[0] = battleshipStarter;
-//		for(int i = 1; i < battleship.length; i++){
-//			
-//		}
-//	}
-//	
-//	public static void placeSubmarine(int[][] ships){
-//		String[] submarine = new String[2];
-//		String submarineStarter = (String) createStarterCoordinates(ships);
-//		submarine[0] = submarineStarter;
-//		
-//		for(int i = 1; i < submarine.length; i++){
-//			
-//		}
-//	}
-//	
-//	public static void placeDestroyer(int[][] ships){
-//		String[] destroyer = new String[1];
-//		destroyer[1] = (String) createStarterCoordinates(ships);
-//	}
-//	
-//	private static Object createStarterCoordinates(int[][] ships){
-//		//helper method
-//		int row = (int)(1 + Math.random() * ships.length);
-//		int col = (int)(1 + Math.random() * ships[0].length);
-//		return starterCoordinates = "("+row+", "+col+")";
-//	}
 }
