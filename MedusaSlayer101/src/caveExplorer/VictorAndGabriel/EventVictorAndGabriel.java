@@ -21,6 +21,9 @@ public class EventVictorAndGabriel implements Playable{
 	private static final String[] SEQUENCE_3 = {"<As you complete the puzzle, the words on the wall glow.>"
 			,"You have completed this puzzle."
 			,"As your reward, take this helmet. "};
+	private static final String[] SEQUENCE_4 = {"The board retracts back into the wall and the room explodes.","You managed to evade the explosion but the Helmet of Invisibility "
+			+ "was destroyed."};
+		
 	
 	public EventVictorAndGabriel() {
 		
@@ -92,6 +95,7 @@ public class EventVictorAndGabriel implements Playable{
 			if(VictorMinesweeperInterpreter.checkMine(rowChoice, colChoice, board) == true && flag == false){
 				System.out.println("You hit a mine! Game Over! \n");
 				printBoardInt(board); // show board when hitting mine
+				readSequence(SEQUENCE_4);
 				return;
 			}else{
 				VictorMinesweeperInterpreter.interpretInput(rowChoice, colChoice, board, flag);
