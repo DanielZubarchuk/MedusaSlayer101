@@ -43,7 +43,11 @@ public class caveExplorer {
 	
 	private static void startExploring() {
 		while(true){
+			System.out.println("You have been sent on a quest to kill the monster Medusa");
+			System.out.println("Enter the cave and collect the 3 god items and bring glory"
+					+ " to your family.");
 			print(inventory.getDescription());
+			print(inventory.getGodItems());
 			print(currentRoom.getDescription());
 			print("What would you like to do?");
 			String input = in.nextLine();

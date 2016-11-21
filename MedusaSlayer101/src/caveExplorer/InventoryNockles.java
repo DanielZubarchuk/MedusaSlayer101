@@ -56,7 +56,19 @@ public class InventoryNockles {
 
 	public String getDescription() {
 		if (hasMap) return map;
-		else return "You have no inventory";
+		else return "You have no map";
+	}
+	
+	public String getGodItems(){
+		String output = "";
+		if(hasHelmet){
+			output += "You have the helmet. "; 
+		}
+		if(hasShield){
+			output += "You have the shield.";
+		}
+		return output;
+		
 	}
 
 }
