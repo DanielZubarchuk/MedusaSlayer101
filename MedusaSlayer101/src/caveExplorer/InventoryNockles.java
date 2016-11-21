@@ -10,9 +10,9 @@ public class InventoryNockles {
 	
 	public InventoryNockles() {
 		hasMap = false;
-		hasHelmet = true;
-		hasShield = true;
-		hasSword = true;
+//		hasHelmet = true;
+//		hasShield = true;
+//		hasSword = true;
 		updateMap();
 	}
 
