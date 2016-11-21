@@ -1,5 +1,6 @@
 package caveExplorer.VictorAndGabriel;
 
+import caveExplorer.InventoryNockles;
 import caveExplorer.Playable;
 import caveExplorer.caveExplorer;
 
@@ -9,7 +10,6 @@ import java.util.Scanner;
 public class EventVictorAndGabriel implements Playable{
 	
 	Scanner input = new Scanner(System.in);
-	public static boolean hasHelmet;
 	public static int[][] board;
 	public static String[][] playerBoard;
 	public static boolean firstTurn;
@@ -19,9 +19,8 @@ public class EventVictorAndGabriel implements Playable{
 					+ " will explode upon doing so."};
 	private static final String[] SEQUENCE_2 = {"Good Luck!"};
 	private static final String[] SEQUENCE_3 = {"As you complete the puzzle, the words on the wall glow."
-			,"You "
 			,"You have completed this puzzle."
-			,"As your reward, ","Take this map with you too!"};
+			,"As your reward, take this helmet. "};
 	
 	public EventVictorAndGabriel() {
 		
@@ -46,6 +45,7 @@ public class EventVictorAndGabriel implements Playable{
 		
 	**/
 	public void play() {
+		InventoryNockles.hasHelmet = false;
 		int rowChoice = 0;
 		int colChoice = 0;
 		String flagToggle = "";
@@ -75,6 +75,10 @@ public class EventVictorAndGabriel implements Playable{
 			
 			if(flagToggle.toLowerCase().equals("yes")){
 				flag = true;
+			}else{
+				if(flagToggle.toLowerCase().equals("hochen")){
+					break;
+				}
 			}
 			input.nextLine();
 			
@@ -112,6 +116,8 @@ public class EventVictorAndGabriel implements Playable{
 		}
 		printBoardInt(board);
 		readSequence(SEQUENCE_3);
+		InventoryNockles.hasHelmet = true;
+		
 /*		if(caveExplorer.inventory.hasMap == false){
 			readSequence(SEQUENCE_3);
 			caveExplorer.inventory.setHasMap(true);
