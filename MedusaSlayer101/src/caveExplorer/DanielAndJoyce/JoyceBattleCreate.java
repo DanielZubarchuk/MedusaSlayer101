@@ -32,6 +32,7 @@ public class JoyceBattleCreate {
 	static int[][] pShips;
 	static int FIELD_SIZE = 7;
 	static int SHIP_NUM = 4;
+	static int SHIP_NUM2 = 4;
 	static boolean spotCanHappen = false;
 	static boolean choicesCanHappen = false;
 	
@@ -56,7 +57,7 @@ public class JoyceBattleCreate {
 		}
 	}
 	
-	public static void makeField(int[][] field){  
+	public static void makeField(){  
 		String top = "";
 		for (int i = 1; i < FIELD_SIZE + 1; i++){
 			top += "\t" + i;
@@ -67,16 +68,18 @@ public class JoyceBattleCreate {
         for(int row = 0 ; row < FIELD_SIZE ; row++){
             System.out.print((row+1)+"");
             for(int col = 0 ; col < FIELD_SIZE ; col++){
-            	if(field[row][col] == OCCUPIED){
-            		System.out.println("\t" + pShips[row][col]);
+            	if(pField[row][col] == OCCUPIED){
+            		System.out.print("\t" + (char)(pShips[row][col]));
             	}
-            	else if(field[row][col] == CLEAN){
-                    System.out.print("\t"+"~");
-                }else{
-                	if(field[row][col] == MISS){
+            	else{
+            		if(pField[row][col] == CLEAN){
+            			System.out.print("\t"+"~");
+            		}
+                else{
+                	if(pField[row][col] == MISS){
                 		System.out.print("\t"+"*");
                 	}else{
-                		if(field[row][col] == HIT){
+                		if(pField[row][col] == HIT){
                 			System.out.print("\t"+"X");
                 		}
                     
@@ -84,20 +87,23 @@ public class JoyceBattleCreate {
                 
                 }   
             } 
-            System.out.println("\n");
         }
-	} 
+            System.out.println("\n");
+	}
+	}
 	
 	public static void userField() {
 		pField = new int[FIELD_SIZE][FIELD_SIZE];
 		pShips = new int[FIELD_SIZE][FIELD_SIZE];
 		initializeField(pField);
-		makeField(pField);
+		initializeField(pShips);
+		//makeField(pField);
+		makeField();
 		
 		System.out.println("You have 4 ships in your inventory. You have an Aircraft Carrier, a Battleship, a Submarine"
 				+ " , and a Destroyer.\nThey take up 4, 3, 2, and 1 places on the board, respectively. Let's place your "
 				+ "ships!");
-		for(int i = 0; i<SHIP_NUM; i++){
+		for(int i = 0; i < SHIP_NUM2; i++){
 			String currentShip = ships[SHIP_NUM-1];
 			String shipSpaces = "";
 			int rowBeginShip = 0;
@@ -111,79 +117,91 @@ public class JoyceBattleCreate {
 				}
 				System.out.print(shipSpaces);
 				
-				rowBeginShip = input.nextInt();
+				rowBeginShip = input.nextInt() -1;
 				System.out.println("What COLUMN would you like the beginning of your " + currentShip + " to be placed?");
-				colBeginShip = input.nextInt();
+				colBeginShip = input.nextInt() -1;
 				
 				checkSpot(rowBeginShip, colBeginShip);
 
 			}while (spotCanHappen == false);
 			
 			int[] orientationOptions = orientShip(rowBeginShip, colBeginShip, SHIP_NUM);
-			//System.out.print(orientationOptions.length);
+			//int[] orientationOptions = {0, 1, 2, 3};
+			//System.out.print(orientationOptions[3]);
 			String pChoice = "";
 			
 			do{
 				String choices = "";
 				
 				for(int k = 0; k < orientationOptions.length; k++){
-					
 					if (orientationOptions[k] != 0) {
-						choices += shipDirection[orientationOptions[k]] + ", ";
+						choices += shipDirection[k] + ", ";
 					}
 				}
 				
-				System.out.println("You can orient your " + currentShip + " to the " + choices + ". How do you want it?");
+				System.out.println("You can orient your " + currentShip + " to the " + choices + "how do you want it?");
 				pChoice = input.next();
 				checkCanHappen(rowBeginShip, colBeginShip, pChoice, SHIP_NUM);
 			}while(choicesCanHappen == false);
+			
+			//System.out.print(choicesCanHappen);
 			System.out.println("Your " + currentShip + " is oriented to the " + pChoice + ".");
+			System.out.println(rowBeginShip + " " + colBeginShip);
 			changeOrientation(SHIP_NUM, currentShip, pChoice, rowBeginShip, colBeginShip);
+			//makeField(pShips);
+			makeField();
 			SHIP_NUM--;
 		}	
 	}
 	private static void checkSpot(int row, int col) {
-		if (pShips[row][col] != OCCUPIED){ 
+		System.out.println(pShips[row][col]);
+		if (pShips[row][col] == CLEAN){ 
 				spotCanHappen = true;
 			}
 	}
 
 	private static void checkCanHappen(int row, int col, String c, int shipLength) {
+		boolean pos = true;
 			if(c.equals("Top")){
 				for (int i = 0; i < shipLength-1; i++){
-					if (pShips[row + TOP][col] == OCCUPIED){
+					if (!(pShips[row + TOP][col] == CLEAN)){
+						pos = false;
 						break;
 					}
 				}
 			}
 			if(c.equals("Bottom")){
 				for (int i = 0; i < shipLength-1; i++){
-					if (pShips[row + BOTTOM][col] == OCCUPIED){
+					if (!(pShips[row + BOTTOM][col] == CLEAN)){
+						pos = false;
 						break;
 					}
 				}
 			}
-			if(c.equals("LEFT")){
+			if(c.equals("Left")){
 				for (int i = 0; i < shipLength-1; i++){
-					if (pShips[row][col + LEFT] == OCCUPIED){
+					if (!(pShips[row][col + LEFT] == CLEAN)){
+						pos = false;
 						break;
 					}
 				}
 			}
-			if(c.equals("RIGHT")){
+			if(c.equals("Right")){
 				for (int i = 0; i < shipLength-1; i++){
-					if (pShips[row][col + RIGHT] == OCCUPIED){
+					if (!(pShips[row][col + RIGHT] == CLEAN)){
+						pos = false;
 						break;
 					}
 				}
 			}
-			choicesCanHappen = true;
+			if (pos == true) choicesCanHappen = true;
 		}
 
 	private static void changeOrientation(int s, String ship, String choice, int row, int col) {
-		char shipLetter = ship.charAt(0);
-		//pShips[row][col] = shipLetter;
-		for (int i = 0; i < s; i++){
+		char shipLetter = ship.charAt(0);//int shipLetter = 0;
+		pShips[row][col] = shipLetter;
+		pField[row][col] = OCCUPIED;
+		for (int i = 0; i < s-1; i++){
 			if (choice.equals("Top")){
 				pShips[row + TOP][col] = shipLetter;
 				pField[row + TOP][col] = OCCUPIED;
@@ -210,10 +228,25 @@ public class JoyceBattleCreate {
 
 	private static int[] orientShip(int row, int col, int cShip) {
 		int[] poss = {TOP, RIGHT, BOTTOM, LEFT};
-		if (row-1 < cShip) poss[0] = 0;
+		if (row-cShip < 0) poss[0] = 0;
 		if (col > (FIELD_SIZE - cShip)) poss[1] = 0;
 		if (row > (FIELD_SIZE - cShip)) poss[2] = 0;
-		if (col-1 < cShip) poss[3] = 0;
+		if (col-cShip < 0) poss[3] = 0;
 		return poss;
+	}
+	
+	public static void aiHitPlayer(){
+		int row = (int) (Math.random()*FIELD_SIZE);
+		int col = (int) (Math.random()*FIELD_SIZE);
+		
+		String hitOrMiss = "";
+		if (pShips[row][col] == CLEAN || pShips[row][col] == HIT) hitOrMiss = "missed.";
+		else {
+			pShips[row][col] = HIT;
+			hitOrMiss = " hit a target.";
+		}
+		//makeField(pShips);
+		makeField();
+		System.out.println("The AI has chosen to fire at (" + (row+1) + ", " + (col+1) + "). It has " + hitOrMiss + " Your turn!" );
 	}
 }
