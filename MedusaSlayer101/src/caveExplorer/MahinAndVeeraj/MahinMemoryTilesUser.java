@@ -34,16 +34,34 @@ public class MahinMemoryTilesUser {
 		//System.out.println("test");
 		//if i already pick for example (1,1), ai has to choose different row and column
 		
+		
+		
 		System.out.println("Pick a row.");
+		/*while(rowPick <= 0 || rowPick >= 5){
+			System.out.println("Pick a valid row.");
+			rowPick = userChoiceRow.nextInt();
+		}*/
 		rowPick = userChoiceRow.nextInt();
 		System.out.println("Pick a column");
+		/*while(colPick <= 0 || rowPick >= 5){
+			System.out.println("Pick a valid column.");
+			colPick = userChoiceCol.nextInt();
+		}*/
 		colPick = userChoiceCol.nextInt();
 		EventMahinAndVeeraj.display[rowPick][colPick] = "|_" + EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] + "_";
 		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
 		
 		System.out.println("Pick another row.");
+		/*while(rowPick2 <= 0 || rowPick2 >= 5){
+			System.out.println("Pick another valid row.");
+			rowPick2 = userChoiceRow2.nextInt();
+		}*/
 		rowPick2 = userChoiceRow2.nextInt();
 		System.out.println("Pick another column.");
+		/*while(colPick2 <= 0 || rowPick2 >= 5){
+			System.out.println("Pick another valid column.");
+			colPick2 = userChoiceCol2.nextInt();
+		}*/
 		colPick2 = userChoiceCol2.nextInt();
 		EventMahinAndVeeraj.display[rowPick2][colPick2] = "|_" + EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1] + "_";
 		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
