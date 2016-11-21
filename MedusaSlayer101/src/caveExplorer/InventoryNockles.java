@@ -63,7 +63,7 @@ public class InventoryNockles {
 	public String getGodItems(){
 		String output = "";
 		if(hasHelmet){
-			output += "You have the helmet. "; 
+			output += "You have the Helmet of Invisibility. "; 
 		}
 		if(hasShield){
 			output += "You have the shield.";
