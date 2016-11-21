@@ -103,7 +103,7 @@ public class JoyceBattleCreate {
 			int rowBeginShip = 0;
 			int colBeginShip = 0;
 			
-			while (spotCanHappen == false){
+			do{
 				System.out.println("You have " + SHIP_NUM + " left. This is your " + currentShip + ". "
 					+ "What ROW would you like the begining of your " + currentShip + " to be placed?");
 				for (int j = 0; j < SHIP_NUM; j ++){
@@ -116,13 +116,15 @@ public class JoyceBattleCreate {
 				colBeginShip = input.nextInt();
 				
 				checkSpot(rowBeginShip, colBeginShip);
-			}
+
+			}while (spotCanHappen == false);
 			
 			int[] orientationOptions = orientShip(rowBeginShip, colBeginShip, SHIP_NUM);
 			String pChoice = "";
 			
 			while(choicesCanHappen == false){
 				String choices = "";
+				System.out.println("WTH SUCK MY DICK");
 				for (int k = 0; k < orientationOptions.length; i++){
 					
 					if (orientationOptions[k] != 0) choices += shipDirection[orientationOptions[k]] + "or ";
