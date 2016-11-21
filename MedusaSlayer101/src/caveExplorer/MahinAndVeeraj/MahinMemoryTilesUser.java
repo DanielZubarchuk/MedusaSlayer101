@@ -21,7 +21,8 @@ public class MahinMemoryTilesUser {
 		
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
+	
 	}
 	
 	public static void userPlay(){
@@ -73,7 +74,7 @@ public class MahinMemoryTilesUser {
 				System.out.println("Player Score: " + userScore);
 			}
 		
-		//
+			//
 			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] != EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
 				EventMahinAndVeeraj.display[rowPick][colPick] = "|___";
 				EventMahinAndVeeraj.display[rowPick2][colPick2] = "|___";
