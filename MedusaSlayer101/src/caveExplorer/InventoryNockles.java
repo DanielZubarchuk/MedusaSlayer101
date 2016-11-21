@@ -5,6 +5,7 @@ public class InventoryNockles {
 	public boolean hasMap;
 	public static boolean hasHelmet; // helmet item
 	public static boolean hasShield;
+	public static boolean hasSword;
 	private String map;
 	
 	public InventoryNockles() {
@@ -66,6 +67,9 @@ public class InventoryNockles {
 		}
 		if(hasShield){
 			output += "You have the shield.";
+		}
+		if(hasSword){
+			output += "You have the sword.";
 		}
 		return output;
 		
