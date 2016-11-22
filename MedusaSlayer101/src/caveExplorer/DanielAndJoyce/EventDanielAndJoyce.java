@@ -21,6 +21,7 @@ public class EventDanielAndJoyce implements Playable{
 //		JoyceBattleCreate.makeField();
 		gameWork = true;
 		while(gameWork){
+			// instantiate the fields
 			DanielBattleCreate.field = new int[7][7];
 			DanielBattleCreate.ships = new String[7][7];
 			DanielBattleCreate.backField(DanielBattleCreate.field);

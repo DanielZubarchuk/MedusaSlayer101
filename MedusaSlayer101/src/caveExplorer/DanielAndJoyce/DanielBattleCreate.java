@@ -37,7 +37,7 @@ public class DanielBattleCreate {
 	public static void engageInBattle(){
 		field = new int[FIELDSIZE][FIELDSIZE];
 		ships = new String[FIELDSIZE][FIELDSIZE];
-		
+		// remake the fields?
 		backField(field);
 		makeField(field);
 		createStarterCoordinates(ships);
