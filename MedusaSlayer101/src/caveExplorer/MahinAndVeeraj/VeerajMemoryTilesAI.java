@@ -21,8 +21,8 @@ public class VeerajMemoryTilesAI {
 				row2 = (int)(Math.random() * 4);
 				col2 = (int)(Math.random() * 4);
 			}
-		EventMahinAndVeeraj.display[row+1][col+1] = "|_" + EventMahinAndVeeraj.letters[row][col] + "_";
-		EventMahinAndVeeraj.display[row2+1][col2+1] = "|_" + EventMahinAndVeeraj.letters[row2][col2] + "_";
+		EventMahinAndVeeraj.display[row+1][col+1] = "|___" + EventMahinAndVeeraj.letters[row][col] + "___";
+		EventMahinAndVeeraj.display[row2+1][col2+1] = "|___" + EventMahinAndVeeraj.letters[row2][col2] + "___";
 		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
 		//
 		if(EventMahinAndVeeraj.letters[row][col] == EventMahinAndVeeraj.letters[row2][col2]){
@@ -33,8 +33,8 @@ public class VeerajMemoryTilesAI {
 		//
 		if(EventMahinAndVeeraj.letters[row][col] != EventMahinAndVeeraj.letters[row2][col2]){
 			System.out.println("These are not equal");
-			EventMahinAndVeeraj.display[row+1][col+1] = "|___";
-			EventMahinAndVeeraj.display[row2+1][col2+1] = "|___";
+			EventMahinAndVeeraj.display[row+1][col+1] = "|_______";
+			EventMahinAndVeeraj.display[row2+1][col2+1] = "|_______";
 			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
 			System.out.println("Computer Score: " + computerScore);
 			MahinMemoryTilesUser.userPlay();
