@@ -16,7 +16,7 @@ public class EventDanielAndJoyce implements Playable{
 			caveExplorer.print("Come on! You know you played Battleship. Say yes!");
 		}
 		readSequence(SEQUENCE_2);
-		
+		InventoryNockles.hasSword = false;
 		// initialize fields
 		DanielBattleCreate.engageInBattle();
 		JoyceBattleCreate.userField();
@@ -26,6 +26,8 @@ public class EventDanielAndJoyce implements Playable{
 			DanielBattleCreate.fireCannon();
 			JoyceBattleCreate.aiHitPlayer();
 		}
+		readSequence(SEQUENCE_3);
+		InventoryNockles.hasSword = true;
 	}
 
 	public static void readSequence(String[] seq){
