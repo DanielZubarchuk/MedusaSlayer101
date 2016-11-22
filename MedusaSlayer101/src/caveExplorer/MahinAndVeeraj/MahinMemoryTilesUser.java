@@ -44,6 +44,12 @@ public class MahinMemoryTilesUser {
 				System.out.println("Pick a valid row.");
 				rowPick = userChoiceRow.nextInt();
 			}*/
+			/*while(VeerajMemoryTilesAI.filled[rowPick - 1][colPick - 1] == true){
+				EventMahinAndVeeraj.display[rowPick][colPick] = "|_______";
+				EventMahinAndVeeraj.display[rowPick2][colPick2] = "|_______";
+				EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
+				rowPick = enterValidRow();
+			}*/
 			rowPick = enterValidRow();
 		
 			//System.out.println("Pick a column");//
@@ -78,8 +84,12 @@ public class MahinMemoryTilesUser {
 		
 			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] == EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
 				userScore++;
+				VeerajMemoryTilesAI.filled[rowPick - 1][colPick - 1] = true;
+				VeerajMemoryTilesAI.filled[rowPick2 - 1][colPick2 - 1] = true;
 				System.out.println("Player Score: " + userScore);
 			}
+			
+			
 		
 			//
 			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] != EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
