@@ -47,7 +47,7 @@ public class DanielBattleCreate {
 		backField(field);
 		printField(field);
 		initializeShips(ships);
-		System.out.println("Do you need cheatMode?");
+		System.out.println("Do you need hints?");
 		String answer = in.nextLine();
 		if(answer.equals("yes")){
 			cheatMode = true;
@@ -122,12 +122,6 @@ public class DanielBattleCreate {
 		
 		if(!(ships[rowInput][colInput].equals(" "))){
 			field[rowInput][colInput] = HIT;
-			if(cheatMode == true){
-				CARRIERCOUNT = 0;
-				BATTLESHIPCOUNT = 0;
-				SUBMARINECOUNT = 0;
-				DESTROYERCOUNT = 0;
-			}else{
 				if(ships[rowInput][colInput].equals("C")){
 					CARRIERCOUNT--;
 					if(CARRIERCOUNT == 0){
@@ -157,8 +151,6 @@ public class DanielBattleCreate {
 				System.out.println("You have destroyed the Roman Navy!");
 				JoyceBattleCreate.checkWin();
 			}
-			
-		}
 		if(ships[rowInput][colInput].equals(" ")){
 			field[rowInput][colInput] = MISS;
 		}
@@ -167,18 +159,18 @@ public class DanielBattleCreate {
 	}
 	
 	public static void placeCarrier(String[][] ships, int row , int col){
-//		if(cheatMode == true){
-//			System.out.println("Initial Carrier coord: " + (row+1) +"," + (col+1));
-//		}
+		if(cheatMode == true){
+			System.out.println("Initial Carrier coord: " + (row+1) +"," + (col+1));
+		}
 		for(int i = 0; i < CARRIER; i++){
 			ships[row][col + i] = "C";
 		}
 	}
 	
 	public static void placeBattleship(String[][] ships, int row, int col){
-//		if(cheatMode == true){
-//			System.out.println("Initial BattleShip coord: " + (row+1) +"," + (col+1));
-//		}
+		if(cheatMode == true){
+			System.out.println("Possible Initial BattleShip coord: " + (row+1) +"," + (col+1));
+		}
 		int[][] battleshipCoordinates = new int [3][2];
 		int newRow = row;
 		
@@ -211,9 +203,9 @@ public class DanielBattleCreate {
 	
 	
 	public static void placeSubmarine(String[][] ships, int row, int col){
-//		if(cheatMode == true){
-//			System.out.println("Initial Submarine coord: " + (row+1) +"," + (col+1));
-//		}
+		if(cheatMode == true){
+			System.out.println("Possible Initial Submarine coord: " + (row+1) +"," + (col+1));
+		}
 		int[][] submarineCoordinates = new int [2][2];
 		int newRow = row;
 		
@@ -245,9 +237,9 @@ public class DanielBattleCreate {
 	}
 	
 	public static void placeDestroyer(String[][] ships, int row, int col){
-//		if(cheatMode == true){
-//			System.out.println("Initial Destroyer coord: " + (row+1) +"," + (col+1));
-//		}
+		if(cheatMode == true){
+			System.out.println("Possible Initial Destroyer coord: " + (row+1) +"," + (col+1));
+		}
 		int[][] destroyerCoordinates = new int [1][2];
 		int newRow = row;
 		
