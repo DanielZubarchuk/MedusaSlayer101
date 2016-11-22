@@ -35,6 +35,7 @@ public class JoyceBattleCreate {
 	static int SHIP_NUM2 = 4;
 	static boolean spotCanHappen = false;
 	static boolean choicesCanHappen = false;
+	static boolean win = false;
 	
 	static int RIGHT = 1; static int LEFT = -1; static int TOP = -1; static int BOTTOM = 1;
 	static String[] shipDirection = {"Top", "Right", "Bottom", "Left"};
@@ -250,8 +251,8 @@ public class JoyceBattleCreate {
 		checkWin();
 	}
 	
-	public static boolean checkWin(){
-		boolean win = false;
+	public static void checkWin(){
+		//boolean win = false;
 		for (int i = 0; i < pShips.length; i++){
 			for (int j = 0; j < pShips[0].length; j++){
 				if (pShips[i][j] != CLEAN){
