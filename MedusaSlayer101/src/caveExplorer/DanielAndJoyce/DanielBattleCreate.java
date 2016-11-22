@@ -174,7 +174,7 @@ public class DanielBattleCreate {
 		int[][] battleshipCoordinates = new int [3][2];
 		int newRow = row;
 		
-		boolean startOver = true;
+		boolean startOver = true; 
 		
 		while(startOver) {
 			
