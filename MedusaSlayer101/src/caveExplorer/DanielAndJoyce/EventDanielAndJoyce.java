@@ -27,14 +27,14 @@ public class EventDanielAndJoyce implements Playable{
 			DanielBattleCreate.fireCannon();
 			JoyceBattleCreate.aiHitPlayer();
 		}
-		if(JoyceBattleCreate.win == true){
+		/*if(JoyceBattleCreate.win == true){
 			readSequence(SEQUENCE_0);
 			play();
-		}else{
+		}else{*/
 			readSequence(SEQUENCE_3);
 			InventoryNockles.hasSword = true;
 			caveExplorer.inventory.hasMap = true;
-		}
+		//}
 		
 	}
 

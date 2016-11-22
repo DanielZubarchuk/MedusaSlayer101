@@ -265,7 +265,7 @@ public class JoyceBattleCreate {
 		}
 		EventDanielAndJoyce.gameWork = false;
 		win = true;
-		System.out.println("You've been defeated by the Roman Army.");
+		System.out.println("You've been defeated by the Roman Army." + "\n");
 		//return win;
 	}
 }
