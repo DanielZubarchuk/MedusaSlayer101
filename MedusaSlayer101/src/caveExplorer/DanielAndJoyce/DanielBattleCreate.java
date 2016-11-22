@@ -148,7 +148,7 @@ public class DanielBattleCreate {
 			}
 			if((CARRIERCOUNT + BATTLESHIPCOUNT + SUBMARINECOUNT + DESTROYERCOUNT) == 0){
 				System.out.println("You have destroyed the Roman Navy!");
-				System.exit(0);
+				JoyceBattleCreate.checkWin();
 			}
 			
 		}
