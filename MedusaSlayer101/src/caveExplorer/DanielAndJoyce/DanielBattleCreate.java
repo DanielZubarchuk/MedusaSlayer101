@@ -8,12 +8,12 @@ public class DanielBattleCreate {
 	
 	//initialize
 	public static Scanner in = new Scanner(System.in);
-	public static String[][] ships;
-	public static int[][] field;
+	public static int FIELDSIZE = 7;
+	public static int[][] field = new int[FIELDSIZE][FIELDSIZE];
+	public static String[][] ships = new String[FIELDSIZE][FIELDSIZE];
 	public static int CLEAN = -1;
 	public static int MISS = 0;
 	public static int HIT = 1;
-	public static int FIELDSIZE = 7;
 	
 	//ships
 	public static final int CARRIER = 4;
@@ -43,8 +43,7 @@ public class DanielBattleCreate {
 	}
 	
 	public static void engageInBattle(){
-		field = new int[FIELDSIZE][FIELDSIZE];
-		ships = new String[FIELDSIZE][FIELDSIZE];
+		initializeShips(ships);
 		backField(field);
 		printField(field);
 		createStarterCoordinates(ships);
@@ -52,6 +51,14 @@ public class DanielBattleCreate {
 		placeBattleship(ships, battleRow, battleCol);
 		placeSubmarine(ships, subRow, subCol);
 		placeDestroyer(ships, destroyerRow, destroyerCol);
+	}
+	
+	public static void initializeShips(String[][] ships){
+		for(int row = 0; row < ships.length; row++){
+			for(int col = 0; col < ships[row].length; col++){
+				ships[row][col] = " ";
+			}
+		}
 	}
 	
 	public static void backField(int[][] field){
@@ -118,6 +125,10 @@ public class DanielBattleCreate {
 					System.out.println("You have destroyed the Destroyer!");
 				}
 			}
+			if((CARRIERCOUNT + BATTLESHIPCOUNT + SUBMARINECOUNT + DESTROYERCOUNT) == 0){
+				System.out.println("You have destroyed the Roman Navy!");
+			}
+			
 		}
 		if(ships[rowInput][colInput].equals("")){
 			field[rowInput][colInput] = MISS;
