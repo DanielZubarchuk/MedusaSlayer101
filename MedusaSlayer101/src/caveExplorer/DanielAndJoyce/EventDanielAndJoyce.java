@@ -19,8 +19,8 @@ public class EventDanielAndJoyce implements Playable{
 		
 		// initialize fields
 		DanielBattleCreate.engageInBattle();
-
 		JoyceBattleCreate.userField();
+		
 		gameWork = true;
 		while(gameWork){
 			DanielBattleCreate.fireCannon();

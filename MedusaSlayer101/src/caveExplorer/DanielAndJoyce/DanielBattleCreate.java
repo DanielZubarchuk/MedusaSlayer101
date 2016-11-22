@@ -43,14 +43,15 @@ public class DanielBattleCreate {
 	}
 	
 	public static void engageInBattle(){
-		initializeShips(ships);
 		backField(field);
 		printField(field);
+		initializeShips(ships);
 		createStarterCoordinates(ships);
 		placeCarrier(ships, carrierRow, carrierCol);
 		placeBattleship(ships, battleRow, battleCol);
 		placeSubmarine(ships, subRow, subCol);
 		placeDestroyer(ships, destroyerRow, destroyerCol);
+		printShips(ships);
 	}
 	
 	public static void initializeShips(String[][] ships){
@@ -92,14 +93,28 @@ public class DanielBattleCreate {
         }
 	} 
 	
+	public static void printShips(String[][] ships){
+		System.out.println("AI Field");
+        System.out.println("\t1 \t2 \t3 \t4 \t5 \t6 \t7");
+        System.out.println();
+        
+        for(int row = 0 ; row < FIELDSIZE ; row++){
+            System.out.print((row+1)+"");
+            for(int col = 0 ; col < FIELDSIZE ; col++){
+            	System.out.print("\t"+ ships[row][col]);
+            }
+            System.out.println("\n");
+        }
+	} 
+	
 	public static void fireCannon(){
 		System.out.println("Choose a Row in which you think a ship is located in:");
-		int rowInput = in.nextInt();
+		int rowInput = in.nextInt() - 1;
 		
 		System.out.println("Choose a Column in which you think a ship is located in:");
-		int colInput = in.nextInt();
+		int colInput = in.nextInt() - 1;
 		
-		if(!(ships[rowInput][colInput].equals(""))){
+		if(!(ships[rowInput][colInput].equals(" "))){
 			field[rowInput][colInput] = HIT;
 			if(ships[rowInput][colInput].equals("C")){
 				CARRIERCOUNT--;
@@ -127,10 +142,11 @@ public class DanielBattleCreate {
 			}
 			if((CARRIERCOUNT + BATTLESHIPCOUNT + SUBMARINECOUNT + DESTROYERCOUNT) == 0){
 				System.out.println("You have destroyed the Roman Navy!");
+				System.exit(0);
 			}
 			
 		}
-		if(ships[rowInput][colInput].equals("")){
+		if(ships[rowInput][colInput].equals(" ")){
 			field[rowInput][colInput] = MISS;
 		}
 		
@@ -138,61 +154,106 @@ public class DanielBattleCreate {
 	}
 	
 	public static void placeCarrier(String[][] ships, int row , int col){
+		System.out.println("Initial Carrier coord: " + row + "," + col);
 		for(int i = 0; i < CARRIER; i++){
 			ships[row][col + i] = "C";
 		}
 	}
 	
 	public static void placeBattleship(String[][] ships, int row, int col){
+		System.out.println("Initial Battleship coord: " + row + "," + col);
+		int[][] battleshipCoordinates = new int [3][2];
 		int newRow = row;
-		boolean action = true;
-		while (action){
-			row = (int)(Math.random() * ships.length);
-			col = (int)(Math.random() * (ships[0].length - 2));
-			ships[row][col] = "B";
-			while (!ships[newRow][col].equals("C")){
-				for(int i = 0; i < BATTLESHIP;i++) {
-					newRow = row + i;
-					ships[row + i][col] = "B";
+		
+		boolean startOver = true;
+		
+		while(startOver) {
+			
+			for (int pos=0; pos < BATTLESHIP; pos++) {
+				if (ships[newRow][col].equals(" ")) {
+					battleshipCoordinates[pos][0] = newRow;
+					battleshipCoordinates[pos][1] = col;
+					newRow++;
+					startOver = false;
+				} else {
+					newRow = (int)(Math.random() * (ships.length)- 2);
+					col = (int)(Math.random() * (ships[0].length));
+					startOver = true;
+					break;
 				}
-				
-		    action = false;
 			}
-		}	
+			
+		}
+		
+		
+		// Valid coordinates recorded in battleshipCoordinates
+		for(int i = 0; i < battleshipCoordinates.length; i++){
+			ships[battleshipCoordinates[i][0]][battleshipCoordinates[i][1]] = "B";
+		}
 	}
 	
 	
 	public static void placeSubmarine(String[][] ships, int row, int col){
+		System.out.println("Initial Submarine coord: " + row + "," + col);
+		int[][] submarineCoordinates = new int [2][2];
 		int newRow = row;
-		boolean action = true;
-		while (action){
-			row = (int)(Math.random() * ships.length);
-			col = (int)(Math.random() * (ships[0].length - 1));
-			ships[row][col] = "S";
-			while (!ships[newRow][col].equals("C") || !ships[newRow][col].equals("B")){
-				for(int i = 0; i < SUBMARINE;i++) {
-					newRow = row + i;
-					ships[row + i][col] = "S";
+		
+		boolean startOver = true;
+		
+		while(startOver) {
+			
+			for (int pos=0; pos < SUBMARINE; pos++) {
+				if (ships[newRow][col].equals(" ")) {
+					submarineCoordinates[pos][0] = newRow;
+					submarineCoordinates[pos][1] = col;
+					newRow++;
+					startOver = false;
+				} else {
+					newRow = (int)(Math.random() * (ships.length)- 1);
+					col = (int)(Math.random() * (ships[0].length));
+					startOver = true;
+					break;
 				}
-			    action = false;
 			}
+			
+		}
+		
+		
+		// Valid coordinates recorded in submarineCoordinates
+		for(int i = 0; i < submarineCoordinates.length; i++){
+			ships[submarineCoordinates[i][0]][submarineCoordinates[i][1]] = "S";
 		}
 	}
 	
 	public static void placeDestroyer(String[][] ships, int row, int col){
+		System.out.println("Initial Destroyer coord: " + row + "," + col);
+		int[][] destroyerCoordinates = new int [1][2];
 		int newRow = row;
-		boolean action = true;
-		while (action){
-			row = (int)(Math.random() * ships.length);
-			col = (int)(Math.random() * (ships[0].length));
-			ships[row][col] = "D";
-			while (!ships[newRow][col].equals("C") || !ships[newRow][col].equals("B") || !ships[newRow][col].equals("S")){
-				for(int i = 0; i < SUBMARINE;i++) {
-					newRow = row + i;
-					ships[row + i][col] = "D";
+		
+		boolean startOver = true;
+		
+		while(startOver) {
+			
+			for (int pos=0; pos < DESTROYER; pos++) {
+				if (ships[newRow][col].equals(" ")) {
+					destroyerCoordinates[pos][0] = newRow;
+					destroyerCoordinates[pos][1] = col;
+					newRow++;
+					startOver = false;
+				} else {
+					newRow = (int)(Math.random() * (ships.length));
+					col = (int)(Math.random() * (ships[0].length));
+					startOver = true;
+					break;
 				}
-			    action = false;
 			}
+			
+		}
+		
+		
+		// Valid coordinates recorded in destroyerCoordinates
+		for(int i = 0; i < destroyerCoordinates.length; i++){
+			ships[destroyerCoordinates[i][0]][destroyerCoordinates[i][1]] = "D";
 		}
 		
 	}
@@ -202,11 +263,11 @@ public class DanielBattleCreate {
 		carrierRow = (int)(Math.random() * (ships2.length));
 		carrierCol = (int)(Math.random() * (ships2[0].length - 3));
 		
-		battleRow = (int)(Math.random() * (ships2.length));
-		battleCol = (int)(Math.random() * (ships2[0].length - 2));
+		battleRow = (int)(Math.random() * (ships2.length- 2));
+		battleCol = (int)(Math.random() * (ships2[0].length));
 		
-		subRow = (int)(Math.random() * (ships2.length));
-		subCol = (int)(Math.random() * (ships2[0].length - 1));
+		subRow = (int)(Math.random() * (ships2.length- 1));
+		subCol = (int)(Math.random() * (ships2[0].length));
 		
 		destroyerRow = (int)(Math.random() * (ships2.length));
 		destroyerCol = (int)(Math.random() * (ships2[0].length));
