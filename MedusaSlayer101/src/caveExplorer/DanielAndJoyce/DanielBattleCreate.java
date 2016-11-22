@@ -7,17 +7,17 @@ import java.util.Arrays;
 public class DanielBattleCreate {
 	
 	public static Scanner in = new Scanner(System.in);
-	static String[][] ships;
-	static int[][] field;
-	static int CLEAN = -1;
-	static int MISS = 0;
-	static int HIT = 1;
-	static int FIELDSIZE = 7;
+	public static String[][] ships;
+	public static int[][] field;
+	public static int CLEAN = -1;
+	public static int MISS = 0;
+	public static int HIT = 1;
+	public static int FIELDSIZE = 7;
 	
-	static int CARRIER = 4;
-	static int BATTLESHIP = 3;
-	static int SUBMARINE = 2;
-	static int DESTROYER = 1;
+	public static int CARRIER = 4;
+	public static int BATTLESHIP = 3;
+	public static int SUBMARINE = 2;
+	public static int DESTROYER = 1;
 	
 	//private static String starterCoordinates;
 	public static Random rand = new Random();
@@ -50,9 +50,14 @@ public class DanielBattleCreate {
 	}
 	
 	public static void backField(int[][] field){
-		for(int r = 0 ; r < FIELDSIZE ; r++ )
-			for(int c = 0 ; c < field.length ; c++)
-				field[r][c] = CLEAN;
+//		for(int r = 0 ; r < FIELDSIZE ; r++ )
+//			for(int c = 0 ; c < field.length ; c++)
+//				field[r][c] = CLEAN;
+		for(int row = 0; row < field.length; row++){
+			for(int col = 0; col < field[row].length; col++){
+				field[row][col] = CLEAN;
+			}
+		}
 	}
 	
 	public static void makeField(int[][] field){
