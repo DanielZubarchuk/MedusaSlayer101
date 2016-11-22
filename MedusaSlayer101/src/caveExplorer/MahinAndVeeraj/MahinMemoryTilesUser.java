@@ -7,89 +7,55 @@ import caveExplorer.InventoryNockles;
 public class MahinMemoryTilesUser {
 	
 	private static Scanner userIn;
+	public static int timesFilled[][];
 	
-	private static Scanner userChoiceRow;
-	private static Scanner userChoiceRow2;
 	private static int rowPick;
 	private static int rowPick2;
-	private static Scanner userChoiceCol;
-	private static Scanner userChoiceCol2;
+	
 	private static int colPick;
 	private static int colPick2;
+	
 	public static int userScore;
-
-
-	public MahinMemoryTilesUser() {
-		
-	}
 
 	public static void main(String[] args) {	
 	
 	}
 	
 	public static void userPlay(){
-		userIn = new Scanner(System.in);//
-		userChoiceRow = new Scanner(System.in);
-		userChoiceRow2 = new Scanner(System.in);
-		userChoiceCol = new Scanner(System.in);
-		userChoiceCol2 = new Scanner(System.in);
-	
-		//if i already pick for example (1,1), ai has to choose different row and column
+		timesFilled = new int[4][4];
+		
+		userIn = new Scanner(System.in);
+		
 		while(true){
-			//System.out.println("Pick a row.");
-			//rowPick = userChoiceRow.nextInt();
-			/*while(rowPick <= 0 || rowPick >= 5){
-				System.out.println("Pick a valid row.");
-				rowPick = userChoiceRow.nextInt();
-			}*/
-			/*while(VeerajMemoryTilesAI.filled[rowPick - 1][colPick - 1] == true){
-				EventMahinAndVeeraj.display[rowPick][colPick] = "|_______";
-				EventMahinAndVeeraj.display[rowPick2][colPick2] = "|_______";
-				EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
-				rowPick = enterValidRow();
-			}*/
 			rowPick = enterValidRow();
+			
+			timesFilled[rowPick - 1][colPick - 1]++;
 		
-			//System.out.println("Pick a column");//
-			//colPick = userChoiceCol.nextInt();
-			/*while(colPick <= 0 || rowPick >= 5){
-				System.out.println("Pick a valid column.");
-				colPick = userChoiceCol.nextInt();
-			}*/
-			colPick = enterValidColumn();
-		
+			if(timesFilled[rowPick - 1][colPick - 1] > 1){
+				System.out.println("This is already flipped.");
+				rowPick = enterValidRow();
+			}
+			
 			EventMahinAndVeeraj.display[rowPick][colPick] = "|___" + EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] + "___";
 			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
 		
-			//System.out.println("Pick another row.");
-			//rowPick2 = userChoiceRow2.nextInt();
-			/*while(rowPick2 <= 0 || rowPick2 >= 5){
-				System.out.println("Pick another valid row.");
-				rowPick2 = userChoiceRow2.nextInt();
-			}*/
 			rowPick2 = enterValidRow2();
 		
-			//System.out.println("Pick another column.");
-			//colPick2 = userChoiceCol2.nextInt(); //
-			/*while(colPick2 <= 0 || rowPick2 >= 5){
-				System.out.println("Pick another valid column.");
-				colPick2 = userChoiceCol2.nextInt();
-			}*/
-			colPick2 = enterValidColumn2();
-		
+			timesFilled[rowPick2 - 1][colPick2 - 1]++;
+			
+			if(timesFilled[rowPick2 - 1][colPick2 - 1] > 1){
+				System.out.println("This is already flipped.");
+				rowPick2 = enterValidRow2();
+			}
+			
 			EventMahinAndVeeraj.display[rowPick2][colPick2] = "|___" + EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1] + "___";
 			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
 		
 			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] == EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
 				userScore++;
-//				VeerajMemoryTilesAI.filled[rowPick-1][colPick-1] = true;
-//				VeerajMemoryTilesAI.filled[rowPick2-1][colPick2-1] = true;
 				System.out.println("Player Score: " + userScore);
 			}
 			
-			
-		
-			//
 			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] != EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
 				EventMahinAndVeeraj.display[rowPick][colPick] = "|_______";
 				EventMahinAndVeeraj.display[rowPick2][colPick2] = "|_______";
@@ -97,10 +63,7 @@ public class MahinMemoryTilesUser {
 				
 				System.out.println("You lost your turn!");
 				System.out.println("Player Score: " + userScore);
-				/*rowPick = 0;
-				rowPick2 = 0;
-				colPick = 0;
-				colPick2 = 0;*/
+				
 				VeerajMemoryTilesAI.computerPlay();
 				break;
 			}
@@ -138,6 +101,7 @@ public class MahinMemoryTilesUser {
 				waitingForInput = false;
 			}
 		}
+		colPick = enterValidColumn();
 		return rowPick;
 	}
 	
@@ -153,6 +117,7 @@ public class MahinMemoryTilesUser {
 				waitingForInput = false;
 			}
 		}
+		colPick2 = enterValidColumn2();
 		return rowPick2;
 	}
 	
@@ -185,10 +150,4 @@ public class MahinMemoryTilesUser {
 		}
 		return colPick2;
 	}
-	
-	//public static void userTurnStatus(){
-		//if(turnCount == 2){
-			//turnFinished = true;
-		//}
-	//}
 }
