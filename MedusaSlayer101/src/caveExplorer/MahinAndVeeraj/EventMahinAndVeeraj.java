@@ -50,12 +50,12 @@ public class EventMahinAndVeeraj implements Playable{
 		
 		for(int row = 0; row < display.length; row++){
 			for(int col = 0; col < display[row].length; col++){
-				display[row][col] = "|___";
+				display[row][col] = "|_______";
 				if(col == 3){
-					display[row][col] = "|___";
+					display[row][col] = "|_______";
 				}
 				if(row == 0){
-					display[row][col] = "   " + Integer.toString(col);
+					display[row][col] = "      " + Integer.toString(col);
 				}
 				if(col == 0){
 					display[row][col] = Integer.toString(row);
@@ -80,7 +80,7 @@ public class EventMahinAndVeeraj implements Playable{
 		win = true;
 		for(int row = 0; row < display.length; row++){
 			for(int col = 0; col < display[row].length; col++){
-				if(display[row][col] == "|___"){
+				if(display[row][col] == "|_______"){
 					win = false;
 				}
 			}
