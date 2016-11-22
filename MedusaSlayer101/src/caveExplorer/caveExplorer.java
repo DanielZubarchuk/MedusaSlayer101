@@ -44,7 +44,7 @@ public class caveExplorer {
 }
 
 	
-	private static void startExploring() {
+	public static void startExploring() {
 		System.out.println("You have been sent on a quest to kill the monster Medusa \n");
 		System.out.println("Enter the cave and collect the 3 god items and bring glory"
 					+ " to your family. \n");

@@ -15,6 +15,9 @@ public class EventMahinAndVeeraj implements Playable{
 	private static final String[] SEQUENCE_3 = {"Are you ready?", "GO!"};
 	public static final String[] SEQUENCE_4 = {"You defeated Medusa's sidekick!",
 			"Here, take this shield and proceed with your journey!"};
+	public static final String[] CHEAT = {"You cheating cheater!", 
+			"The gods have learned that you have cheated your way to victory.", 
+			"You must now restart, but you will still have your shield and any other items you may have acquired."};
 	
 	static String[][] letters;
 	static String[] objects = {"!", "@", "#", "$", "%", "^", "&", "*"};
@@ -23,6 +26,7 @@ public class EventMahinAndVeeraj implements Playable{
 	static String[][] display;
 	static Scanner input;
 	static boolean win;
+	static boolean cheat;
 
 	public static Scanner in = new Scanner(System.in);
 	
@@ -110,7 +114,9 @@ public class EventMahinAndVeeraj implements Playable{
 	public static void cheatWinner(){
 		win = true;
 		readSequence(SEQUENCE_4);
-		System.exit(0);
+		cheat = true;
+		readSequence(CHEAT);
+		caveExplorer.startExploring();
 	}
 	//
 	public EventMahinAndVeeraj() {
