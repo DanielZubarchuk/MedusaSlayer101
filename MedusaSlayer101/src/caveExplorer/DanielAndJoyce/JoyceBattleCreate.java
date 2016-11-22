@@ -103,7 +103,7 @@ public class JoyceBattleCreate {
 			String shipSpaces = "";
 			int rowBeginShip = 0;
 			int colBeginShip = 0;
-			
+			 
 			do{
 				System.out.println("You have " + SHIP_NUM + " left. This is your " + currentShip + ". "
 					+ "What ROW would you like the beginning of your " + currentShip + " to be placed?");
