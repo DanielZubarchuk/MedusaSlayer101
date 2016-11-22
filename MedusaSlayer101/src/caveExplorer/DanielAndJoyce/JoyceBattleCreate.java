@@ -247,6 +247,7 @@ public class JoyceBattleCreate {
 		}
 		makeField();
 		System.out.println("The AI has chosen to fire at (" + (row+1) + ", " + (col+1) + "). It has " + hitOrMiss + " Your turn!" );
+		checkWin();
 	}
 	
 	public static boolean checkWin(){
@@ -256,13 +257,14 @@ public class JoyceBattleCreate {
 				if (pShips[i][j] != CLEAN){
 					if (pField[i][j] != HIT){
 						win = false;
-						return win;
+						//return win;
 					}
 				}
 			}
 		}
 		EventDanielAndJoyce.gameWork = false;
 		win = true;
-		return win;
+		System.out.println("You've been defeated by the Roman Army.");
+		//return win;
 	}
 }
