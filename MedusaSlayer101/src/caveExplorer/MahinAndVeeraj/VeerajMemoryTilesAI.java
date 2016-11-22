@@ -3,6 +3,7 @@ package caveExplorer.MahinAndVeeraj;
 public class VeerajMemoryTilesAI {
 	
 	public static int computerScore;
+	public static boolean[][] filled;
 	public VeerajMemoryTilesAI() {
 	}
 
@@ -11,12 +12,22 @@ public class VeerajMemoryTilesAI {
 
 	public static void computerPlay(){
 		computerScore = 0;
+		filled = new boolean[4][4];
 		while(true){
 			int row = (int)(Math.random() * 4);
 			int col = (int)(Math.random() * 4);
-		
+				while(filled[row][col]){
+					row = (int)(Math.random() * 4);
+					col = (int)(Math.random() * 4);
+				}
+				
 			int row2 = (int)(Math.random() * 4);
 			int col2 = (int)(Math.random() * 4);
+				while(filled[row2][col2]){
+					row2 = (int)(Math.random() * 4);
+					col2 = (int)(Math.random() * 4);
+				}
+				
 			while(row2 == row && col == col2){
 				row2 = (int)(Math.random() * 4);
 				col2 = (int)(Math.random() * 4);
@@ -27,6 +38,8 @@ public class VeerajMemoryTilesAI {
 		//
 		if(EventMahinAndVeeraj.letters[row][col] == EventMahinAndVeeraj.letters[row2][col2]){
 			System.out.println("These are equal");
+			filled[row][col] = true;
+			filled[row2][col2] = true;
 			computerScore ++;
 		}
 		//
