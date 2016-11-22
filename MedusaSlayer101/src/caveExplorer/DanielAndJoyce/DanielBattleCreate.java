@@ -169,9 +169,9 @@ public class DanielBattleCreate {
 	}
 	
 	public static void placeBattleship(String[][] ships, int row, int col){
-//		if(cheatMode == true){
-//			System.out.println("Initial BattleShip coord: " + (row+1) +"," + (col+1));
-//		}
+		if(cheatMode == true){
+			System.out.println("Initial BattleShip coord: " + (row+1) +"," + (col+1));
+		}
 		int[][] battleshipCoordinates = new int [3][2];
 		int newRow = row;
 		
@@ -238,9 +238,9 @@ public class DanielBattleCreate {
 	}
 	
 	public static void placeDestroyer(String[][] ships, int row, int col){
-//		if(cheatMode == true){
-//			System.out.println("Initial Destroyer coord: " + (row+1) +"," + (col+1));
-//		}
+		if(cheatMode == true){
+			System.out.println("Initial Destroyer coord: " + (row+1) +"," + (col+1));
+		}
 		int[][] destroyerCoordinates = new int [1][2];
 		int newRow = row;
 		
