@@ -28,6 +28,7 @@ public class EventDanielAndJoyce implements Playable{
 		}
 		readSequence(SEQUENCE_3);
 		InventoryNockles.hasSword = true;
+		InventoryNockles.hasMap = true;
 	}
 
 	public static void readSequence(String[] seq){
