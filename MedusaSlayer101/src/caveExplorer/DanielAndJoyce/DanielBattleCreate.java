@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 public class DanielBattleCreate {
 	
+	//initialize
 	public static Scanner in = new Scanner(System.in);
 	public static String[][] ships;
 	public static int[][] field;
@@ -14,10 +15,17 @@ public class DanielBattleCreate {
 	public static int HIT = 1;
 	public static int FIELDSIZE = 7;
 	
-	public static int CARRIER = 4;
-	public static int BATTLESHIP = 3;
-	public static int SUBMARINE = 2;
-	public static int DESTROYER = 1;
+	//ships
+	public static final int CARRIER = 4;
+	public static final int BATTLESHIP = 3;
+	public static final int SUBMARINE = 2;
+	public static final int DESTROYER = 1;
+	
+	//winning conditions
+	private static int CARRIERCOUNT = CARRIER;
+	private static int BATTLESHIPCOUNT = BATTLESHIP;
+	private static int SUBMARINECOUNT = SUBMARINE;
+	private static int DESTROYERCOUNT = DESTROYER;
 	
 	//private static String starterCoordinates;
 	public static Random rand = new Random();
@@ -37,22 +45,16 @@ public class DanielBattleCreate {
 	public static void engageInBattle(){
 		field = new int[FIELDSIZE][FIELDSIZE];
 		ships = new String[FIELDSIZE][FIELDSIZE];
-		// remake the fields?
 		backField(field);
-		makeField(field);
+		printField(field);
 		createStarterCoordinates(ships);
 		placeCarrier(ships, carrierRow, carrierCol);
 		placeBattleship(ships, battleRow, battleCol);
 		placeSubmarine(ships, subRow, subCol);
 		placeDestroyer(ships, destroyerRow, destroyerCol);
-		System.out.println("heuulo");
-		
 	}
 	
 	public static void backField(int[][] field){
-//		for(int r = 0 ; r < FIELDSIZE ; r++ )
-//			for(int c = 0 ; c < field.length ; c++)
-//				field[r][c] = CLEAN;
 		for(int row = 0; row < field.length; row++){
 			for(int col = 0; col < field[row].length; col++){
 				field[row][col] = CLEAN;
@@ -60,7 +62,7 @@ public class DanielBattleCreate {
 		}
 	}
 	
-	public static void makeField(int[][] field){
+	public static void printField(int[][] field){
         System.out.println("\t1 \t2 \t3 \t4 \t5 \t6 \t7");
         System.out.println();
         
@@ -92,11 +94,36 @@ public class DanielBattleCreate {
 		
 		if(!(ships[rowInput][colInput].equals(""))){
 			field[rowInput][colInput] = HIT;
+			if(ships[rowInput][colInput].equals("C")){
+				CARRIERCOUNT--;
+				if(CARRIERCOUNT == 0){
+					System.out.println("You have destroyed the AircraftCarrier!");
+				}
+			}
+			if(ships[rowInput][colInput].equals("B")){
+				BATTLESHIPCOUNT--;
+				if(BATTLESHIPCOUNT == 0){
+					System.out.println("You have destroyed the Battleship!");
+				}
+			}
+			if(ships[rowInput][colInput].equals("S")){
+				SUBMARINECOUNT--;
+				if(SUBMARINECOUNT == 0){
+					System.out.println("You have destroyed the Submarine!");
+				}
+			}
+			if(ships[rowInput][colInput].equals("D")){
+				DESTROYERCOUNT--;
+				if(DESTROYERCOUNT == 0){
+					System.out.println("You have destroyed the Destroyer!");
+				}
+			}
 		}
 		if(ships[rowInput][colInput].equals("")){
 			field[rowInput][colInput] = MISS;
 		}
 		
+		printField(field);
 	}
 	
 	public static void placeCarrier(String[][] ships, int row , int col){

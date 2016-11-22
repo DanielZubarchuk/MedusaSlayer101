@@ -17,32 +17,15 @@ public class EventDanielAndJoyce implements Playable{
 		}
 		readSequence(SEQUENCE_2);
 		
-//		JoyceBattleCreate.initializeField(JoyceBattleCreate.pField);
-//		JoyceBattleCreate.makeField();
+		// initialize fields
+		DanielBattleCreate.engageInBattle();
+
+		JoyceBattleCreate.userField();
 		gameWork = true;
 		while(gameWork){
-			// instantiate the fields
-			DanielBattleCreate.field = new int[7][7];
-			DanielBattleCreate.ships = new String[7][7];
-			DanielBattleCreate.backField(DanielBattleCreate.field);
-			DanielBattleCreate.makeField(DanielBattleCreate.field);
-			JoyceBattleCreate.userField();
-			DanielBattleCreate.createStarterCoordinates(DanielBattleCreate.ships);
-			DanielBattleCreate.placeCarrier(DanielBattleCreate.ships, DanielBattleCreate.carrierRow, DanielBattleCreate.carrierCol);
-			DanielBattleCreate.placeBattleship(DanielBattleCreate.ships, DanielBattleCreate.battleRow, DanielBattleCreate.battleCol);
-			DanielBattleCreate.placeSubmarine(DanielBattleCreate.ships, DanielBattleCreate.subRow, DanielBattleCreate.subCol);
-			DanielBattleCreate.placeCarrier(DanielBattleCreate.ships, DanielBattleCreate.destroyerRow, DanielBattleCreate.destroyerCol);
 			DanielBattleCreate.fireCannon();
 			JoyceBattleCreate.aiHitPlayer();
 		}
-		
-		
-		//JoyceBattleCreate.userField();
-		//DanielBattleCreate.engageInBattle();
-		/*while ()
-		DanielBattleCreate.fireCannon();
-		
-		JoyceBattleCreate.aiHitPlayer();*/
 	}
 
 	public static void readSequence(String[] seq){
