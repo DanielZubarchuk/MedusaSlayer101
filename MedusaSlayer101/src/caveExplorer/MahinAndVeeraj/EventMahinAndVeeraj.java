@@ -75,6 +75,7 @@ public class EventMahinAndVeeraj implements Playable{
 				letters[row][col] = objects[index];
 			}
 		}
+		printPic(letters);
 		MahinMemoryTilesUser.userPlay();
 		//
 		win = true;
