@@ -11,7 +11,6 @@ public class VeerajMemoryTilesAI {
 	}
 
 	public static void computerPlay(){
-		computerScore = 0;
 		filled = new boolean[4][4];
 		while(true){
 			int row = (int)(Math.random() * 4);

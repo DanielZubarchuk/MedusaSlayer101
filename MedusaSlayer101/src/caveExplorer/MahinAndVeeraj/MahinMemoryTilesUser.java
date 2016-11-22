@@ -28,8 +28,6 @@ public class MahinMemoryTilesUser {
 	}
 	
 	public static void userPlay(){
-		userScore = 0;
-		
 		userIn = new Scanner(System.in);//
 		userChoiceRow = new Scanner(System.in);
 		userChoiceRow2 = new Scanner(System.in);
@@ -84,8 +82,8 @@ public class MahinMemoryTilesUser {
 		
 			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] == EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
 				userScore++;
-				VeerajMemoryTilesAI.filled[rowPick - 1][colPick - 1] = true;
-				VeerajMemoryTilesAI.filled[rowPick2 - 1][colPick2 - 1] = true;//
+//				VeerajMemoryTilesAI.filled[rowPick-1][colPick-1] = true;
+//				VeerajMemoryTilesAI.filled[rowPick2-1][colPick2-1] = true;
 				System.out.println("Player Score: " + userScore);
 			}
 			
