@@ -24,7 +24,7 @@ public class EventVictorAndGabriel implements Playable{
 			, "It was kindly donated by Hades, Ruler of the Underworld, so make sure to come back in one piece."};
 	private static final String[] SEQUENCE_4 = {"The board retracts back into the wall and the room explodes.","You managed to evade the explosion but the Helmet of Invisibility "
 			+ "was destroyed." , "Your situation is dire but you must continue on."};
-		
+	// dialogue
 	
 	public EventVictorAndGabriel() {
 		
