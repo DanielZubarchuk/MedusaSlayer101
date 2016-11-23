@@ -74,7 +74,7 @@ public class EventMahinAndVeeraj implements Playable{
 				letters[row][col] = objects[index];
 			}
 		}
-		VeerajMemoryTilesAI.computerPlay();
+		VeerajMemoryTilesAI.computerPlay();//
 		//
 		win = true;
 		for(int row = 0; row < display.length; row++){
