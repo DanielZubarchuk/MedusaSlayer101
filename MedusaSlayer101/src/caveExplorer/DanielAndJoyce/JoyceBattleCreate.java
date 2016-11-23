@@ -33,6 +33,7 @@ public class JoyceBattleCreate {
 	static int FIELD_SIZE = 7;
 	static int SHIP_NUM = 4;
 	static int SHIP_NUM2 = 4;
+	static boolean repeat = false;
 	static boolean spotCanHappen = false;
 	static boolean choicesCanHappen = false;
 	static boolean win = true;
@@ -106,12 +107,14 @@ public class JoyceBattleCreate {
 			int colBeginShip = 0;
 			 
 			do{
-				System.out.println("You have " + SHIP_NUM + " left. This is your " + currentShip + ". "
+				if (repeat == true) System.out.println("You've alreayd placed a ship there! Choose somewhere else.");
+				System.out.println("You have " + SHIP_NUM + " ships left. This is your " + currentShip + ". "
 					+ "What ROW would you like the beginning of your " + currentShip + " to be placed?");
 				for (int j = 0; j < SHIP_NUM; j ++){
 					shipSpaces += currentShip.charAt(0);
 				}
 				System.out.print(shipSpaces);
+				shipSpaces = "";
 				
 				rowBeginShip = input.nextInt() -1;
 				while(rowBeginShip < 0 || rowBeginShip > FIELD_SIZE-1){
@@ -127,7 +130,9 @@ public class JoyceBattleCreate {
 				
 				checkSpot(rowBeginShip, colBeginShip);
 
-			}while (spotCanHappen ==  false);
+			}while (spotCanHappen == false);
+			spotCanHappen = false;
+			repeat = false;
 			
 			int[] orientationOptions = orientShip(rowBeginShip, colBeginShip, SHIP_NUM);
 			String pChoice = "";
@@ -145,19 +150,18 @@ public class JoyceBattleCreate {
 				pChoice = input.next();
 				checkCanHappen(rowBeginShip, colBeginShip, pChoice, SHIP_NUM);
 			}while(choicesCanHappen == false);
+			choicesCanHappen = false;
 			
 			System.out.println("Your " + currentShip + " is oriented to the " + pChoice + ".");
-			//System.out.println(rowBeginShip + " " + colBeginShip);
 			changeOrientation(SHIP_NUM, currentShip, pChoice, rowBeginShip, colBeginShip);
 			makeField();
 			SHIP_NUM--;
 		}	
 	}
 	private static void checkSpot(int row, int col) {
-		if (pShips[row][col] == CLEAN){ 
-				spotCanHappen = true;
-			}
-	}
+		if (pShips[row][col] == CLEAN) spotCanHappen = true;
+		else repeat = true;
+	} 
 
 	private static void checkCanHappen(int row, int col, String c, int shipLength) {
 		boolean pos = true;
@@ -270,7 +274,5 @@ public class JoyceBattleCreate {
 			System.out.println("You've been defeated by the Roman Navy." + "\n");
 		}
 		win = true;
-		
-		//return win;
 	}
 }

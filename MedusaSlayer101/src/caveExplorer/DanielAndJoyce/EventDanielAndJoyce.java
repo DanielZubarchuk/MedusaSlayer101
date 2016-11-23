@@ -4,7 +4,8 @@ import caveExplorer.*;
 
 public class EventDanielAndJoyce implements Playable{
 
-	private static final String[] SEQUENCE_0 = {"You have lost. Play again or else you will never escape."};
+	private static final String[] SEQUENCE_0 = {"You have lost. The Romans find you pitiful and refuse to play you again.", 
+		"They throw a sword down at your feet and spit on you."};
 	private static final String[] SEQUENCE_1 = {"I am Sergeant Dan and I am forcing you to fight the Romans."};
 	private static final String[] SEQUENCE_2 = {"You are going to have so much fun playing Battleship against the Romans."
 			+ ". Welcome to the battlefield."};
@@ -20,7 +21,8 @@ public class EventDanielAndJoyce implements Playable{
 		InventoryNockles.hasSword = false;
 		// initialize fields
 		DanielBattleCreate.engageInBattle();
-		JoyceBattleCreate.userField();
+		JoyceBattleCreate.userField(); 
+		System.out.println("***If you ever feel like GIVING UP, type '-1'.***");
 		
 		gameWork = true;
 		//if (DanielBattleCreate.cheatMode != true){
@@ -33,11 +35,9 @@ public class EventDanielAndJoyce implements Playable{
 		
 		if(JoyceBattleCreate.aiWin == true){
 			readSequence(SEQUENCE_0);
-			play();
-		}else{
-			readSequence(SEQUENCE_3);
-			InventoryNockles.hasSword = true;
 		}
+		readSequence(SEQUENCE_3);
+		InventoryNockles.hasSword = true;
 	}
 
 	public static void readSequence(String[] seq){

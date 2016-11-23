@@ -157,7 +157,7 @@ public class DanielBattleCreate {
 				gameWin = true;
 			}
 		if(ships[rowInput][colInput].equals(" ")){
-			field[rowInput][colInput] = MISS;
+			field[rowInput][colInput] = MISS; 
 		}
 		
 		printField(field);
