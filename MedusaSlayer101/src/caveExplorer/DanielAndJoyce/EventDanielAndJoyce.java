@@ -33,7 +33,7 @@ public class EventDanielAndJoyce implements Playable{
 		}else{*/
 			readSequence(SEQUENCE_3);
 			InventoryNockles.hasSword = true;
-			//caveExplorer.inventory.hasMap = true;
+			caveExplorer.inventory.hasMap = true;
 		//}
 		
 	}

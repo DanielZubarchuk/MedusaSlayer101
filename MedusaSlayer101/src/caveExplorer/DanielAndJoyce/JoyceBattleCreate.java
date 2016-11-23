@@ -103,7 +103,7 @@ public class JoyceBattleCreate {
 			String shipSpaces = "";
 			int rowBeginShip = 0;
 			int colBeginShip = 0;
-			 
+			
 			do{
 				System.out.println("You have " + SHIP_NUM + " left. This is your " + currentShip + ". "
 					+ "What ROW would you like the beginning of your " + currentShip + " to be placed?");
@@ -248,7 +248,7 @@ public class JoyceBattleCreate {
 		}
 		makeField();
 		System.out.println("The AI has chosen to fire at (" + (row+1) + ", " + (col+1) + "). It has " + hitOrMiss + " Your turn!" );
-		//checkWin();
+		checkWin();
 	}
 	
 	public static void checkWin(){
@@ -262,12 +262,10 @@ public class JoyceBattleCreate {
 					}
 				}
 			}
-		}if (win != false){
-			EventDanielAndJoyce.gameWork = false;
-		win = true;
-		System.out.println("You've been defeated by the Roman Navy.");
 		}
-		
+		EventDanielAndJoyce.gameWork = false;
+		win = true;
+		System.out.println("You've been defeated by the Roman Army." + "\n");
 		//return win;
 	}
 }
