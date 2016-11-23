@@ -23,7 +23,6 @@ public class EventMahinAndVeeraj implements Playable{
 	static String[][] letters;
 	static String[] objects = {"!", "@", "#", "$", "%", "^", "&", "*"};
 	static int[] counters = new int[8];
-	static String[][] blank;
 	static String[][] display;
 	static Scanner input;
 	static boolean win;
@@ -43,7 +42,6 @@ public class EventMahinAndVeeraj implements Playable{
 		input = new Scanner(System.in);
 		display = new String[5][5];
 		letters = new String[4][4];
-		blank = new String[4][4];
 		InventoryNockles.hasShield = false; 
 		readSequence(SEQUENCE_1);
 		readSequence(SEQUENCE_2);
@@ -76,7 +74,6 @@ public class EventMahinAndVeeraj implements Playable{
 				letters[row][col] = objects[index];
 			}
 		}
-		printPic(letters);
 		MahinMemoryTilesUser.userPlay();
 		//
 		win = true;

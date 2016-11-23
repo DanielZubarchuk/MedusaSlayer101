@@ -86,7 +86,7 @@ public class MahinMemoryTilesUser {
 	
 	private static void checkFlipped(){
 		//System.out.println("test");
-		while(flipped[rowPick - 1][colPick - 1] == true){
+		while(flipped[rowPick-1][colPick-1]){
 			System.out.println("This is already flipped.");
 			chooseRowAndColumn();
 			//row = rowPick;
@@ -102,7 +102,7 @@ public class MahinMemoryTilesUser {
 	}
 	
 	private static void checkFlipped2(){
-		while(flipped[rowPick2][colPick2] == true){
+		while(flipped[rowPick2-1][colPick2-1]){
 			System.out.println("This is already flipped.");
 			chooseRowAndColumn2();
 			//row = rowPick2;
