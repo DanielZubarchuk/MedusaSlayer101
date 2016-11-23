@@ -7,7 +7,7 @@ public class EventDanielAndJoyce implements Playable{
 	private static final String[] SEQUENCE_0 = {"You have lost. The Romans find you pitiful and refuse to play you again.", 
 		"They throw a sword down at your feet and spit on you."};
 	private static final String[] SEQUENCE_1 = {"Welcome Perseus, I am Sergeant Dan and We are in great need of your assistance."};
-	private static final String[] SEQUENCE_2 = {"Prove that you are worthy.Destroy the Roman Navy and finish your destiny."
+	private static final String[] SEQUENCE_2 = {"Prove that you are worthy. Destroy the Roman Navy and finish your destiny."
 			+ ". Welcome to the battlefield."};
 	private static final String[] SEQUENCE_3 = {"You have defeated the Romans. Take this sword to face your greatest foe. "};
 	private static final String[] SEQUENCE_4 = {"The Romans have aligned with Medusa to protect her from the heroes that are trying to kill her."};

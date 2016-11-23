@@ -107,7 +107,7 @@ public class JoyceBattleCreate {
 			int colBeginShip = 0;
 			 
 			do{
-				if (repeat == true) System.out.println("You've alreayd placed a ship there! Choose somewhere else.");
+				if (repeat == true) System.out.println("You've already placed a ship there! Choose somewhere else.");
 				System.out.println("You have " + SHIP_NUM + " ships left. This is your " + currentShip + ". "
 					+ "What ROW would you like the beginning of your " + currentShip + " to be placed?");
 				for (int j = 0; j < SHIP_NUM; j ++){
