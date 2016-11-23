@@ -12,6 +12,8 @@ public class caveExplorer {
 	public static pd8CaveRoom currentRoom;
 	public static InventoryNockles inventory;
 	private static String[] allItems = {"You have collected the three god items.", "Head into the northern most room and face Medusa."};
+	private static final String[] startText = {"You have been sent on a quest to kill the monster Medusa.","Enter the cave and collect the 3 god items and bring glory to your family",
+			"The door to your north is where Medusa resides.", "Tread carefully. "};
 	
 	public static void main(String[] args) {
 		in = new Scanner(System.in);
@@ -45,11 +47,7 @@ public class caveExplorer {
 
 	
 	public static void startExploring() {
-		System.out.println("You have been sent on a quest to kill the monster Medusa \n");
-		System.out.println("Enter the cave and collect the 3 god items and bring glory"
-					+ " to your family. \n");
-		System.out.println("The door to your north is where Medusa resides.");
-		System.out.println("Tread carefully. \n");
+		readSequence(startText);
 		while(true){
 				print(inventory.getDescription() + "\n");
 			if(InventoryNockles.hasHelmet && InventoryNockles.hasShield && InventoryNockles.hasSword){
