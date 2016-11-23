@@ -6,10 +6,12 @@ public class EventDanielAndJoyce implements Playable{
 
 	private static final String[] SEQUENCE_0 = {"You have lost. The Romans find you pitiful and refuse to play you again.", 
 		"They throw a sword down at your feet and spit on you."};
-	private static final String[] SEQUENCE_1 = {"I am Sergeant Dan and I am forcing you to fight the Romans."};
-	private static final String[] SEQUENCE_2 = {"You are going to have so much fun playing Battleship against the Romans."
+	private static final String[] SEQUENCE_1 = {"Welcome Perseus, I am Sergeant Dan and We are in great need of your assistance."};
+	private static final String[] SEQUENCE_2 = {"Prove that you are worthy.Destroy the Roman Navy and finish your destiny."
 			+ ". Welcome to the battlefield."};
 	private static final String[] SEQUENCE_3 = {"You have defeated the Romans. Take this sword to face your greatest foe. "};
+	private static final String[] SEQUENCE_4 = {"The Romans have aligned with Medusa to protect her from the heroes that are trying to kill her."};
+	private static final String[] SEQUENCE_5 = {"The weapon that is required to defeat Medusa is locked away and can only be opened by someone worthy."};
 	public static boolean gameWork;
 	public void play () {
 		readSequence(SEQUENCE_1);
@@ -17,7 +19,10 @@ public class EventDanielAndJoyce implements Playable{
 		while(caveExplorer.in.nextLine().toLowerCase().indexOf("yes") < 0){
 			caveExplorer.print("Come on! You know you played Battleship. Say yes!");
 		}
+		readSequence(SEQUENCE_4);
+		readSequence(SEQUENCE_5);
 		readSequence(SEQUENCE_2);
+		
 		InventoryNockles.hasSword = false;
 		// initialize fields
 		DanielBattleCreate.engageInBattle();
