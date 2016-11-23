@@ -21,6 +21,7 @@ public class EventDanielAndJoyce implements Playable{
 		// initialize fields
 		DanielBattleCreate.engageInBattle();
 		JoyceBattleCreate.userField();
+		System.out.println("***If you ever feel like GIVING UP, type '-1'.***");
 		
 		gameWork = true;
 		//if (DanielBattleCreate.cheatMode != true){
