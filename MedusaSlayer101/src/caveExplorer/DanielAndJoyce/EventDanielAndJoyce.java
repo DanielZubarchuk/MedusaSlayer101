@@ -22,7 +22,6 @@ public class EventDanielAndJoyce implements Playable{
 		readSequence(SEQUENCE_4);
 		readSequence(SEQUENCE_5);
 		readSequence(SEQUENCE_2);
-		
 		InventoryNockles.hasSword = false;
 		// initialize fields
 		DanielBattleCreate.engageInBattle();
