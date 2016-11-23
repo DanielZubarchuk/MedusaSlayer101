@@ -15,6 +15,7 @@ public class DanielBattleCreate {
 	public static int MISS = 0;
 	public static int HIT = 1;
 	public static boolean cheatMode = false;
+	public static boolean gameWin = false;
 	
 	//ships
 	public static final int CARRIER = 4;
@@ -149,7 +150,8 @@ public class DanielBattleCreate {
 			}
 			if((CARRIERCOUNT + BATTLESHIPCOUNT + SUBMARINECOUNT + DESTROYERCOUNT) == 0){
 				System.out.println("You have destroyed the Roman Navy!");
-				JoyceBattleCreate.checkWin();
+				//JoyceBattleCreate.checkWin();
+				gameWin = true;
 			}
 		if(ships[rowInput][colInput].equals(" ")){
 			field[rowInput][colInput] = MISS;

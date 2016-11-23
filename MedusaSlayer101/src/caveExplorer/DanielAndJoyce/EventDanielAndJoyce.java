@@ -26,6 +26,7 @@ public class EventDanielAndJoyce implements Playable{
 		if (DanielBattleCreate.cheatMode != true){
 			while(gameWork){
 				DanielBattleCreate.fireCannon();
+				if(DanielBattleCreate.gameWin == true) break;
 				JoyceBattleCreate.aiHitPlayer();
 			}
 		}
