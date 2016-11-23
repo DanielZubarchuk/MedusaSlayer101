@@ -274,7 +274,5 @@ public class JoyceBattleCreate {
 			System.out.println("You've been defeated by the Roman Navy." + "\n");
 		}
 		win = true;
-		
-		//return win;
 	}
 }
