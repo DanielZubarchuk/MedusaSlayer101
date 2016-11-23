@@ -35,7 +35,7 @@ public class JoyceBattleCreate {
 	static int SHIP_NUM2 = 4;
 	static boolean spotCanHappen = false;
 	static boolean choicesCanHappen = false;
-	static boolean win = false;
+	static boolean win = true;
 	
 	static int RIGHT = 1; static int LEFT = -1; static int TOP = -1; static int BOTTOM = 1;
 	static String[] shipDirection = {"Top", "Right", "Bottom", "Left"};
@@ -146,7 +146,7 @@ public class JoyceBattleCreate {
 			}while(choicesCanHappen == false);
 			
 			System.out.println("Your " + currentShip + " is oriented to the " + pChoice + ".");
-			System.out.println(rowBeginShip + " " + colBeginShip);
+			//System.out.println(rowBeginShip + " " + colBeginShip);
 			changeOrientation(SHIP_NUM, currentShip, pChoice, rowBeginShip, colBeginShip);
 			makeField();
 			SHIP_NUM--;
@@ -247,7 +247,7 @@ public class JoyceBattleCreate {
 			hitOrMiss = " hit a target.";
 		}
 		makeField();
-		System.out.println("The AI has chosen to fire at (" + (row+1) + ", " + (col+1) + "). It has " + hitOrMiss + " Your turn!" );
+		System.out.println("The Roman Navy has chosen to fire at (" + (row+1) + ", " + (col+1) + "). It has " + hitOrMiss + " Your turn!" );
 		//checkWin();
 	}
 	
@@ -262,11 +262,12 @@ public class JoyceBattleCreate {
 					}
 				}
 			}
-		}if (win != false){
-			EventDanielAndJoyce.gameWork = false;
-		win = true;
-		System.out.println("You've been defeated by the Roman Navy.");
 		}
+		if (win == true){
+			EventDanielAndJoyce.gameWork = false;
+			System.out.println("You've been defeated by the Roman Navy." + "\n");
+		}
+		win = true;
 		
 		//return win;
 	}

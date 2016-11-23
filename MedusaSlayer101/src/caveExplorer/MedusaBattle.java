@@ -11,7 +11,7 @@ public class MedusaBattle implements Playable {
 			"<Medusa makes eye contact with you and you feel your body stiffen up.>", "<Your body starts turning to stone.>", "You failed your quest and became another piece of Medusa's collection."};
 	
 	public MedusaBattle() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public void play() {

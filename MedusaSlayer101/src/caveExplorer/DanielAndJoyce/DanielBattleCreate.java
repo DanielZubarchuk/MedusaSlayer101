@@ -23,10 +23,10 @@ public class DanielBattleCreate {
 	public static final int DESTROYER = 1;
 	
 	//winning conditions
-	private static int CARRIERCOUNT = CARRIER;
-	private static int BATTLESHIPCOUNT = BATTLESHIP;
-	private static int SUBMARINECOUNT = SUBMARINE;
-	private static int DESTROYERCOUNT = DESTROYER;
+	public static int CARRIERCOUNT = CARRIER;
+	public static int BATTLESHIPCOUNT = BATTLESHIP;
+	public static int SUBMARINECOUNT = SUBMARINE;
+	public static int DESTROYERCOUNT = DESTROYER;
 	
 	//private static String starterCoordinates;
 	public static Random rand = new Random();

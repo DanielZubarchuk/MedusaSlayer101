@@ -8,6 +8,7 @@ public class MahinMemoryTilesUser {
 	
 	private static Scanner userIn;
 	public static int timesFilled[][];
+	public static boolean flipped[][];
 	
 	private static int rowPick;
 	private static int rowPick2;
@@ -18,16 +19,17 @@ public class MahinMemoryTilesUser {
 	public static int userScore;
 
 	public static void main(String[] args) {	
-	
+	//delete this to revert
 	}
 	
 	public static void userPlay(){
 		timesFilled = new int[4][4];
+		flipped = new boolean [4][4];
 		
 		userIn = new Scanner(System.in);
 		
 		while(true){
-			rowPick = enterValidRow();
+			/*rowPick = enterValidRow();
 			
 			timesFilled[rowPick - 1][colPick - 1]++;
 		
@@ -49,11 +51,18 @@ public class MahinMemoryTilesUser {
 			}
 			
 			EventMahinAndVeeraj.display[rowPick2][colPick2] = "|___" + EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1] + "___";
-			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
+			EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);*/
+			
+			chooseRowAndColumn();
+			checkFlipped();
+			chooseRowAndColumn2();
+			checkFlipped2();
 		
 			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] == EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
 				userScore++;
 				System.out.println("Player Score: " + userScore);
+				flipped[rowPick - 1][colPick - 1] = true;
+				flipped[rowPick2 - 1][colPick2 - 1] = true;//
 			}
 			
 			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] != EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
@@ -70,6 +79,39 @@ public class MahinMemoryTilesUser {
 		}
 	}
 	
+	private static void chooseRowAndColumn(){
+		rowPick = enterValidRow();
+		colPick = enterValidColumn();
+	}
+	
+	private static void checkFlipped(){
+		//System.out.println("test");
+		while(flipped[rowPick - 1][colPick - 1] == true){
+			System.out.println("This is already flipped.");
+			chooseRowAndColumn();
+			//row = rowPick;
+			//col = colPick;
+		}
+		EventMahinAndVeeraj.display[rowPick][colPick] = "|___" + EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] + "___";
+		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
+		flipped[rowPick][colPick] = true;
+	}
+	
+	private static void chooseRowAndColumn2(){
+		rowPick2 = enterValidRow2();
+	}
+	
+	private static void checkFlipped2(){
+		while(flipped[rowPick2][colPick2] == true){
+			System.out.println("This is already flipped.");
+			chooseRowAndColumn2();
+			//row = rowPick2;
+			//col = colPick2;
+		}
+		EventMahinAndVeeraj.display[rowPick2][colPick2] = "|___" + EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1] + "___";
+		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
+		flipped[rowPick2][colPick2] = true;
+	}
 	
 	private static boolean validInput(int userInput){
 		boolean valid = false;
@@ -101,7 +143,7 @@ public class MahinMemoryTilesUser {
 				waitingForInput = false;
 			}
 		}
-		colPick = enterValidColumn();
+		//colPick = enterValidColumn();
 		return rowPick;
 	}
 	

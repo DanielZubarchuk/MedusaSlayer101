@@ -14,16 +14,17 @@ public class EventVictorAndGabriel implements Playable{
 	public static String[][] playerBoard;
 	public static boolean firstTurn;
 	private static final String[] SEQUENCE_1 = {"<As you step into the room, a grid slowly extrudes from the wall and engravings lined across"
-			+ " the stone begin to glow.>","They read: This is a game called Minesweeper.", "The grid before you is laced with mines.", 
+			+ " the stone begin to glow.>","They read: The gods of Olympus may have sent you on this quest,"
+					+ " but you must prove yourself worthy.","The challenge that you must face is a game called Minesweeper.", "The grid before you is laced with mines.", 
 			"Mark all the mines with a flag. Uncover all the numbers to win.", "Hit a mine and this quest of yours is over.", "This room"
-					+ " will explode upon doing so."};
+					+ " will explode upon losing!","If you win however, you shall receive the prized HELMET OF INVISIBILITY.",};
 	private static final String[] SEQUENCE_2 = {"Good Luck!"};
 	private static final String[] SEQUENCE_3 = {"<As you complete the puzzle, the words on the wall glow.>"
-			,"You have completed this puzzle."
-			,"As your reward, take this helmet. "};
+			,"Victory is yours brave champion.", "As your reward, take this HELMET OF INVISIBILITY!"
+			, "It was kindly donated by Hades, Ruler of the Underworld, so make sure to come back in one piece."};
 	private static final String[] SEQUENCE_4 = {"The board retracts back into the wall and the room explodes.","You managed to evade the explosion but the Helmet of Invisibility "
-			+ "was destroyed."};
-		
+			+ "was destroyed." , "Your situation is dire but you must continue on."};
+	// dialogue
 	
 	public EventVictorAndGabriel() {
 		
@@ -45,7 +46,6 @@ public class EventVictorAndGabriel implements Playable{
 		}
 		
 		readSequence(SEQUENCE_1);
-		System.out.println("Win and you shall receive a helmet of invisibility. \n- - - press enter - - - ");
 		while(caveExplorer.in.nextLine().toLowerCase().indexOf("yes") < 0){
 			caveExplorer.print("Do you agree to the terms of this game?");
 		}

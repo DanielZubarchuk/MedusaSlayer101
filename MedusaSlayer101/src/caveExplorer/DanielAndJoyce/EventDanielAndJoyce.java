@@ -10,7 +10,7 @@ public class EventDanielAndJoyce implements Playable{
 			+ ". Welcome to the battlefield."};
 	private static final String[] SEQUENCE_3 = {"You have defeated the Romans. Take this sword to face your greatest foe. "};
 	public static boolean gameWork;
-	public void play() {
+	public void play () {
 		readSequence(SEQUENCE_1);
 		System.out.println("Please tell me you have played Battleship before.");
 		while(caveExplorer.in.nextLine().toLowerCase().indexOf("yes") < 0){
@@ -23,19 +23,20 @@ public class EventDanielAndJoyce implements Playable{
 		JoyceBattleCreate.userField();
 		
 		gameWork = true;
-		while(gameWork){
-			DanielBattleCreate.fireCannon();
-			JoyceBattleCreate.aiHitPlayer();
+		if (DanielBattleCreate.cheatMode != true){
+			while(gameWork){
+				DanielBattleCreate.fireCannon();
+				JoyceBattleCreate.aiHitPlayer();
+			}
 		}
+		
 		/*if(JoyceBattleCreate.win == true){
 			readSequence(SEQUENCE_0);
 			play();
 		}else{*/
-			readSequence(SEQUENCE_3);
-			InventoryNockles.hasSword = true;
-			//caveExplorer.inventory.hasMap = true;
-		//}
-		
+		readSequence(SEQUENCE_3);
+		InventoryNockles.hasSword = true;
+
 	}
 
 	public static void readSequence(String[] seq){
