@@ -21,7 +21,7 @@ public class EventMahinAndVeeraj implements Playable{
 			"You must now restart, but you will still have your shield and any other items you may have acquired."};
 	
 	static String[][] letters;
-	static String[] objects = {"!", "@", "#", "$", "%", "^", "&", "*"};
+	static String[] objects = {"H", "I", "M", "E", "D", "U", "S", "A"};
 	static int[] counters = new int[8];
 	static String[][] display;
 	static Scanner input;
