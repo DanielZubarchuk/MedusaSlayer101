@@ -20,7 +20,7 @@ public class EventDanielAndJoyce implements Playable{
 		InventoryNockles.hasSword = false;
 		// initialize fields
 		DanielBattleCreate.engageInBattle();
-		JoyceBattleCreate.userField();
+		JoyceBattleCreate.userField(); 
 		System.out.println("***If you ever feel like GIVING UP, type '-1'.***");
 		
 		gameWork = true;

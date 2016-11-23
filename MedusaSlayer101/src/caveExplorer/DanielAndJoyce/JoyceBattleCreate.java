@@ -161,7 +161,7 @@ public class JoyceBattleCreate {
 	private static void checkSpot(int row, int col) {
 		if (pShips[row][col] == CLEAN) spotCanHappen = true;
 		else repeat = true;
-	}
+	} 
 
 	private static void checkCanHappen(int row, int col, String c, int shipLength) {
 		boolean pos = true;
