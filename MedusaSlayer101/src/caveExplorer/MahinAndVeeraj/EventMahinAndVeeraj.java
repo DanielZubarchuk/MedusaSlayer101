@@ -97,9 +97,7 @@ public class EventMahinAndVeeraj implements Playable{
 			}
 		}
 	}
-	//
-	//
-	//
+	
 	public static void printPic(String[][] pic){
 		for(String[] row: pic){
 			for(String col: row){
@@ -109,7 +107,6 @@ public class EventMahinAndVeeraj implements Playable{
 		}
 	}
 	
-
 	public static void cheatWinner(){
 		win = true;
 		readSequence(SEQUENCE_4);
@@ -118,8 +115,7 @@ public class EventMahinAndVeeraj implements Playable{
 		caveExplorer.currentRoom = caveExplorer.caves[1][2];
 		caveExplorer.startExploring();
 	}
-	//
+	
 	public EventMahinAndVeeraj() {
-		// TODO Auto-generated constructor stub
 	}
 }

@@ -34,15 +34,15 @@ public class VeerajMemoryTilesAI {
 		EventMahinAndVeeraj.display[row+1][col+1] = "|___" + EventMahinAndVeeraj.letters[row][col] + "___";
 		EventMahinAndVeeraj.display[row2+1][col2+1] = "|___" + EventMahinAndVeeraj.letters[row2][col2] + "___";
 		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
-		//
+		
 		if(EventMahinAndVeeraj.letters[row][col] == EventMahinAndVeeraj.letters[row2][col2]){
 			System.out.println("These are equal");
 			filled[row][col] = true;
 			filled[row2][col2] = true;
 			computerScore ++;
 		}
-		//
-		//
+		
+		
 		if(EventMahinAndVeeraj.letters[row][col] != EventMahinAndVeeraj.letters[row2][col2]){
 			System.out.println("These are not equal");
 			EventMahinAndVeeraj.display[row+1][col+1] = "|_______";
