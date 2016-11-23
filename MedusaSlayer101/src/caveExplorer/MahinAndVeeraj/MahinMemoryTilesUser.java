@@ -94,7 +94,7 @@ public class MahinMemoryTilesUser {
 		}
 		EventMahinAndVeeraj.display[rowPick][colPick] = "|___" + EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] + "___";
 		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
-		flipped[rowPick][colPick] = true;
+		flipped[rowPick-1][colPick-1] = true;
 	}
 	
 	private static void chooseRowAndColumn2(){
@@ -110,7 +110,7 @@ public class MahinMemoryTilesUser {
 		}
 		EventMahinAndVeeraj.display[rowPick2][colPick2] = "|___" + EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1] + "___";
 		EventMahinAndVeeraj.printPic(EventMahinAndVeeraj.display);
-		flipped[rowPick2][colPick2] = true;
+		flipped[rowPick2-1][colPick2-1] = true;
 	}
 	
 	private static boolean validInput(int userInput){
