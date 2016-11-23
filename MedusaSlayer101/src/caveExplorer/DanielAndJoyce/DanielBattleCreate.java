@@ -48,11 +48,11 @@ public class DanielBattleCreate {
 		backField(field);
 		printField(field);
 		initializeShips(ships);
-		System.out.println("Do you need hints?");
+		/*System.out.println("Do you need hints?");
 		String answer = in.nextLine();
 		if(answer.equals("yes")){
 			cheatMode = true;
-		}
+		}*/
 		createStarterCoordinates(ships);
 		placeCarrier(ships, carrierRow, carrierCol);
 		placeBattleship(ships, battleRow, battleCol);
@@ -118,6 +118,9 @@ public class DanielBattleCreate {
 		System.out.println("Choose a Row in which you think a ship is located in:");
 		int rowInput = in.nextInt() - 1;
 		
+		if (rowInput == -2){
+			gameWin = true;
+		}else{
 		System.out.println("Choose a Column in which you think a ship is located in:");
 		int colInput = in.nextInt() - 1;
 		
@@ -158,6 +161,7 @@ public class DanielBattleCreate {
 		}
 		
 		printField(field);
+	}
 	}
 	
 	public static void placeCarrier(String[][] ships, int row , int col){

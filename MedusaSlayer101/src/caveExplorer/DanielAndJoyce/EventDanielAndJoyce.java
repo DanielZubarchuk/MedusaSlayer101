@@ -23,21 +23,21 @@ public class EventDanielAndJoyce implements Playable{
 		JoyceBattleCreate.userField();
 		
 		gameWork = true;
-		if (DanielBattleCreate.cheatMode != true){
+		//if (DanielBattleCreate.cheatMode != true){
 			while(gameWork){
 				DanielBattleCreate.fireCannon();
 				if(DanielBattleCreate.gameWin == true) break;
 				JoyceBattleCreate.aiHitPlayer();
-			}
+			//}
 		}
 		
-		/*if(JoyceBattleCreate.win == true){
+		if(JoyceBattleCreate.aiWin == true){
 			readSequence(SEQUENCE_0);
 			play();
-		}else{*/
-		readSequence(SEQUENCE_3);
-		InventoryNockles.hasSword = true;
-
+		}else{
+			readSequence(SEQUENCE_3);
+			InventoryNockles.hasSword = true;
+		}
 	}
 
 	public static void readSequence(String[] seq){

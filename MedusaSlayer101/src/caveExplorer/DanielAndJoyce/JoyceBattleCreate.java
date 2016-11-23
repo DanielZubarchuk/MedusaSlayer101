@@ -36,6 +36,7 @@ public class JoyceBattleCreate {
 	static boolean spotCanHappen = false;
 	static boolean choicesCanHappen = false;
 	static boolean win = true;
+	static boolean aiWin = false;
 	
 	static int RIGHT = 1; static int LEFT = -1; static int TOP = -1; static int BOTTOM = 1;
 	static String[] shipDirection = {"Top", "Right", "Bottom", "Left"};
@@ -265,6 +266,7 @@ public class JoyceBattleCreate {
 		}
 		if (win == true){
 			EventDanielAndJoyce.gameWork = false;
+			aiWin = true;
 			System.out.println("You've been defeated by the Roman Navy." + "\n");
 		}
 		win = true;
