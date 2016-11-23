@@ -62,7 +62,7 @@ public class MahinMemoryTilesUser {
 				userScore++;
 				System.out.println("Player Score: " + userScore);
 				flipped[rowPick - 1][colPick - 1] = true;
-				flipped[rowPick2 - 1][colPick2 - 1] = true;
+				flipped[rowPick2 - 1][colPick2 - 1] = true;//
 			}
 			
 			if(EventMahinAndVeeraj.letters[rowPick - 1][colPick - 1] != EventMahinAndVeeraj.letters[rowPick2 - 1][colPick2 - 1]){
