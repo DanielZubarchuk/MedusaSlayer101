@@ -23,10 +23,10 @@ public class DanielBattleCreate {
 	public static final int DESTROYER = 1;
 	
 	//winning conditions
-	private static int CARRIERCOUNT = CARRIER;
-	private static int BATTLESHIPCOUNT = BATTLESHIP;
-	private static int SUBMARINECOUNT = SUBMARINE;
-	private static int DESTROYERCOUNT = DESTROYER;
+	public static int CARRIERCOUNT = CARRIER;
+	public static int BATTLESHIPCOUNT = BATTLESHIP;
+	public static int SUBMARINECOUNT = SUBMARINE;
+	public static int DESTROYERCOUNT = DESTROYER;
 	
 	//private static String starterCoordinates;
 	public static Random rand = new Random();
@@ -122,36 +122,35 @@ public class DanielBattleCreate {
 		
 		if(!(ships[rowInput][colInput].equals(" "))){
 			field[rowInput][colInput] = HIT;
-			if(ships[rowInput][colInput].equals("C")){
-				CARRIERCOUNT--;
-				if(CARRIERCOUNT == 0){
-					System.out.println("You have destroyed the AircraftCarrier!");
+				if(ships[rowInput][colInput].equals("C")){
+					CARRIERCOUNT--;
+					if(CARRIERCOUNT == 0){
+						System.out.println("You have destroyed the AircraftCarrier!");
+					}
 				}
-			}
-			if(ships[rowInput][colInput].equals("B")){
-				BATTLESHIPCOUNT--;
-				if(BATTLESHIPCOUNT == 0){
-					System.out.println("You have destroyed the Battleship!");
+				if(ships[rowInput][colInput].equals("B")){
+					BATTLESHIPCOUNT--;
+					if(BATTLESHIPCOUNT == 0){
+						System.out.println("You have destroyed the Battleship!");
+					}
 				}
-			}
-			if(ships[rowInput][colInput].equals("S")){
-				SUBMARINECOUNT--;
-				if(SUBMARINECOUNT == 0){
-					System.out.println("You have destroyed the Submarine!");
+				if(ships[rowInput][colInput].equals("S")){
+					SUBMARINECOUNT--;
+					if(SUBMARINECOUNT == 0){
+						System.out.println("You have destroyed the Submarine!");
+					}
 				}
-			}
-			if(ships[rowInput][colInput].equals("D")){
-				DESTROYERCOUNT--;
-				if(DESTROYERCOUNT == 0){
-					System.out.println("You have destroyed the Destroyer!");
+				if(ships[rowInput][colInput].equals("D")){
+					DESTROYERCOUNT--;
+					if(DESTROYERCOUNT == 0){
+						System.out.println("You have destroyed the Destroyer!");
+					}
 				}
 			}
 			if((CARRIERCOUNT + BATTLESHIPCOUNT + SUBMARINECOUNT + DESTROYERCOUNT) == 0){
 				System.out.println("You have destroyed the Roman Navy!");
 				JoyceBattleCreate.checkWin();
 			}
-			
-		}
 		if(ships[rowInput][colInput].equals(" ")){
 			field[rowInput][colInput] = MISS;
 		}
@@ -170,12 +169,12 @@ public class DanielBattleCreate {
 	
 	public static void placeBattleship(String[][] ships, int row, int col){
 		if(cheatMode == true){
-			System.out.println("Initial BattleShip coord: " + (row+1) +"," + (col+1));
+			System.out.println("Possible Initial BattleShip coord: " + (row+1) +"," + (col+1));
 		}
 		int[][] battleshipCoordinates = new int [3][2];
 		int newRow = row;
 		
-		boolean startOver = true;
+		boolean startOver = true; 
 		
 		while(startOver) {
 			
@@ -205,7 +204,7 @@ public class DanielBattleCreate {
 	
 	public static void placeSubmarine(String[][] ships, int row, int col){
 		if(cheatMode == true){
-			System.out.println("Initial Submarine coord: " + (row+1) +"," + (col+1));
+			System.out.println("Possible Initial Submarine coord: " + (row+1) +"," + (col+1));
 		}
 		int[][] submarineCoordinates = new int [2][2];
 		int newRow = row;
@@ -239,7 +238,7 @@ public class DanielBattleCreate {
 	
 	public static void placeDestroyer(String[][] ships, int row, int col){
 		if(cheatMode == true){
-			System.out.println("Initial Destroyer coord: " + (row+1) +"," + (col+1));
+			System.out.println("Possible Initial Destroyer coord: " + (row+1) +"," + (col+1));
 		}
 		int[][] destroyerCoordinates = new int [1][2];
 		int newRow = row;
