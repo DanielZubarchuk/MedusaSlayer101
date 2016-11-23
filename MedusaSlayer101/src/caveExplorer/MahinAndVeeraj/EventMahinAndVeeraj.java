@@ -25,7 +25,7 @@ public class EventMahinAndVeeraj implements Playable{
 	static int[] counters = new int[8];
 	static String[][] display;
 	static Scanner input;
-	static boolean win;
+	public static boolean win;
 	static boolean cheat;
 
 	public static Scanner in = new Scanner(System.in);
@@ -115,6 +115,7 @@ public class EventMahinAndVeeraj implements Playable{
 		readSequence(SEQUENCE_4);
 		cheat = true;
 		readSequence(CHEAT);
+		caveExplorer.currentRoom = caveExplorer.caves[1][2];
 		caveExplorer.startExploring();
 	}
 	//

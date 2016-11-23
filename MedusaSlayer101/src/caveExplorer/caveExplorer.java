@@ -49,7 +49,9 @@ public class caveExplorer {
 
 	
 	public static void startExploring() {
-		readSequence(startText);
+		if(EventMahinAndVeeraj.win == false){
+			readSequence(startText);
+		}
 		while(true){
 				print(inventory.getDescription() + "\n");
 			if(InventoryNockles.hasHelmet && InventoryNockles.hasShield && InventoryNockles.hasSword){
