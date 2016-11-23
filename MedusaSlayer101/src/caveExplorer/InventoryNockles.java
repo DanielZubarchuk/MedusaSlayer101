@@ -10,9 +10,9 @@ public class InventoryNockles {
 	
 	public InventoryNockles() {
 		hasMap = false;
-//		hasHelmet = true;
-//		hasShield = true;
-//		hasSword = true;
+	//	hasHelmet = true;
+	//	hasShield = true;
+	//	hasSword = true;
 		updateMap();
 	}
 
@@ -69,10 +69,10 @@ public class InventoryNockles {
 			output += "You have the Helmet of Invisibility. "; 
 		}
 		if(hasShield){
-			output += "You have the shield.";
+			output += "You have the Polished Shield. ";
 		}
 		if(hasSword){
-			output += "You have the sword.";
+			output += "You have the sword, Harpe.";
 		}
 		return output;
 		
