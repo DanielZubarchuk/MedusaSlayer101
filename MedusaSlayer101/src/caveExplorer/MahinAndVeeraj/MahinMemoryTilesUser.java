@@ -101,7 +101,7 @@ public class MahinMemoryTilesUser {
 		return userInput;
 	}
 	
-	private static int enterValidRow(){//
+	private static int enterValidRow(){
 		boolean waitingForInput = true;
 		System.out.println("Pick a row.");
 		rowPick = ask();
