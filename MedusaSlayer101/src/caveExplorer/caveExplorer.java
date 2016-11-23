@@ -22,9 +22,9 @@ public class caveExplorer {
 			}
 		}
 	currentRoom = caves[1][2];
-	caves[3][2] = new EventRoom("Time to play Battleship!", new EventDanielAndJoyce()); 
+	caves[3][2] = new EventRoom("This is the Battleship Room!", new EventDanielAndJoyce()); 
 	caves[1][1] = new EventRoom("This is the Minesweeper Room.", new EventVictorAndGabriel());
-	caves[2][3] = new EventRoom("Get ready to test your memory!", new EventMahinAndVeeraj());
+	caves[2][3] = new EventRoom("This is the memory Room!", new EventMahinAndVeeraj());
 	caves[1][3] = new EventRoom("This is where you found the map.", new GameStartEvent());
 	caves[0][2] = new EventRoom("This is the final battle!", new MedusaBattle());
 	currentRoom.enter();
