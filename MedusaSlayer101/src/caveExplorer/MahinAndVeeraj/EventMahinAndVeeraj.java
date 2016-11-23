@@ -9,12 +9,13 @@ import caveExplorer.caveExplorer;
 
 public class EventMahinAndVeeraj implements Playable{
 
-	private static final String[] SEQUENCE_1 = {"Do you have a good memory?"};
-	private static final String[] SEQUENCE_2 = {"Either way, you're going to have to play this game to get past this room","You'll have to"
-			+ " beat Medusa's sidekick at this memory game!"};
+	private static final String[] SEQUENCE_1 = {"As you enter the room, the ceiling recedes and Medusa's sister appears.","<The shield that the gods spoke of is attached to the wall behind her. >","Her raspy voice reverberates through"
+			+ " your skull.","Do you have a good memory? "};
+	private static final String[] SEQUENCE_2 = {"You'll have to"
+			+ " beat Medusa's sister at this memory game!"};
 	private static final String[] SEQUENCE_3 = {"Are you ready?", "GO!"};
-	public static final String[] SEQUENCE_4 = {"You defeated Medusa's sidekick!",
-			"Here, take this shield and proceed with your journey!"};
+	public static final String[] SEQUENCE_4 = {"You defeated Medusa's sister!","She accepts her defeat begrudgingly.",
+			"You take the shield off the wall and proceed with your journey."};
 	public static final String[] CHEAT = {"You cheating cheater!", 
 			"The gods have learned that you have cheated your way to victory.", 
 			"You must now restart, but you will still have your shield and any other items you may have acquired."};
